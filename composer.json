@@ -26,6 +26,13 @@
             "MichelJonkman\\Director\\": "src"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MichelJonkman\\Director\\DirectorServiceProvider"
+            ]
+        }
+    },
     "scripts": {},
     "config": {
         "sort-packages": true,
