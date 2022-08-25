@@ -7,7 +7,6 @@
     @inertiaHead
 </head>
 <body>
-testasdfdsafdsa
 @inertia
 </body>
 </html>
