@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <script src="{{ Vite::asset('resources/js/app.ts', 'build/director') }}" type="module" defer></script>
+    @inertiaHead
+</head>
+<body>
+testasdfdsafdsa
+@inertia
+</body>
+</html>
