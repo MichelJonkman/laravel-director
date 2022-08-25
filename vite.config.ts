@@ -25,8 +25,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             laravel({
                 input: ['resources/js/app.ts'],
                 refresh: true,
-                publicDirectory: publicDirectory,
-                buildDirectory: 'build/director',
+                publicDirectory: publicDirectory
             }),
             ...extraPlugins
         ],

@@ -31,7 +31,7 @@ class DirectorServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->publishes([
-                __DIR__.'/../public' => public_path(),
+                __DIR__.'/../public' => public_path('/vendor/director'),
             ], 'laravel-assets');
         }
     }
