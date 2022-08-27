@@ -29,5 +29,9 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             }),
             ...extraPlugins
         ],
+        build: {
+            rollupOptions: {
+            }
+        }
     };
 });

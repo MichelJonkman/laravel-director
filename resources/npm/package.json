@@ -1,0 +1,10 @@
+{
+    "name": "@micheljonkman/laravel-director",
+    "version": "0.0.1",
+    "description": "Companion package for Laravel Director",
+    "author": "Michel Jonkman",
+    "license": "GNU GENERAL PUBLIC LICENSE",
+    "dependencies": {
+        "bootstrap": "^5.2.0"
+    }
+}
