@@ -1,4 +1,5 @@
 <template>
+    <!--<body data-test="{{ Vite::useHotFile(public_path('hot'))->asset('resources/js/Fieldtypes/Text.vue') }}">-->
     <dashboard>
         Peop
         <component v-if="comp" :is="comp"/>
