@@ -32,12 +32,13 @@ class PublicCommand extends Command
 
         if (count($publicVendorPaths) == 0) {
             $this->components->info('No publishable resources for Director.');
+
             return;
         }
 
         $this->components->info('Publishing public Director assets.');
 
-        if($this->files->exists(public_path('director'))) {
+        if ($this->files->exists(public_path('director'))) {
             $this->components->info('Deleting "director" folder in public.');
             $this->files->deleteDirectory(public_path('director'));
         }
@@ -53,9 +54,11 @@ class PublicCommand extends Command
     {
         if ($this->files->isFile($from)) {
             $this->publishFile($from, $to);
+
             return;
         } elseif ($this->files->isDirectory($from)) {
             $this->publishDirectory($from, $to);
+
             return;
         }
 
@@ -67,6 +70,7 @@ class PublicCommand extends Command
      *
      * @param  string  $from
      * @param  string  $to
+     *
      * @return void
      */
     protected function publishFile($from, $to)
@@ -113,11 +117,12 @@ class PublicCommand extends Command
      * Create the directory to house the published files if needed.
      *
      * @param  string  $directory
+     *
      * @return void
      */
     protected function createParentDirectory($directory)
     {
-        if (! $this->files->isDirectory($directory)) {
+        if (!$this->files->isDirectory($directory)) {
             $this->files->makeDirectory($directory, 0755, true);
         }
     }
@@ -128,6 +133,7 @@ class PublicCommand extends Command
      * @param  string  $from
      * @param  string  $to
      * @param  string  $type
+     *
      * @return void
      */
     protected function status($from, $to, $type)
