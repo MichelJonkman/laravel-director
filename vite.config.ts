@@ -23,6 +23,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         plugins: [
             vue(),
             laravel({
+                hotFile: publicDirectory + '/director.hot',
                 input: ['resources/js/app.ts'],
                 refresh: true,
                 publicDirectory: publicDirectory,
