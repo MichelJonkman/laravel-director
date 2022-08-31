@@ -6,7 +6,7 @@
     <script src="{{ Vite::asset('resources/js/app.ts', 'vendor/director/build') }}" type="module" defer></script>
     @inertiaHead
 </head>
-<body>
+<body data-test="{{ Vite::asset('resources/js/Fieldtypes/Text.vue') }}">
 @inertia
 </body>
 </html>
