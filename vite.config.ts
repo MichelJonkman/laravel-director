@@ -13,7 +13,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         extraPlugins.push(basicSsl());
     }
 
-    let publicDirectory = './public';
+    let publicDirectory = './';
 
     if(command === 'serve' && env.VITE_PROJECT_PUBLIC_DIRECTORY) {
         publicDirectory = env.VITE_PROJECT_PUBLIC_DIRECTORY;
@@ -27,7 +27,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 input: ['resources/js/app.ts'],
                 refresh: true,
                 publicDirectory: publicDirectory,
-                buildDirectory: 'vendor/director/build'
+                buildDirectory: 'build2'
             }),
             ...extraPlugins
         ],

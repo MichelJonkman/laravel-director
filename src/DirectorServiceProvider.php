@@ -2,19 +2,24 @@
 
 namespace MichelJonkman\Director;
 
+use MichelJonkman\Director\Console\PublicCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use JetBrains\PhpStorm\ArrayShape;
 use MichelJonkman\Director\Middleware\HandleInertiaRequests;
 
 class DirectorServiceProvider extends ServiceProvider
 {
+
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'director');
+
+        $this->app->scoped(Director::class, function ($app) {
+            return new Director();
+        });
     }
 
-    public function boot()
+    public function boot(Director $director)
     {
         Route::prefix(config('director.route_prefix'))
             ->name('director.')
@@ -33,6 +38,12 @@ class DirectorServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../public' => public_path(),
             ], 'laravel-assets');
+
+            $director->publicVendor(__DIR__ . '/../build', '');
+
+            $this->commands([
+                PublicCommand::class,
+            ]);
         }
     }
 }
