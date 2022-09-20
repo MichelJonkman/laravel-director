@@ -17,7 +17,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 #[AsCommand(name: 'director:public')]
 class PublicCommand extends Command
 {
-    protected $signature = 'director:public';
+    protected $signature = 'director:public {--copy : Use copies instead of symlink}';
 
     protected $description = 'Publish Director Vite packages to public';
 
@@ -26,30 +26,70 @@ class PublicCommand extends Command
         parent::__construct();
     }
 
+    /**
+     * @throws FilesystemException
+     */
     public function handle()
     {
-        $publicVendorPaths = $this->director->publicVendorPaths();
+        $publishPaths = $this->director->publicPublishPaths();
 
-        if (count($publicVendorPaths) == 0) {
+        if (count($publishPaths) == 0) {
             $this->components->info('No publishable resources for Director.');
 
             return;
         }
-
-        $this->components->info('Publishing public Director assets.');
 
         if ($this->files->exists(public_path('director'))) {
             $this->components->info('Deleting "director" folder in public.');
             $this->files->deleteDirectory(public_path('director'));
         }
 
-        foreach ($publicVendorPaths as $path => $identifier) {
-            $this->publishItem($path, public_path("director/$identifier"));
+        $this->files->makeDirectory(public_path('director'));
+
+        if ($this->option('copy')) {
+            $this->copyPublishes($publishPaths);
+        }
+        else {
+            $this->linkPublishes($publishPaths);
         }
 
         $this->newLine();
     }
 
+    /**
+     * Symlinks the published folders
+     *
+     * @param array $publishPaths
+     * @return void
+     */
+    protected function linkPublishes(array $publishPaths): void
+    {
+        $this->components->info('Linking public Director assets.');
+
+        foreach ($publishPaths as $path => $identifier) {
+            symlink(realpath($path), public_path("director/$identifier"));
+        }
+    }
+
+    /**
+     * Copies the published folders
+     *
+     * @param array $publishPaths
+     * @return void
+     * @throws FilesystemException
+     */
+    protected function copyPublishes(array $publishPaths): void
+    {
+        $this->components->info('Copying public Director assets.');
+
+        foreach ($publishPaths as $path => $identifier) {
+            $this->publishItem($path, public_path("director/$identifier"));
+        }
+    }
+
+    /**
+     * @throws FilesystemException
+     */
     protected function publishItem(string $from, string $to)
     {
         if ($this->files->isFile($from)) {
@@ -68,12 +108,12 @@ class PublicCommand extends Command
     /**
      * Publish the file to the given path.
      *
-     * @param  string  $from
-     * @param  string  $to
+     * @param string $from
+     * @param string $to
      *
      * @return void
      */
-    protected function publishFile($from, $to)
+    protected function publishFile(string $from, string $to): void
     {
         $this->createParentDirectory(dirname($to));
 
@@ -116,11 +156,11 @@ class PublicCommand extends Command
     /**
      * Create the directory to house the published files if needed.
      *
-     * @param  string  $directory
+     * @param string $directory
      *
      * @return void
      */
-    protected function createParentDirectory($directory)
+    protected function createParentDirectory(string $directory): void
     {
         if (!$this->files->isDirectory($directory)) {
             $this->files->makeDirectory($directory, 0755, true);
@@ -130,13 +170,13 @@ class PublicCommand extends Command
     /**
      * Write a status message to the console.
      *
-     * @param  string  $from
-     * @param  string  $to
-     * @param  string  $type
+     * @param string $from
+     * @param string $to
+     * @param string $type
      *
      * @return void
      */
-    protected function status($from, $to, $type)
+    protected function status(string $from, string $to, string $type): void
     {
         $from = str_replace(base_path().'/', '', realpath($from));
 

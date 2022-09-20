@@ -35,7 +35,7 @@ class DirectorServiceProvider extends ServiceProvider
                 __DIR__.'/../config/config.php' => config_path('director/config.php'),
             ], 'config');
 
-            $director->publicVendor(__DIR__ . '/../build/director', '');
+            $director->publicPublish(__DIR__ . '/../build/director/director', 'director');
 
             $this->commands([
                 PublicCommand::class,

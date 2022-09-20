@@ -1,6 +1,6 @@
 {
   "resources/js/app.ts": {
-    "file": "assets/app.32709bbe.js",
+    "file": "assets/app.fc118d5a.js",
     "src": "resources/js/app.ts",
     "isEntry": true,
     "dynamicImports": [
@@ -9,16 +9,16 @@
     ]
   },
   "resources/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample.65031126.js",
+    "file": "assets/FieldtypeExample.8825ff1d.js",
     "src": "resources/js/Pages/FieldtypeExample.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_Dashboard.a37329eb.js"
+      "_Dashboard.94bebdba.js"
     ]
   },
-  "_Dashboard.a37329eb.js": {
-    "file": "assets/Dashboard.a37329eb.js",
+  "_Dashboard.94bebdba.js": {
+    "file": "assets/Dashboard.94bebdba.js",
     "imports": [
       "resources/js/app.ts"
     ],
@@ -27,11 +27,11 @@
     ]
   },
   "resources/js/Pages/Index.vue": {
-    "file": "assets/Index.b221b7a7.js",
+    "file": "assets/Index.26cbea74.js",
     "src": "resources/js/Pages/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Dashboard.a37329eb.js",
+      "_Dashboard.94bebdba.js",
       "resources/js/app.ts"
     ]
   },

@@ -27,7 +27,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 input: ['resources/js/app.ts'],
                 refresh: true,
                 publicDirectory: publicDirectory,
-                buildDirectory: 'director'
+                buildDirectory: 'director/director'
             }),
             ...extraPlugins
         ],

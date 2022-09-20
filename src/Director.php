@@ -3,18 +3,29 @@
 namespace MichelJonkman\Director;
 
 
+use MichelJonkman\Director\Exceptions\PublishException;
+
 /**
  *
  */
 class Director
 {
-    protected array $publicVendor = [];
+    protected array $publicPublishes = [];
 
-    public function publicVendor(string $path, string $identifier) {
-        $this->publicVendor[$path] = $identifier;
+    /**
+     * @throws PublishException
+     */
+    public function publicPublish(string $path, string $identifier): void
+    {
+        if (strlen($identifier) === 0) {
+            throw new PublishException('Invalid identifier', PublishException::INVALID_IDENTIFIER_CODE);
+        }
+
+        $this->publicPublishes[$path] = $identifier;
     }
 
-    public function publicVendorPaths() {
-        return $this->publicVendor;
+    public function publicPublishPaths(): array
+    {
+        return $this->publicPublishes;
     }
 }

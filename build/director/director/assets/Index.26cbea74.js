@@ -1,0 +1,1 @@
+import{_ as e,D as s}from"./Dashboard.94bebdba.js";import{r as t,o as a,c as n,w as r,d as c}from"./app.fc118d5a.js";const _={components:{Dashboard:s}},p=c(" Peops ");function d(f,m,i,l,h,u){const o=t("Dashboard");return a(),n(o,null,{default:r(()=>[p]),_:1})}const $=e(_,[["render",d]]);export{$ as default};
