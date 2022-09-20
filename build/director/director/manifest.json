@@ -1,42 +1,14 @@
 {
   "resources/js/app.ts": {
-    "file": "assets/app.fc118d5a.js",
+    "file": "assets/app.7c3c19f8.js",
     "src": "resources/js/app.ts",
     "isEntry": true,
-    "dynamicImports": [
-      "resources/js/Pages/FieldtypeExample.vue",
-      "resources/js/Pages/Index.vue"
-    ]
-  },
-  "resources/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample.8825ff1d.js",
-    "src": "resources/js/Pages/FieldtypeExample.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.ts",
-      "_Dashboard.94bebdba.js"
-    ]
-  },
-  "_Dashboard.94bebdba.js": {
-    "file": "assets/Dashboard.94bebdba.js",
-    "imports": [
-      "resources/js/app.ts"
-    ],
     "css": [
-      "assets/Dashboard.59546c88.css"
+      "assets/app.59546c88.css"
     ]
   },
-  "resources/js/Pages/Index.vue": {
-    "file": "assets/Index.26cbea74.js",
-    "src": "resources/js/Pages/Index.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "_Dashboard.94bebdba.js",
-      "resources/js/app.ts"
-    ]
-  },
-  "Dashboard.css": {
-    "file": "assets/Dashboard.59546c88.css",
-    "src": "Dashboard.css"
+  "resources/js/app.css": {
+    "file": "assets/app.59546c88.css",
+    "src": "resources/js/app.css"
   }
 }

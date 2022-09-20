@@ -31,8 +31,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             }),
             ...extraPlugins
         ],
-        build: {
-            rollupOptions: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `@import "@micheljonkman/laravel-director/scss/variables.scss";`,
+                },
             }
         }
     };

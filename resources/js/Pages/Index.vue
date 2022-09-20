@@ -10,3 +10,11 @@ export default {
     components: {Dashboard},
 }
 </script>
+
+
+<style lang="scss">
+
+body {
+    background-color: $primary;
+}
+</style>
