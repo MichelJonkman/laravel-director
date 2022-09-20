@@ -48,8 +48,7 @@ class PublicCommand extends Command
 
         if ($this->option('copy')) {
             $this->copyPublishes($publishPaths);
-        }
-        else {
+        } else {
             $this->linkPublishes($publishPaths);
         }
 
@@ -66,9 +65,21 @@ class PublicCommand extends Command
     {
         $this->components->info('Linking public Director assets.');
 
+        $cwd = getcwd();
+
+        $publicPath = public_path("director");
+        chdir($publicPath);
+
         foreach ($publishPaths as $path => $identifier) {
-            symlink(realpath($path), public_path("director/$identifier"));
+            $sourcePath = absoluteToRelativePath($publicPath, realpath($path));
+            $targetPath = public_path("director/$identifier");
+
+            symlink($sourcePath, $targetPath);
         }
+
+        chdir($cwd);
+
+        $this->components->info('Linked all published Director assets.');
     }
 
     /**
