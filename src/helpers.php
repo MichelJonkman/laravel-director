@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Converts absolute path to a relative one
+ *
+ * @link https://stackoverflow.com/questions/2637945/getting-relative-path-from-absolute-path-in-php#answer-2638272
+ * @param string $from
+ * @param string $to
+ * @return string
+ */
 function absoluteToRelativePath(string $from, string $to): string
 {
     // some compatibility fixes for Windows paths
