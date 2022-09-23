@@ -4,8 +4,10 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "Dashboard"
-}
+<script lang="ts" setup>
+
 </script>
+
+<style lang="scss" scoped>
+
+</style>

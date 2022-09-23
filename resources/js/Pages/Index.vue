@@ -3,17 +3,13 @@
         Peops
     </Dashboard>
 </template>
-<script>
+
+<script lang="ts" setup async>
 import Dashboard from "../Layouts/Dashboard.vue";
 
-export default {
-    components: {Dashboard},
-}
 </script>
 
 
-<style lang="scss">
-body {
-    background-color: $primary;
-}
+<style lang="scss" scoped>
+
 </style>
