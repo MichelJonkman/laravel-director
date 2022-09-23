@@ -13,7 +13,6 @@ export default {
 
 
 <style lang="scss">
-
 body {
     background-color: $primary;
 }
