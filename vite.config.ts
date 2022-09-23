@@ -2,6 +2,8 @@ import { defineConfig, loadEnv } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import basicSsl from '@vitejs/plugin-basic-ssl';
+import svgLoader from 'vite-svg-loader';
+import path from "path";
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig(({ command, mode, ssrBuild }) => {
@@ -29,6 +31,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 publicDirectory: publicDirectory,
                 buildDirectory: 'director/director'
             }),
+            svgLoader(),
             ...extraPlugins
         ],
         css: {
@@ -37,6 +40,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                     additionalData: `@import "@micheljonkman/laravel-director/scss/variables.scss";`,
                 },
             }
-        }
+        },
+        resolve:{
+            alias:{
+                '~' : path.resolve(__dirname, './resources')
+            },
+        },
     };
 });

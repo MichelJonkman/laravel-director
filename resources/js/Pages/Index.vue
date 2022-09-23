@@ -6,7 +6,6 @@
 
 <script lang="ts" setup async>
 import Dashboard from "../Layouts/Dashboard.vue";
-
 </script>
 
 

@@ -1,1 +1,0 @@
-import{g as t,a as o,o as s,b as n,w as a,f as _}from"./app.3340e5af.js";const c=_(" Peops "),d=t({__name:"Index",setup(r){return(p,l)=>{const e=o("Test2");return s(),n(e,null,{default:a(()=>[c]),_:1})}}});export{d as default};
