@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import svgLoader from 'vite-svg-loader';
 import path from "path";
+import HttpsCerts from 'vite-plugin-https-certs'
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig(({ command, mode, ssrBuild }) => {
@@ -12,6 +13,10 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     const extraPlugins = [];
 
     if(env.VITE_HTTPS === 'true') {
+        extraPlugins.push(HttpsCerts());
+    }
+
+    if(env.VITE_HTTPS === 'fake') {
         extraPlugins.push(basicSsl());
     }
 
@@ -45,6 +50,9 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             alias:{
                 '~' : path.resolve(__dirname, './resources')
             },
+        },
+        server: {
+            host: env.VITE_HOST
         },
     };
 });

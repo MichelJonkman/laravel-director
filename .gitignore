@@ -18,3 +18,4 @@ vendor
 .php-cs-fixer.cache
 .env
 node_modules
+.certs
