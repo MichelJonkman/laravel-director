@@ -34,7 +34,10 @@
         "laravel": {
             "providers": [
                 "MichelJonkman\\Director\\DirectorServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Director": "MichelJonkman\\Director\\Facades\\Director"
+            }
         }
     },
     "config": {
