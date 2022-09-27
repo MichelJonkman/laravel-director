@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Facades;
+namespace MichelJonkman\Director\Base\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -11,6 +11,6 @@ class Director extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \MichelJonkman\Director\Director::class;
+        return \MichelJonkman\Director\Base\Director::class;
     }
 }

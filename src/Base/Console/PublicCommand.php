@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Console;
+namespace MichelJonkman\Director\Base\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -11,7 +11,7 @@ use League\Flysystem\Local\LocalFilesystemAdapter as LocalAdapter;
 use League\Flysystem\MountManager;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use League\Flysystem\Visibility;
-use MichelJonkman\Director\Director;
+use MichelJonkman\Director\Base\Director;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'director:public')]

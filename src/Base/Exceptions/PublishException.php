@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Exceptions;
+namespace MichelJonkman\Director\Base\Exceptions;
 
 use Exception;
 
