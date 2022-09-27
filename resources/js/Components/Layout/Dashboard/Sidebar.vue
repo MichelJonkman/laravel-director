@@ -5,9 +5,7 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <Suspense>
-                <NavItem/>
-            </Suspense>
+            <Nav :menu="menu"/>
         </ul>
         <hr>
         <div class="dropdown">
@@ -29,7 +27,12 @@
 </template>
 
 <script lang="ts" setup>
+import Nav from "./Sidebar/Nav/Nav.vue";
+import {usePage} from '@inertiajs/inertia-vue3';
+import {MenuInterface} from "~/js/Interfaces/MenuInterface.js";
 
+let pageProps = usePage().props.value;
+let menu: MenuInterface = pageProps.menu as MenuInterface;
 </script>
 
 <style lang="scss" scoped>

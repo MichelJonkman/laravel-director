@@ -1,5 +1,5 @@
 import {createApp, DefineComponent, h} from 'vue';
-import {createInertiaApp} from '@inertiajs/inertia-vue3';
+import {createInertiaApp, Link, Head} from '@inertiajs/inertia-vue3';
 import {InertiaProgress} from '@inertiajs/progress';
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import '@micheljonkman/laravel-director/scss/app.scss';
@@ -10,7 +10,9 @@ createInertiaApp({
     setup({el, app, props, plugin}) {
         createApp({render: () => h(app, props)})
             .use(plugin)
-            .mount(el)
+            .component('InertiaHead', Head)
+            .component('InertiaLink', Link)
+            ?.mount(el)
     },
 });
 

@@ -13,7 +13,10 @@
         "moduleResolution": "Node",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "noEmit": true
+        "noEmit": true,
+        "paths": {
+            "~/*": ["resources/*"]
+        }
     },
     "exclude": ["node_modules"]
 }

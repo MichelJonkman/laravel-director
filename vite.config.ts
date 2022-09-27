@@ -28,7 +28,9 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
 
     return {
         plugins: [
-            vue(),
+            vue({
+                reactivityTransform: true
+            }),
             laravel({
                 hotFile: publicDirectory + '/director.hot',
                 input: ['resources/js/app.ts', 'resources/js/Icons/init.ts'],

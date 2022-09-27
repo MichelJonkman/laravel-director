@@ -19,6 +19,14 @@ class MenuServiceProvider extends ServiceProvider
                 route('director.dashboard.index'),
                 0
             );
+
+            $builder->addLink(
+                'director.test1',
+                Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill2.svg', 'director/director'),
+                'Testing',
+                route('director.dashboard.index'),
+                0
+            );
         });
     }
 }
