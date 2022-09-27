@@ -1,9 +1,9 @@
 <?php
 
-namespace MichelJonkman\Director\Base;
+namespace MichelJonkman\Director;
 
 
-use MichelJonkman\Director\Base\Exceptions\PublishException;
+use MichelJonkman\Director\Exceptions\PublishException;
 
 /**
  *

@@ -1,20 +1,20 @@
 <?php
 
-namespace MichelJonkman\Director\Base;
+namespace MichelJonkman\Director;
 
-use MichelJonkman\Director\Base\Console\PublicCommand;
+use MichelJonkman\Director\Console\PublicCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use MichelJonkman\Director\Base\Middleware\HandleInertiaRequests;
+use MichelJonkman\Director\Middleware\HandleInertiaRequests;
 
 class DirectorServiceProvider extends ServiceProvider
 {
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'director');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'director');
 
-        $this->app->scoped(Director::class, function () {
+        $this->app->scoped(Director::class, function ($app) {
             return new Director();
         });
     }
@@ -25,17 +25,17 @@ class DirectorServiceProvider extends ServiceProvider
             ->name('director.')
             ->middleware([config('director.route_middleware'), HandleInertiaRequests::class])
             ->group(function () {
-                $this->loadRoutesFrom(__DIR__.'/../../routes/admin.php');
+                $this->loadRoutesFrom(__DIR__.'/../routes/admin.php');
             });
 
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'director');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'director');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../../config/config.php' => config_path('director/config.php'),
+                __DIR__.'/../config/config.php' => config_path('director/config.php'),
             ], 'config');
 
-            $director->publicPublish(__DIR__ . '/../../build/director/director', 'director');
+            $director->publicPublish(__DIR__ . '/../build/director/director', 'director');
 
             $this->commands([
                 PublicCommand::class,

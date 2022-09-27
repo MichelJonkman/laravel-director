@@ -27,16 +27,16 @@
             "MichelJonkman\\Director\\": "src"
         },
         "files": [
-            "src/Base/helpers.php"
+            "src/helpers.php"
         ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "MichelJonkman\\Director\\Base\\DirectorServiceProvider"
+                "MichelJonkman\\Director\\DirectorServiceProvider"
             ],
             "aliases": {
-                "Director": "MichelJonkman\\Director\\Base\\Facades\\Director"
+                "Director": "MichelJonkman\\Director\\Facades\\Director"
             }
         }
     },

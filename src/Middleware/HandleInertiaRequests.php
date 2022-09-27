@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Base\Middleware;
+namespace MichelJonkman\Director\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;

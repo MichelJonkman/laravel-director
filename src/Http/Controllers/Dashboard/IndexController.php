@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Base\Http\Controllers\Dashboard;
+namespace MichelJonkman\Director\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Inertia\Inertia;
