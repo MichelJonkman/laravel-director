@@ -1,1 +1,0 @@
-import{D as e}from"./Dashboard.03e1fdae.js";import{g as o,o as t,c as a,w as s,d as r}from"./app.ab1ae155.js";const n=r(" Peops "),f=o({__name:"Index",setup(c){return(_,p)=>(t(),a(e,null,{default:s(()=>[n]),_:1}))}});export{f as default};

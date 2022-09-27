@@ -1,0 +1,1 @@
+import{D as e}from"./Dashboard.f97706d2.js";import{d as a,aS as t,an as o,bh as s,au as r}from"./runtime-core.esm-bundler.3c4e4a0c.js";import"./preload-helper.f3170bb1.js";const n=r(" Peops "),u=a({__name:"Index",setup(_){return(c,p)=>(t(),o(e,null,{default:s(()=>[n]),_:1}))}});export{u as default};

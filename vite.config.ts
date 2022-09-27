@@ -31,7 +31,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             vue(),
             laravel({
                 hotFile: publicDirectory + '/director.hot',
-                input: ['resources/js/app.ts'],
+                input: ['resources/js/app.ts', 'resources/js/Icons/init.ts'],
                 refresh: true,
                 publicDirectory: publicDirectory,
                 buildDirectory: 'director/director'

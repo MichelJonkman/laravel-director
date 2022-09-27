@@ -1,8 +1,12 @@
 {
   "resources/js/app.ts": {
-    "file": "assets/app.ab1ae155.js",
+    "file": "assets/app.b797765d.js",
     "src": "resources/js/app.ts",
     "isEntry": true,
+    "imports": [
+      "_preload-helper.f3170bb1.js",
+      "_runtime-core.esm-bundler.3c4e4a0c.js"
+    ],
     "dynamicImports": [
       "resources/js/Pages/FieldtypeExample.vue",
       "resources/js/Pages/Index.vue"
@@ -11,35 +15,72 @@
       "assets/app.4bad4979.css"
     ]
   },
+  "resources/js/Icons/init.ts": {
+    "file": "assets/init.de6f011f.js",
+    "src": "resources/js/Icons/init.ts",
+    "isEntry": true,
+    "imports": [
+      "_preload-helper.f3170bb1.js"
+    ],
+    "dynamicImports": [
+      "resources/js/Icons/house-fill.svg",
+      "resources/js/Icons/house-fill2.svg"
+    ]
+  },
+  "_preload-helper.f3170bb1.js": {
+    "file": "assets/preload-helper.f3170bb1.js"
+  },
+  "_runtime-core.esm-bundler.3c4e4a0c.js": {
+    "file": "assets/runtime-core.esm-bundler.3c4e4a0c.js"
+  },
   "resources/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample.e5e4305d.js",
+    "file": "assets/FieldtypeExample.eb4d9de5.js",
     "src": "resources/js/Pages/FieldtypeExample.vue",
     "isDynamicEntry": true,
     "imports": [
-      "resources/js/app.ts",
-      "_Dashboard.03e1fdae.js"
+      "_preload-helper.f3170bb1.js",
+      "_Dashboard.f97706d2.js",
+      "_runtime-core.esm-bundler.3c4e4a0c.js"
     ]
   },
-  "_Dashboard.03e1fdae.js": {
-    "file": "assets/Dashboard.03e1fdae.js",
+  "_Dashboard.f97706d2.js": {
+    "file": "assets/Dashboard.f97706d2.js",
     "imports": [
-      "resources/js/app.ts"
+      "_preload-helper.f3170bb1.js",
+      "_runtime-core.esm-bundler.3c4e4a0c.js"
     ],
     "css": [
-      "assets/Dashboard.23882600.css"
+      "assets/Dashboard.2efe2850.css"
     ]
   },
   "resources/js/Pages/Index.vue": {
-    "file": "assets/Index.3c8cfef7.js",
+    "file": "assets/Index.6d956dce.js",
     "src": "resources/js/Pages/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Dashboard.03e1fdae.js",
-      "resources/js/app.ts"
+      "_Dashboard.f97706d2.js",
+      "_runtime-core.esm-bundler.3c4e4a0c.js",
+      "_preload-helper.f3170bb1.js"
+    ]
+  },
+  "resources/js/Icons/house-fill.svg": {
+    "file": "assets/house-fill.314e337a.js",
+    "src": "resources/js/Icons/house-fill.svg",
+    "isDynamicEntry": true,
+    "imports": [
+      "_runtime-core.esm-bundler.3c4e4a0c.js"
+    ]
+  },
+  "resources/js/Icons/house-fill2.svg": {
+    "file": "assets/house-fill2.c1aa9e7c.js",
+    "src": "resources/js/Icons/house-fill2.svg",
+    "isDynamicEntry": true,
+    "imports": [
+      "_runtime-core.esm-bundler.3c4e4a0c.js"
     ]
   },
   "Dashboard.css": {
-    "file": "assets/Dashboard.23882600.css",
+    "file": "assets/Dashboard.2efe2850.css",
     "src": "Dashboard.css"
   },
   "resources/js/app.css": {
