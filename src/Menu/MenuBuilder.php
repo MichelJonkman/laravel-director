@@ -3,19 +3,15 @@
 namespace MichelJonkman\Director\Menu;
 
 use JsonSerializable;
+use MichelJonkman\Director\Menu\Buttons\Button;
 
 class MenuBuilder implements JsonSerializable
 {
     protected array $elements = [];
 
-    public function addLink(string $name, string $iconLink, string $content, string $url, int $position): void
+    public function addButton(Button $button): void
     {
-        $this->elements[$name] = [
-            'iconLink' => $iconLink,
-            'content' => $content,
-            'url' => $url,
-            'position' => $position,
-        ];
+        $this->elements[$button->getName()] = $button;
     }
 
     public function getMenu(): array
@@ -23,8 +19,7 @@ class MenuBuilder implements JsonSerializable
         return $this->elements;
     }
 
-
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->getMenu();
     }

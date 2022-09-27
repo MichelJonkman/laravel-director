@@ -1,6 +1,6 @@
 <template>
     <ul class="nav nav-pills flex-column mb-auto">
-        <NavItem v-for="(button, name) in menu" :button="button" :name="name" :key="name"/>
+        <NavItem v-for="(button, name) in menu" :button="button" :key="name"/>
     </ul>
 </template>
 
