@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MichelJonkman\\Director\\DirectorServiceProvider"
+                "MichelJonkman\\Director\\Providers\\DirectorServiceProvider"
             ],
             "aliases": {
                 "Director": "MichelJonkman\\Director\\Facades\\Director"
