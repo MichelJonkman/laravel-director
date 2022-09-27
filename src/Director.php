@@ -4,6 +4,8 @@ namespace MichelJonkman\Director;
 
 
 use MichelJonkman\Director\Exceptions\PublishException;
+use MichelJonkman\Director\Menu\MenuBuilder;
+use MichelJonkman\Director\Menu\MenuManager;
 
 /**
  *
@@ -27,5 +29,12 @@ class Director
     public function publicPublishPaths(): array
     {
         return $this->publicPublishes;
+    }
+
+    /**
+     * Returns a MenuManager instance for easy access
+     */
+    public function menu(): MenuManager {
+        return app(MenuManager::class);
     }
 }
