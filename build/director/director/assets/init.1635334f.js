@@ -1,0 +1,1 @@
+import{_ as o}from"./preload-helper.f3170bb1.js";class t{static init(i){console.log(i)}}t.init(Object.assign({"./house-fill.svg":()=>o(()=>import("./house-fill.314e337a.js"),["assets/house-fill.314e337a.js","assets/runtime-core.esm-bundler.3c4e4a0c.js"])}));

@@ -17,7 +17,6 @@ const {button} = defineProps<{
 }>();
 </script>
 
-
 <style lang="scss" scoped>
 
 </style>

@@ -1,0 +1,1 @@
+import{_ as a}from"./preload-helper.f3170bb1.js";import{d as r,bg as s,aS as _,an as c,b0 as m,a8 as p}from"./runtime-core.esm-bundler.3c4e4a0c.js";const d=r({__name:"IconUrl",props:{url:null},async setup(n){let e,o;const t=([e,o]=s(()=>a(()=>import(n.url),[])),e=await e,o(),e);return(i,l)=>(_(),c(m(p(t)),{class:"icon"}))}});export{d as _};
