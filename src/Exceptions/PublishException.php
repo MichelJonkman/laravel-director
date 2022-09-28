@@ -7,7 +7,7 @@ use Exception;
 /**
  * Gets thrown on publish related errors
  */
-class PublishException extends Exception
+class PublishException extends DirectorException
 {
     const INVALID_IDENTIFIER_CODE = 100;
 

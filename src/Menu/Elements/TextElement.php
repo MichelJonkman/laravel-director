@@ -7,14 +7,7 @@ class TextElement extends Element
 {
     protected string $typeName = 'TextElement';
 
-    protected string $text;
-
-    public function __construct(string $name, int $position, string $text)
-    {
-        parent::__construct($name, $position);
-
-        $this->setText($text);
-    }
+    protected ?string $text = null;
 
     public function getText(): string
     {

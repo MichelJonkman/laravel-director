@@ -6,14 +6,7 @@ namespace MichelJonkman\Director\Menu\Elements;
 class IconTextElement extends TextElement
 {
     protected string $typeName = 'IconTextElement';
-    protected string $iconUrl;
-
-    public function __construct(string $name, int $position, string $text, string $iconUrl)
-    {
-        parent::__construct($name, $position, $text);
-
-        $this->setIconUrl($iconUrl);
-    }
+    protected ?string $iconUrl = null;
 
     public function getIconUrl(): string
     {

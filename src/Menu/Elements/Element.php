@@ -3,22 +3,18 @@
 namespace MichelJonkman\Director\Menu\Elements;
 
 
+use Illuminate\Support\Facades\Validator;
 use JsonSerializable;
+use MichelJonkman\Director\Exceptions\Menu\ElementValidationException;
 
 class Element implements JsonSerializable
 {
     protected string $typeName = 'Element';
 
-    protected string $name;
-    protected int    $position;
+    protected ?string $name     = null;
+    protected ?int    $position = null;
 
-    public function __construct(string $name, int $position)
-    {
-        $this->setName($name);
-        $this->setPosition($position);
-    }
-
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -30,7 +26,7 @@ class Element implements JsonSerializable
         return $this;
     }
 
-    public function getPosition(): int
+    public function getPosition(): ?int
     {
         return $this->position;
     }
@@ -47,7 +43,7 @@ class Element implements JsonSerializable
         return $this->typeName;
     }
 
-    public function toArray(): array
+    public function getData(): array
     {
         return [
             'typeName' => $this->getTypeName(),
@@ -56,6 +52,40 @@ class Element implements JsonSerializable
         ];
     }
 
+    /**
+     * @throws ElementValidationException
+     */
+    public function validateData(array $data): array
+    {
+        $validator = Validator::make($data, $this->getValidationRules());
+
+        if ($validator->fails()) {
+            throw new ElementValidationException($validator->messages()->toJson());
+        }
+
+        return $validator->validated();
+    }
+
+    public function getValidationRules(): array
+    {
+        return [
+            'typeName' => 'required',
+            'name' => 'required',
+            'position' => 'required'
+        ];
+    }
+
+    /**
+     * @throws ElementValidationException
+     */
+    public function toArray(): array
+    {
+        return $this->validateData($this->getData());
+    }
+
+    /**
+     * @throws ElementValidationException
+     */
     public function jsonSerialize(): array
     {
         return $this->toArray();

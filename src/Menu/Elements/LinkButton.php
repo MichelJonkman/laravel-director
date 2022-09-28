@@ -9,14 +9,7 @@ class LinkButton extends IconTextElement
 {
     protected string $typeName = 'LinkButton';
 
-    protected string $url;
-
-    public function __construct(string $name, int $position, string $text, string $iconUrl, string $url)
-    {
-        parent::__construct($name, $position, $text, $iconUrl);
-
-        $this->setUrl($url);
-    }
+    protected ?string $url = null;
 
     public function getUrl(): string
     {
