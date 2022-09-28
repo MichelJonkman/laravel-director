@@ -1,6 +1,5 @@
-export interface ButtonInterface {
+export interface ElementInterface {
     typeName: string;
     name: string;
-    title: string;
     position: number;
 }

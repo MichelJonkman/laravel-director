@@ -1,12 +1,12 @@
 <template>
     <ul class="nav nav-pills flex-column mb-auto">
-        <NavItem v-for="(button, name) in menu" :button="button" :key="name"/>
+        <NavItem v-for="(element, name) in menu" :element="element" :key="name"/>
     </ul>
 </template>
 
 <script lang="ts" setup>
 import NavItem from "./NavItem.vue";
-import {MenuInterface} from "~/js/Interfaces/MenuInterface.js";
+import {MenuInterface} from "~/js/Interfaces/Menu/MenuInterface";
 
 defineProps<{
     menu: MenuInterface

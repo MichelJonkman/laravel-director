@@ -9,7 +9,7 @@ class TextElement extends Element
 
     protected ?string $text = null;
 
-    public function getText(): string
+    public function getText(): ?string
     {
         return $this->text;
     }
@@ -21,10 +21,17 @@ class TextElement extends Element
         return $this;
     }
 
-    public function toArray(): array
+    public function getData(): array
     {
-        return array_merge(parent::toArray(), [
+        return array_merge(parent::getData(), [
             'text' => $this->getText()
+        ]);
+    }
+
+    public function getValidationRules(): array
+    {
+        return array_merge(parent::getValidationRules(), [
+            'text' => 'required'
         ]);
     }
 }

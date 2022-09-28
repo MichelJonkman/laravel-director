@@ -11,19 +11,16 @@ class Element implements JsonSerializable
 {
     protected string $typeName = 'Element';
 
-    protected ?string $name     = null;
+    protected string $name;
     protected ?int    $position = null;
+
+    public function __construct(string $name) {
+        $this->name = $name;
+    }
 
     public function getName(): ?string
     {
         return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getPosition(): ?int

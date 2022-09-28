@@ -4,9 +4,7 @@
             <span class="fs-4">Director</span>
         </a>
         <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-            <Nav :menu="menu"/>
-        </ul>
+        <Nav :menu="menu"/>
         <hr>
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

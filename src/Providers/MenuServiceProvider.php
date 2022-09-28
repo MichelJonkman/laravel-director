@@ -16,35 +16,20 @@ class MenuServiceProvider extends ServiceProvider
     public function boot(Director $director)
     {
         $director->menu()->modify(function (MenuBuilder $builder) {
-            $builder->addElement('director.linkButton', Element::class)->setPosition(0);
+            $builder->addElement('director.element', Element::class)->setPosition(20);
 
+            $builder->addElement('director.textElement', TextElement::class)->setText('Text Element')->setPosition(30);
 
-/*            $builder->addButton(
-                new LinkButton(
-                    'director.linkbutton',
-                    'LinkButton',
-                    0,
-                    Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill.svg', 'director/director'),
-                    route('director.dashboard.index')
-                )
-            );
+            $builder->addElement('director.iconTextElement', IconTextElement::class)
+                ->setText('Icon Text Element')
+                ->setIconUrl(Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill.svg', 'director/director'))
+                ->setPosition(10);
 
-            $builder->addButton(
-                new TextElement(
-                    'director.button',
-                    'Button',
-                    20
-                )
-            );
-
-            $builder->addButton(
-                new IconTextElement(
-                    'director.iconbutton',
-                    'IconButton',
-                    10,
-                    Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill.svg', 'director/director')
-                )
-            );*/
+            $builder->addElement('director.linkButton', LinkButton::class)
+                ->setText('Link Button')
+                ->setUrl(route('director.dashboard.index'))
+                ->setIconUrl(Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill.svg', 'director/director'))
+                ->setPosition(0);
         });
     }
 }

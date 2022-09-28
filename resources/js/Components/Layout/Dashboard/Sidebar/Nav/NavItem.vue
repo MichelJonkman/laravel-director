@@ -1,15 +1,22 @@
 <template>
-    <Component :is="component.default" :button="button"/>
+    <li class="nav-item" :id="'nav-' + element.name.replace('.', '-')" :data-name="element.name">
+        <Component v-if="component" :is="component.default" :element="element"/>
+    </li>
 </template>
 
 <script lang="ts" setup async>
-import {ButtonInterface} from "~/js/Interfaces/Buttons/ButtonInterface.js";
+import {ElementInterface} from "~/js/Interfaces/Menu/Elements/ElementInterface";
 
-const {button} = defineProps<{
-    button: ButtonInterface;
+const {element} = defineProps<{
+    element: ElementInterface;
 }>();
 
-const component = await import(`./Buttons/${button.typeName}.vue`);
+let component = null;
+
+if (element.typeName !== 'Element') {
+    component = await import(/* @vite-ignore */`./Buttons/${element.typeName}.vue`);
+}
+
 </script>
 
 

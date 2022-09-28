@@ -1,6 +1,6 @@
 {
   "resources/js/app.ts": {
-    "file": "assets/app.3650c92f.js",
+    "file": "assets/app.fed56054.js",
     "src": "resources/js/app.ts",
     "isEntry": true,
     "imports": [
@@ -33,18 +33,18 @@
     "file": "assets/runtime-core.esm-bundler.3c4e4a0c.js"
   },
   "resources/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample.051ff5dd.js",
+    "file": "assets/FieldtypeExample.8c78fd05.js",
     "src": "resources/js/Pages/FieldtypeExample.vue",
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper.f3170bb1.js",
-      "_Dashboard.41421c30.js",
+      "_Dashboard.e68462e1.js",
       "_runtime-core.esm-bundler.3c4e4a0c.js",
       "resources/js/app.ts"
     ]
   },
-  "_Dashboard.41421c30.js": {
-    "file": "assets/Dashboard.41421c30.js",
+  "_Dashboard.e68462e1.js": {
+    "file": "assets/Dashboard.e68462e1.js",
     "imports": [
       "_preload-helper.f3170bb1.js",
       "_runtime-core.esm-bundler.3c4e4a0c.js",
@@ -52,6 +52,7 @@
     ],
     "dynamicImports": [
       "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Button.vue",
+      "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Element.vue",
       "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconButton.vue",
       "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue"
     ],
@@ -60,11 +61,11 @@
     ]
   },
   "resources/js/Pages/Index.vue": {
-    "file": "assets/Index.249b0ca6.js",
+    "file": "assets/Index.036f192e.js",
     "src": "resources/js/Pages/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Dashboard.41421c30.js",
+      "_Dashboard.e68462e1.js",
       "_runtime-core.esm-bundler.3c4e4a0c.js",
       "_preload-helper.f3170bb1.js",
       "resources/js/app.ts"
@@ -81,6 +82,14 @@
   "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Button.vue": {
     "file": "assets/Button.23ea6684.js",
     "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Button.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_runtime-core.esm-bundler.3c4e4a0c.js"
+    ]
+  },
+  "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Element.vue": {
+    "file": "assets/Element.4d524eaf.js",
+    "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Element.vue",
     "isDynamicEntry": true,
     "imports": [
       "_runtime-core.esm-bundler.3c4e4a0c.js"

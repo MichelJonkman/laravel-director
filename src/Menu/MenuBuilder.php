@@ -21,17 +21,22 @@ class MenuBuilder implements JsonSerializable
     }
 
     /**
+     * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
+     * @param T $elementClass
+     *
+     * @return T
      * @throws InvalidElementException
      */
-    public function addElement(string $name, string $elementClass): Element
+    public function addElement(string $name, mixed $elementClass): Element
     {
-        $element = app($elementClass);
+        $element = app($elementClass, [
+            'name' => $name
+        ]);
 
         if (!($element instanceof Element)) {
             throw new InvalidElementException("Element of class \"$elementClass\" is not a valid menu element.");
         }
 
-        $element->setName($name);
         $this->elements[$name] = $element;
 
         return $element;

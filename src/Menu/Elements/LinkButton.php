@@ -11,7 +11,7 @@ class LinkButton extends IconTextElement
 
     protected ?string $url = null;
 
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->url;
     }
@@ -23,10 +23,17 @@ class LinkButton extends IconTextElement
         return $this;
     }
 
-    public function toArray(): array
+    public function getData(): array
     {
-        return array_merge(parent::toArray(), [
+        return array_merge(parent::getData(), [
             'url' => $this->getUrl()
+        ]);
+    }
+
+    public function getValidationRules(): array
+    {
+        return array_merge(parent::getValidationRules(), [
+            'url' => 'required'
         ]);
     }
 }

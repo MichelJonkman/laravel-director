@@ -8,7 +8,7 @@ class IconTextElement extends TextElement
     protected string $typeName = 'IconTextElement';
     protected ?string $iconUrl = null;
 
-    public function getIconUrl(): string
+    public function getIconUrl(): ?string
     {
         return $this->iconUrl;
     }
@@ -20,10 +20,17 @@ class IconTextElement extends TextElement
         return $this;
     }
 
-    public function toArray(): array
+    public function getData(): array
     {
-        return array_merge(parent::toArray(), [
+        return array_merge(parent::getData(), [
             'iconUrl' => $this->getIconUrl()
+        ]);
+    }
+
+    public function getValidationRules(): array
+    {
+        return array_merge(parent::getValidationRules(), [
+            'iconUrl' => 'required'
         ]);
     }
 }
