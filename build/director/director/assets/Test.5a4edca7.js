@@ -1,0 +1,1 @@
+import{D as t}from"./Dashboard.201442ef.js";import{d as e,aS as a,an as o,bh as s,au as r}from"./runtime-core.esm-bundler.3c4e4a0c.js";import"./preload-helper.f3170bb1.js";import"./app.c90f1ae6.js";const n=r(" Test "),f=e({__name:"Test",setup(_){return(c,p)=>(a(),o(t,null,{default:s(()=>[n]),_:1}))}});export{f as default};
