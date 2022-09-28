@@ -22,13 +22,13 @@ class MenuServiceProvider extends ServiceProvider
 
             $builder->addElement('director.iconTextElement', IconTextElement::class)
                 ->setText('Icon Text Element')
-                ->setIconUrl(Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill.svg', 'director/director'))
+                ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(10);
 
             $builder->addElement('director.linkButton', LinkButton::class)
                 ->setText('Link Button')
                 ->setUrl(route('director.dashboard.index'))
-                ->setIconUrl(Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill.svg', 'director/director'))
+                ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(0);
         });
     }

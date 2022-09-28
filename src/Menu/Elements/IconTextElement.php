@@ -3,6 +3,8 @@
 namespace MichelJonkman\Director\Menu\Elements;
 
 
+use Vite;
+
 class IconTextElement extends TextElement
 {
     protected string $typeName = 'IconTextElement';
@@ -16,6 +18,17 @@ class IconTextElement extends TextElement
     public function setIconUrl(string $iconUrl): static
     {
         $this->iconUrl = $iconUrl;
+
+        return $this;
+    }
+
+    /**
+     * Sets the icon using the Vite::asset() method, uses hot file 'dummy' as the dev server doesn't compile icons correctly
+     */
+    public function setIconAsset(string $iconPath, string $buildDirectory): static
+    {
+        $this->setIconUrl(Vite::useHotFile('dummy')->asset($iconPath, $buildDirectory));
+        Vite::useHotFile(null);
 
         return $this;
     }
