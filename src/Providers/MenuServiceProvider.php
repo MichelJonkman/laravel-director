@@ -4,9 +4,9 @@ namespace MichelJonkman\Director\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use MichelJonkman\Director\Director;
-use MichelJonkman\Director\Menu\Buttons\Button;
-use MichelJonkman\Director\Menu\Buttons\IconButton;
-use MichelJonkman\Director\Menu\Buttons\LinkButton;
+use MichelJonkman\Director\Menu\Elements\TextElement;
+use MichelJonkman\Director\Menu\Elements\IconTextElement;
+use MichelJonkman\Director\Menu\Elements\LinkButton;
 use MichelJonkman\Director\Menu\MenuBuilder;
 use Vite;
 
@@ -26,7 +26,7 @@ class MenuServiceProvider extends ServiceProvider
             );
 
             $builder->addButton(
-                new Button(
+                new TextElement(
                     'director.button',
                     'Button',
                     20
@@ -34,7 +34,7 @@ class MenuServiceProvider extends ServiceProvider
             );
 
             $builder->addButton(
-                new IconButton(
+                new IconTextElement(
                     'director.iconbutton',
                     'IconButton',
                     10,

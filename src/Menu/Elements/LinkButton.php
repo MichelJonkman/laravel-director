@@ -1,35 +1,28 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Buttons;
+namespace MichelJonkman\Director\Menu\Elements;
 
 /**
  * A simple button with a link
  */
-class LinkButton extends IconButton
+class LinkButton extends IconTextElement
 {
     protected string $typeName = 'LinkButton';
 
     protected string $url;
 
-    public function __construct(string $name, string $title, int $position, string $iconUrl, string $url)
+    public function __construct(string $name, int $position, string $text, string $iconUrl, string $url)
     {
-        parent::__construct($name, $title, $position, $iconUrl);
+        parent::__construct($name, $position, $text, $iconUrl);
 
         $this->setUrl($url);
     }
 
-    /**
-     * @return string
-     */
     public function getUrl(): string
     {
         return $this->url;
     }
 
-    /**
-     * @param string $url
-     * @return LinkButton
-     */
     public function setUrl(string $url): static
     {
         $this->url = $url;
@@ -40,7 +33,7 @@ class LinkButton extends IconButton
     public function toArray(): array
     {
         return array_merge(parent::toArray(), [
-            'url' => $this->url
+            'url' => $this->getUrl()
         ]);
     }
 }

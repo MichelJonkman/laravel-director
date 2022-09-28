@@ -1,18 +1,16 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Buttons;
+namespace MichelJonkman\Director\Menu\Elements;
 
 
-use JsonSerializable;
-
-class IconButton extends Button
+class IconTextElement extends TextElement
 {
-    protected string $typeName = 'IconButton';
+    protected string $typeName = 'IconTextElement';
     protected string $iconUrl;
 
-    public function __construct(string $name, string $title, int $position, string $iconUrl)
+    public function __construct(string $name, int $position, string $text, string $iconUrl)
     {
-        parent::__construct($name, $title, $position);
+        parent::__construct($name, $position, $text);
 
         $this->setIconUrl($iconUrl);
     }
@@ -32,7 +30,7 @@ class IconButton extends Button
     public function toArray(): array
     {
         return array_merge(parent::toArray(), [
-            'iconUrl' => $this->iconUrl
+            'iconUrl' => $this->getIconUrl()
         ]);
     }
 }

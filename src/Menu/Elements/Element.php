@@ -1,22 +1,20 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Buttons;
+namespace MichelJonkman\Director\Menu\Elements;
 
 
 use JsonSerializable;
 
-class Button implements JsonSerializable
+class Element implements JsonSerializable
 {
-    protected string $typeName = 'Button';
+    protected string $typeName = 'Element';
 
     protected string $name;
-    protected string $title;
     protected int    $position;
 
-    public function __construct(string $name, string $title, int $position)
+    public function __construct(string $name, int $position)
     {
         $this->setName($name);
-        $this->setTitle($title);
         $this->setPosition($position);
     }
 
@@ -28,18 +26,6 @@ class Button implements JsonSerializable
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): static
-    {
-        $this->title = $title;
 
         return $this;
     }
@@ -66,7 +52,6 @@ class Button implements JsonSerializable
         return [
             'typeName' => $this->getTypeName(),
             'name' => $this->getName(),
-            'title' => $this->getTitle(),
             'position' => $this->getPosition(),
         ];
     }

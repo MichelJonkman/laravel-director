@@ -3,13 +3,13 @@
 namespace MichelJonkman\Director\Menu;
 
 use JsonSerializable;
-use MichelJonkman\Director\Menu\Buttons\Button;
+use MichelJonkman\Director\Menu\Elements\TextElement;
 
 class MenuBuilder implements JsonSerializable
 {
     protected array $elements = [];
 
-    public function addButton(Button $button): void
+    public function addButton(TextElement $button): void
     {
         $this->elements[$button->getName()] = $button;
     }
