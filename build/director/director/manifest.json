@@ -1,6 +1,6 @@
 {
   "resources/js/app.ts": {
-    "file": "assets/app.69c2d4e3.js",
+    "file": "assets/app.0108679f.js",
     "src": "resources/js/app.ts",
     "isEntry": true,
     "imports": [
@@ -33,39 +33,38 @@
     "file": "assets/runtime-core.esm-bundler.3c4e4a0c.js"
   },
   "resources/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample.1e1a00fb.js",
+    "file": "assets/FieldtypeExample.665174f4.js",
     "src": "resources/js/Pages/FieldtypeExample.vue",
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper.f3170bb1.js",
-      "_Dashboard.571617d7.js",
+      "_Dashboard.27ded4f1.js",
       "_runtime-core.esm-bundler.3c4e4a0c.js",
       "resources/js/app.ts"
     ]
   },
-  "_Dashboard.571617d7.js": {
-    "file": "assets/Dashboard.571617d7.js",
+  "_Dashboard.27ded4f1.js": {
+    "file": "assets/Dashboard.27ded4f1.js",
     "imports": [
       "_preload-helper.f3170bb1.js",
       "_runtime-core.esm-bundler.3c4e4a0c.js",
       "resources/js/app.ts"
     ],
     "dynamicImports": [
-      "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Element.vue",
       "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue",
       "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue",
       "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue"
     ],
     "css": [
-      "assets/Dashboard.c1c2b53a.css"
+      "assets/Dashboard.ba954e76.css"
     ]
   },
   "resources/js/Pages/Index.vue": {
-    "file": "assets/Index.ce93aa10.js",
+    "file": "assets/Index.2ee4b29c.js",
     "src": "resources/js/Pages/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Dashboard.571617d7.js",
+      "_Dashboard.27ded4f1.js",
       "_runtime-core.esm-bundler.3c4e4a0c.js",
       "_preload-helper.f3170bb1.js",
       "resources/js/app.ts"
@@ -79,16 +78,8 @@
       "_runtime-core.esm-bundler.3c4e4a0c.js"
     ]
   },
-  "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Element.vue": {
-    "file": "assets/Element.4d524eaf.js",
-    "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/Element.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "_runtime-core.esm-bundler.3c4e4a0c.js"
-    ]
-  },
   "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue": {
-    "file": "assets/IconTextElement.71cb16cb.js",
+    "file": "assets/IconTextElement.b86d2f65.js",
     "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -105,7 +96,7 @@
     ]
   },
   "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue": {
-    "file": "assets/LinkButton.0016ed5b.js",
+    "file": "assets/LinkButton.0e684454.js",
     "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -115,7 +106,7 @@
     ]
   },
   "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue": {
-    "file": "assets/TextElement.dd11c541.js",
+    "file": "assets/TextElement.c4f05ec3.js",
     "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -123,7 +114,7 @@
     ]
   },
   "Dashboard.css": {
-    "file": "assets/Dashboard.c1c2b53a.css",
+    "file": "assets/Dashboard.ba954e76.css",
     "src": "Dashboard.css"
   },
   "resources/js/app.css": {

@@ -14,6 +14,9 @@ class Element implements JsonSerializable
     protected string $name;
     protected ?int    $position = null;
 
+    /** @var string[]|null */
+    protected ?array $classes = [];
+
     public function __construct(string $name) {
         $this->name = $name;
     }
@@ -40,13 +43,44 @@ class Element implements JsonSerializable
         return $this->typeName;
     }
 
-    public function getData(): array
+    /**
+     * @return string[]|null
+     */
+    public function getClasses(): ?array
     {
-        return [
-            'typeName' => $this->getTypeName(),
-            'name' => $this->getName(),
-            'position' => $this->getPosition(),
-        ];
+        return array_unique($this->classes);
+    }
+
+    /**
+     * Set extra CSS classes
+     *
+     * @param  string[]|null  $classes
+     */
+    public function setClasses(?array $classes): static
+    {
+        $this->classes = $classes;
+
+        return $this;
+    }
+
+    /**
+     * Add extra CSS class
+     */
+    public function addClass(string $class): static {
+        $this->classes[] = $class;
+
+        return $this;
+    }
+
+    /**
+     * Add extra CSS classes
+     *
+     * @param string[] $classes
+     */
+    public function addClasses(array $classes): static {
+        $this->classes = array_merge($this->classes, $classes);
+
+        return $this;
     }
 
     /**
@@ -68,7 +102,18 @@ class Element implements JsonSerializable
         return [
             'typeName' => 'required',
             'name' => 'required',
-            'position' => 'required'
+            'position' => 'required',
+            'classes' => 'nullable',
+        ];
+    }
+
+    public function getData(): array
+    {
+        return [
+            'typeName' => $this->getTypeName(),
+            'name' => $this->getName(),
+            'position' => $this->getPosition(),
+            'classes' => $this->getClasses()
         ];
     }
 

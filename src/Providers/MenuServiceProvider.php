@@ -18,7 +18,10 @@ class MenuServiceProvider extends ServiceProvider
         $director->menu()->modify(function (MenuBuilder $builder) {
             $builder->addElement('director.element', Element::class)->setPosition(20);
 
-            $builder->addElement('director.textElement', TextElement::class)->setText('Text Element')->setPosition(30);
+            $builder->addElement('director.textElement', TextElement::class)
+                ->setText('Text Element')
+                ->addClass('bg-danger')
+                ->setPosition(30);
 
             $builder->addElement('director.iconTextElement', IconTextElement::class)
                 ->setText('Icon Text Element')

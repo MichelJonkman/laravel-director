@@ -1,1 +1,0 @@
-import{d as a,aS as n,ap as t}from"./runtime-core.esm-bundler.3c4e4a0c.js";const l=["id","data-name"],s=a({__name:"Element",props:{element:null},setup(e){return(m,c)=>(n(),t("li",{class:"nav-item",id:"nav-"+e.element.name.replace(".","-"),"data-name":e.element.name},null,8,l))}});export{s as default};

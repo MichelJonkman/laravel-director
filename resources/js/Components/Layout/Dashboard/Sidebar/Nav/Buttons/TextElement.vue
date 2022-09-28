@@ -1,13 +1,10 @@
 <template>
-    <li class="nav-item" :id="'nav-' + element.name.replace('.', '-')" :data-name="element.name">
-        <a class="nav-link" aria-current="page">
-            {{ element.text }}
-        </a>
-    </li>
+    <a class="nav-link" aria-current="page">
+        {{ element.text }}
+    </a>
 </template>
 
 <script lang="ts" setup async>
-import {defineProps} from "vue";
 import {TextElementInterface} from "~/js/Interfaces/Menu/Elements/TextElementInterface";
 
 const {element} = defineProps<{
