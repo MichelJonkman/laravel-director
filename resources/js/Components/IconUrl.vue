@@ -9,7 +9,7 @@ const {url} = defineProps<{
     url: string;
 }>();
 
-const component = await import(url);
+const component = await import(/* @vite-ignore */url);
 </script>
 
 
