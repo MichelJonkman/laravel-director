@@ -2,4 +2,6 @@ import {IconTextElementInterface} from "~/js/Interfaces/Menu/Elements/IconTextEl
 
 export interface LinkButtonInterface extends IconTextElementInterface {
     url: string;
+    target: string;
+    title?: string;
 }

@@ -30,9 +30,17 @@ class MenuServiceProvider extends ServiceProvider
 
             $builder->addElement('director.linkButton', LinkButton::class)
                 ->setText('Link Button')
-                ->setUrl(route('director.dashboard.index'))
+                ->setUrl(route('director.dashboard.test'))
                 ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(0);
+
+            $builder->addElement('director.linkButton2', LinkButton::class)
+                ->setText('Link Button 2')
+                ->setUrl('https://google.com/')
+                ->setTarget('_blank')
+                ->setTitle('Google')
+                ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
+                ->setPosition(50);
         });
     }
 }
