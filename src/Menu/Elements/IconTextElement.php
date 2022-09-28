@@ -27,8 +27,9 @@ class IconTextElement extends TextElement
      */
     public function setIconAsset(string $iconPath, string $buildDirectory): static
     {
+        $hotfile = Vite::hotFile();
         $this->setIconUrl(Vite::useHotFile('dummy')->asset($iconPath, $buildDirectory));
-        Vite::useHotFile(null);
+        Vite::useHotFile($hotfile);
 
         return $this;
     }
