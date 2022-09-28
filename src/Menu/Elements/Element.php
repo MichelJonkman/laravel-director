@@ -87,4 +87,9 @@ class Element implements JsonSerializable
     {
         return $this->toArray();
     }
+
+    /**
+     * This gets called when the elements get sorted, use this to sort any children
+     */
+    public function sort(): void {}
 }

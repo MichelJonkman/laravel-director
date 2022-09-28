@@ -8,11 +8,21 @@ use MichelJonkman\Director\Menu\Elements\Element;
 
 class MenuBuilder implements JsonSerializable
 {
+    /**
+     * @var Element[]
+     */
     protected array $elements = [];
 
     public function getMenu(): array
     {
-        return $this->elements;
+        $elements = $this->elements;
+        usort($elements, fn(Element $a, Element $b) => $a->getPosition() <=> $b->getPosition());
+
+        foreach ($elements as $element) {
+            $element->sort();
+        }
+
+        return $elements;
     }
 
     public function jsonSerialize(): array
