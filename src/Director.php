@@ -4,14 +4,13 @@ namespace MichelJonkman\Director;
 
 
 use MichelJonkman\Director\Exceptions\PublishException;
-use MichelJonkman\Director\Menu\MenuBuilder;
 use MichelJonkman\Director\Menu\MenuManager;
 
-/**
- *
- */
 class Director
 {
+    /** @var string The path that Vite builds to relative to the public folder */
+    public const BUILD_DIRECTORY = 'director/director';
+
     protected array $publicPublishes = [];
 
     /**
