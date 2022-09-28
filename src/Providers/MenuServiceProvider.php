@@ -9,13 +9,18 @@ use MichelJonkman\Director\Menu\Elements\TextElement;
 use MichelJonkman\Director\Menu\Elements\IconTextElement;
 use MichelJonkman\Director\Menu\Elements\LinkButton;
 use MichelJonkman\Director\Menu\MenuBuilder;
-use Vite;
 
 class MenuServiceProvider extends ServiceProvider
 {
     public function boot(Director $director)
     {
-        $director->menu()->modify(function (MenuBuilder $builder) {
+        $director->menu()->modify('test', function(MenuBuilder $builder) {
+            $builder->removeElement('director.iconTextElement');
+
+            $builder->getElement('director.linkButton2', LinkButton::class)->setPosition(-1)->setUrl('/');
+        })->after('Director');
+
+        $director->menu()->modify('Director', function (MenuBuilder $builder) {
             $builder->addElement('director.element', Element::class)->setPosition(20);
 
             $builder->addElement('director.textElement', TextElement::class)

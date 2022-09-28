@@ -4,6 +4,7 @@ namespace MichelJonkman\Director\Menu;
 
 use JsonSerializable;
 use MichelJonkman\Director\Exceptions\Menu\InvalidElementException;
+use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
 use MichelJonkman\Director\Menu\Elements\Element;
 
 class MenuBuilder implements JsonSerializable
@@ -32,7 +33,7 @@ class MenuBuilder implements JsonSerializable
 
     /**
      * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
-     * @param T $elementClass
+     * @param class-string<T> $elementClass
      *
      * @return T
      * @throws InvalidElementException
@@ -50,5 +51,29 @@ class MenuBuilder implements JsonSerializable
         $this->elements[$name] = $element;
 
         return $element;
+    }
+
+    public function removeElement(string $name): static
+    {
+        unset($this->elements[$name]);
+
+        return $this;
+    }
+
+    /**
+     * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
+     *
+     * @param class-string<T>|null $elementClass Use this to make the IDE understand what element it returns
+     *
+     * @return T
+     * @throws MissingElementException
+     */
+    public function getElement(string $name, string $elementClass = null): Element
+    {
+        if (!isset($this->elements[$name])) {
+            throw new MissingElementException("Element \"$name\" does is not registered.");
+        }
+
+        return $this->elements[$name];
     }
 }
