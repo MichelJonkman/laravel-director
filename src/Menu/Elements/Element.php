@@ -6,18 +6,23 @@ namespace MichelJonkman\Director\Menu\Elements;
 use Illuminate\Support\Facades\Validator;
 use JsonSerializable;
 use MichelJonkman\Director\Exceptions\Menu\ElementValidationException;
+use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
+use MichelJonkman\Director\Menu\MenuBuilder;
 
 class Element implements JsonSerializable
 {
     protected string $typeName = 'Element';
 
     protected string $name;
-    protected ?int    $position = null;
+    protected ?int   $position = null;
 
     /** @var string[]|null */
     protected ?array $classes = [];
 
-    public function __construct(string $name) {
+    protected ?GroupElement $parent = null;
+
+    public function __construct(string $name)
+    {
         $this->name = $name;
     }
 
@@ -66,7 +71,8 @@ class Element implements JsonSerializable
     /**
      * Add extra CSS class
      */
-    public function addClass(string $class): static {
+    public function addClass(string $class): static
+    {
         $this->classes[] = $class;
 
         return $this;
@@ -75,10 +81,23 @@ class Element implements JsonSerializable
     /**
      * Add extra CSS classes
      *
-     * @param string[] $classes
+     * @param  string[]  $classes
      */
-    public function addClasses(array $classes): static {
+    public function addClasses(array $classes): static
+    {
         $this->classes = array_merge($this->classes, $classes);
+
+        return $this;
+    }
+
+    public function getParent(): ?Element
+    {
+        return $this->parent;
+    }
+
+    public function setParent(Element $parent): Element
+    {
+        $this->parent = $parent;
 
         return $this;
     }
@@ -102,8 +121,8 @@ class Element implements JsonSerializable
         return [
             'typeName' => 'required',
             'name' => 'required',
-            'position' => 'required',
-            'classes' => 'nullable',
+            'position' => 'nullable',
+            'classes' => 'nullable'
         ];
     }
 
@@ -136,5 +155,16 @@ class Element implements JsonSerializable
     /**
      * This gets called when the elements get sorted, use this to sort any children
      */
-    public function sort(): void {}
+    public function sort(): void { }
+
+    /**
+     * This function gets called when an element gets removed from its parent element, do not call this directly
+     * @see MenuBuilder::removeElement() To remove an element
+     *
+     * @throws MissingElementException
+     */
+    public function removeFromParent(): void
+    {
+        $this->parent?->removeChild($this->name);
+    }
 }

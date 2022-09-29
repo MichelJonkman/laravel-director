@@ -6,6 +6,7 @@ use JsonSerializable;
 use MichelJonkman\Director\Exceptions\Menu\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
 use MichelJonkman\Director\Menu\Elements\Element;
+use MichelJonkman\Director\Menu\Elements\GroupElement;
 
 class MenuBuilder implements JsonSerializable
 {
@@ -13,17 +14,16 @@ class MenuBuilder implements JsonSerializable
      * @var Element[]
      */
     protected array $elements = [];
+    protected GroupElement $root;
+
+    public function __construct() {
+        $this->root = new GroupElement('root');
+    }
 
     public function getMenu(): array
     {
-        $elements = $this->elements;
-        usort($elements, fn(Element $a, Element $b) => $a->getPosition() <=> $b->getPosition());
-
-        foreach ($elements as $element) {
-            $element->sort();
-        }
-
-        return $elements;
+        $this->root->sort();
+        return $this->root->getChildren();
     }
 
     public function jsonSerialize(): array
@@ -33,10 +33,12 @@ class MenuBuilder implements JsonSerializable
 
     /**
      * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
-     * @param class-string<T> $elementClass
+     *
+     * @param  class-string<T>  $elementClass
      *
      * @return T
      * @throws InvalidElementException
+     * @throws MissingElementException
      */
     public function addElement(string $name, mixed $elementClass): Element
     {
@@ -49,12 +51,17 @@ class MenuBuilder implements JsonSerializable
         }
 
         $this->elements[$name] = $element;
+        $this->root->addChild($element);
 
         return $element;
     }
 
+    /**
+     * @throws MissingElementException
+     */
     public function removeElement(string $name): static
     {
+        $this->elements[$name]->removeFromParent();
         unset($this->elements[$name]);
 
         return $this;
