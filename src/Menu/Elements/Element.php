@@ -107,6 +107,10 @@ class Element implements JsonSerializable
      */
     public function validateData(array $data): array
     {
+        if(!$this->parent) {
+            throw new ElementValidationException("Element \"$this->name\" does not have a parent element.");
+        }
+
         $validator = Validator::make($data, $this->getValidationRules());
 
         if ($validator->fails()) {
