@@ -95,7 +95,7 @@ class Element implements JsonSerializable
         return $this->parent;
     }
 
-    public function setParent(Element $parent): Element
+    public function setParent(GroupElement $parent): Element
     {
         $this->parent = $parent;
 
