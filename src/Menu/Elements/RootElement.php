@@ -6,9 +6,12 @@ namespace MichelJonkman\Director\Menu\Elements;
 use JsonSerializable;
 use MichelJonkman\Director\Exceptions\Menu\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
+use MichelJonkman\Director\Menu\AddsElementsTrait;
 
 class RootElement extends GroupElement implements RootElementInterface, JsonSerializable
 {
+    use AddsElementsTrait;
+
     /**
      * @var Element[]
      */
