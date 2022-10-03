@@ -22,7 +22,6 @@ export default {
     async beforeCreate()
     {
         const Test = await import(test);
-        console.log(Test.default, Dashboard)
         this.comp = Test.default;
     }
 }

@@ -13,8 +13,6 @@ const {href, target} = defineProps<{
 
 let element = 'InertiaLink';
 
-console.log(target);
-
 if(target !== '_self' && target !== null) {
     element = 'a';
 }
