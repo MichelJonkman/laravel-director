@@ -1,13 +1,12 @@
 <template>
-    <Dashboard>
+    <div>
         Peops
-    </Dashboard>
+    </div>
 </template>
 
 <script lang="ts" setup async>
-import Dashboard from "../Layouts/Dashboard.vue";
-</script>
 
+</script>
 
 <style lang="scss" scoped>
 

@@ -51,17 +51,14 @@ class LinkButton extends IconTextElement
         return $this;
     }
 
-    public function getActive(): bool {
-        return $this->getUrl() === Request::url();
-    }
-
     public function getData(): array
     {
         return array_merge(parent::getData(), [
             'url' => $this->getUrl(),
             'target' => $this->getTarget(),
             'title' => $this->getTitle(),
-            'active' => $this->getActive(),
+            'isLink' => true,
+            'active' => false,
         ]);
     }
 
@@ -71,7 +68,8 @@ class LinkButton extends IconTextElement
             'url' => 'required',
             'target' => 'nullable',
             'title' => 'nullable',
-            'active' => 'required|bool'
+            'isLink' => 'required|bool',
+            'active' => 'required|bool',
         ]);
     }
 }

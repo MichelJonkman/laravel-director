@@ -19,16 +19,18 @@ class RootElement extends GroupElement implements RootElementInterface, JsonSeri
         parent::__construct($name, $this);
     }
 
-    public function getMenu(): array
+    public function getSorted(): array
     {
         $this->sort();
 
         return $this->getChildren();
     }
 
-    public function jsonSerialize(): array
+    public function  toArray(): array
     {
-        return $this->getMenu();
+        return [
+            'children' => $this->getSorted(),
+        ];
     }
 
     /**

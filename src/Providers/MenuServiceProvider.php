@@ -59,15 +59,30 @@ class MenuServiceProvider extends ServiceProvider
 
             $builder->addElement('director.group', GroupElement::class)
                 ->addChildren([
+
                     $builder->addElement('director.group.linkButton', LinkButton::class)
                         ->setText('Group link Button')
                         ->setUrl(route('director.dashboard.test'))
                         ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                         ->setPosition(0),
+
                     $builder->addElement('director.group.linkButton', LinkButton::class)
                         ->setText('Group link Button replace')
                         ->setUrl(route('director.dashboard.index'))
                         ->setPosition(-1),
+
+                    $builder->addElement('director.group.inner', GroupElement::class)
+                        ->addChildren([
+
+                            $builder->addElement('director.group.inner.linkButton', LinkButton::class)
+                                ->setText('Group link Button')
+                                ->setUrl(route('director.dashboard.test'))
+                                ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
+                                ->setPosition(0),
+
+                        ])
+                        ->setPosition(-5)
+
                 ])
                 ->setPosition(20);
         });

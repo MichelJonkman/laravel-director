@@ -1,5 +1,6 @@
-import {ButtonInterface} from "~/js/Interfaces/Buttons/ButtonInterface.js";
+import {MenuElementsInterface} from "~/js/Interfaces/Menu/MenuElementsInterface";
 
 export interface MenuInterface {
-    [name: string]: ButtonInterface
+    elements: MenuElementsInterface;
+    children: MenuElementsInterface;
 }

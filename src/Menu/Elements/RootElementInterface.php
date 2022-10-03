@@ -10,7 +10,7 @@ interface RootElementInterface extends GroupElementInterface
 {
     public function __construct(string $name, RootElementInterface $root = null);
 
-    public function getMenu(): array;
+    public function getSorted(): array;
 
     public function jsonSerialize(): array;
 

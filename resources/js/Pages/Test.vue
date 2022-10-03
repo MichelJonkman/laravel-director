@@ -1,11 +1,10 @@
 <template>
-    <Dashboard>
+    <div>
         Test
-    </Dashboard>
+    </div>
 </template>
 
 <script lang="ts" setup async>
-import Dashboard from "../Layouts/Dashboard.vue";
 </script>
 
 
