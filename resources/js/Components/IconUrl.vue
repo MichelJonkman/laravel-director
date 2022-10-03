@@ -3,8 +3,6 @@
 </template>
 
 <script lang="ts" setup async>
-import {defineProps} from "vue";
-
 const {url} = defineProps<{
     url: string;
 }>();
