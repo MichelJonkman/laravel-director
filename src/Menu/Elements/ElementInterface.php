@@ -7,7 +7,7 @@ use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
 
 interface ElementInterface
 {
-    public function __construct(string $name);
+    public function __construct(string $name, RootElementInterface $root);
 
     public function getName(): ?string;
 

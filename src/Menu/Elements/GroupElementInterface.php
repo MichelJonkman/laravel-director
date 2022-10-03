@@ -15,6 +15,11 @@ interface GroupElementInterface extends ElementInterface
     /**
      * @throws MissingElementException
      */
+    public function getChild(string $name): ElementInterface;
+
+    /**
+     * @throws MissingElementException
+     */
     public function addChild(Element $element): static;
 
     /**
@@ -28,4 +33,6 @@ interface GroupElementInterface extends ElementInterface
      * @throws MissingElementException
      */
     public function removeChild(string $name): static;
+
+    public function hasChild(string $name): bool;
 }

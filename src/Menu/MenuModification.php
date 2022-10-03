@@ -4,6 +4,7 @@ namespace MichelJonkman\Director\Menu;
 
 
 use Closure;
+use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 
 class MenuModification
 {
@@ -21,16 +22,16 @@ class MenuModification
         $this->modificationFunction = $modificationFunction(...);
     }
 
-    public function __invoke(MenuBuilder $builder): void
+    public function __invoke(RootElementInterface $rootElement): void
     {
         foreach ($this->beforeChildren as $beforeChild) {
-            $beforeChild($builder);
+            $beforeChild($rootElement);
         }
 
-        ($this->modificationFunction)($builder);
+        ($this->modificationFunction)($rootElement);
 
         foreach ($this->afterChildren as $afterChild) {
-            $afterChild($builder);
+            $afterChild($rootElement);
         }
     }
 

@@ -4,13 +4,14 @@ namespace MichelJonkman\Director\Menu;
 
 
 use MichelJonkman\Director\Exceptions\Menu\MissingModificationException;
+use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 
 class MenuManager
 {
     /** @var MenuModification[] $modifications */
     protected array $modifications = [];
 
-    public function __construct(protected MenuBuilder $builder) { }
+    public function __construct(protected RootElementInterface $rootElement) { }
 
     /**
      * Adds a modification function, this functions receives a MenuBuilder instance
@@ -53,12 +54,12 @@ class MenuManager
      * Runs the modifications and returns the builder
      * @throws MissingModificationException
      */
-    public function getMenu(): MenuBuilder
+    public function getMenu(): RootElementInterface
     {
         foreach ($this->orderModifications() as $modification) {
-            $modification($this->builder);
+            $modification($this->rootElement);
         }
 
-        return $this->builder;
+        return $this->rootElement;
     }
 }

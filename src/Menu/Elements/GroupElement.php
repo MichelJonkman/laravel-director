@@ -23,17 +23,37 @@ class GroupElement extends Element implements GroupElementInterface
     /**
      * @throws MissingElementException
      */
-    public function addChild(Element $element): static
+    public function getChild(string $name): ElementInterface
     {
-        $element->removeFromParent();
-        $this->children[$element->getName()] = $element;
-        $element->setParent($this);
+        if (!isset($this->elements[$name])) {
+            throw new MissingElementException("Element \"$name\" is not registered in this group.");
+        }
+
+        return $this->elements[$name];
+    }
+
+    /**
+     * @throws MissingElementException
+     */
+    public function addChild(Element|string $element): static
+    {
+        $name = $element;
+
+        if ($element instanceof ElementInterface) {
+            $name = $element->getName();
+        }
+
+        $realElement = $this->root->getElement($name);
+
+        $realElement->removeFromParent();
+        $this->children[$name] = $realElement;
+        $realElement->setParent($this);
 
         return $this;
     }
 
     /**
-     * @param  Element[]  $children
+     * @param  Element[]|string[]  $children
      *
      * @throws MissingElementException
      */
@@ -60,6 +80,11 @@ class GroupElement extends Element implements GroupElementInterface
         return $this;
     }
 
+    public function hasChild(string $name): bool
+    {
+        return isset($this->children[$name]);
+    }
+
     public function sort(): void
     {
         $elements = $this->children;
@@ -70,5 +95,19 @@ class GroupElement extends Element implements GroupElementInterface
         }
 
         $this->children = $elements;
+    }
+
+    public function getData(): array
+    {
+        return array_merge(parent::getData(), [
+            'children' => $this->getChildren()
+        ]);
+    }
+
+    public function getValidationRules(): array
+    {
+        return array_merge(parent::getValidationRules(), [
+            'children' => 'required|array'
+        ]);
     }
 }

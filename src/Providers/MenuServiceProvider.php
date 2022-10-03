@@ -5,22 +5,23 @@ namespace MichelJonkman\Director\Providers;
 use Illuminate\Support\ServiceProvider;
 use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Menu\Elements\Element;
+use MichelJonkman\Director\Menu\Elements\GroupElement;
+use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 use MichelJonkman\Director\Menu\Elements\TextElement;
 use MichelJonkman\Director\Menu\Elements\IconTextElement;
 use MichelJonkman\Director\Menu\Elements\LinkButton;
-use MichelJonkman\Director\Menu\MenuBuilder;
 
 class MenuServiceProvider extends ServiceProvider
 {
     public function boot(Director $director)
     {
-        $director->menu()->modify('test', function(MenuBuilder $builder) {
+        $director->menu()->modify('test', function (RootElementInterface $builder) {
             $builder->removeElement('director.iconTextElement');
 
             $builder->getElement('director.linkButton2', LinkButton::class)->setPosition(-1)->setUrl('/');
         })->after('Director');
 
-        $director->menu()->modify('Director', function (MenuBuilder $builder) {
+        $director->menu()->modify('Director', function (RootElementInterface $builder) {
             $builder->addElement('director.element', Element::class)->setPosition(20);
 
             $builder->addElement('director.textElement', TextElement::class)
@@ -46,6 +47,23 @@ class MenuServiceProvider extends ServiceProvider
                 ->setTitle('Google')
                 ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(50);
+
+
+            $builder->addElement('director.group', GroupElement::class)
+                ->setPosition(20);
+
+            $builder->addToGroup('director.group', [
+                $builder->addElement('director.group.linkButton', LinkButton::class)
+                    ->setText('Group link Button')
+                    ->setUrl(route('director.dashboard.test'))
+                    ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
+                    ->setPosition(0),
+                $builder->addElement('director.group.linkButton', LinkButton::class)
+                    ->setText('Group link Button2')
+                    ->setUrl(route('director.dashboard.test'))
+                    ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
+                    ->setPosition(-1),
+            ]);
         });
     }
 }

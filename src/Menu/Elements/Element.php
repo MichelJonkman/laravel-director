@@ -14,6 +14,7 @@ class Element implements JsonSerializable, ElementInterface
     protected string $typeName = 'Element';
 
     protected string $name;
+    protected RootElementInterface $root;
     protected ?int   $position = null;
 
     /** @var string[]|null */
@@ -21,9 +22,10 @@ class Element implements JsonSerializable, ElementInterface
 
     protected ?GroupElementInterface $parent = null;
 
-    public function __construct(string $name)
+    public function __construct(string $name, RootElementInterface $root)
     {
         $this->name = $name;
+        $this->root = $root;
     }
 
     public function getName(): ?string
