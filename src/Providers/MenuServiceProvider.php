@@ -19,6 +19,14 @@ class MenuServiceProvider extends ServiceProvider
             $builder->removeElement('director.iconTextElement');
 
             $builder->getElement('director.linkButton2', LinkButton::class)->setPosition(-1)->setUrl('/');
+
+            $builder->addToGroup('director.group', [
+                $builder->addElement('director.group.linkButton3', LinkButton::class)
+                    ->setText('Group link Button 3')
+                    ->setUrl(route('director.dashboard.test'))
+                    ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
+                    ->setPosition(30),
+            ]);
         })->after('Director');
 
         $director->menu()->modify('Director', function (RootElementInterface $builder) {
@@ -50,20 +58,18 @@ class MenuServiceProvider extends ServiceProvider
 
 
             $builder->addElement('director.group', GroupElement::class)
+                ->addChildren([
+                    $builder->addElement('director.group.linkButton', LinkButton::class)
+                        ->setText('Group link Button')
+                        ->setUrl(route('director.dashboard.test'))
+                        ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
+                        ->setPosition(0),
+                    $builder->addElement('director.group.linkButton', LinkButton::class)
+                        ->setText('Group link Button replace')
+                        ->setUrl(route('director.dashboard.test'))
+                        ->setPosition(-1),
+                ])
                 ->setPosition(20);
-
-            $builder->addToGroup('director.group', [
-                $builder->addElement('director.group.linkButton', LinkButton::class)
-                    ->setText('Group link Button')
-                    ->setUrl(route('director.dashboard.test'))
-                    ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
-                    ->setPosition(0),
-                $builder->addElement('director.group.linkButton', LinkButton::class)
-                    ->setText('Group link Button2')
-                    ->setUrl(route('director.dashboard.test'))
-                    ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
-                    ->setPosition(-1),
-            ]);
         });
     }
 }

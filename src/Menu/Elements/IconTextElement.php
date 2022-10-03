@@ -44,7 +44,7 @@ class IconTextElement extends TextElement
     public function getValidationRules(): array
     {
         return array_merge(parent::getValidationRules(), [
-            'iconUrl' => 'required'
+            'iconUrl' => 'nullable'
         ]);
     }
 }

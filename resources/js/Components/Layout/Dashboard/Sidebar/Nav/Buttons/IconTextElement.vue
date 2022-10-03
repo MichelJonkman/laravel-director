@@ -1,6 +1,6 @@
 <template>
     <a class="nav-link" aria-current="page">
-        <IconUrl :url="element.iconUrl" class="icon me-1"/>
+        <IconUrl v-if="element.iconUrl" :url="element.iconUrl" class="icon me-1"/>
         {{ element.text }}
     </a>
 </template>
