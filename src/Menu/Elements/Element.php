@@ -9,7 +9,7 @@ use MichelJonkman\Director\Exceptions\Menu\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
 use MichelJonkman\Director\Menu\MenuBuilder;
 
-class Element implements JsonSerializable
+class Element implements JsonSerializable, ElementInterface
 {
     protected string $typeName = 'Element';
 

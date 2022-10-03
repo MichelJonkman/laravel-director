@@ -5,7 +5,7 @@ namespace MichelJonkman\Director\Menu\Elements;
 
 use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
 
-class GroupElement extends Element
+class GroupElement extends Element implements GroupElementInterface
 {
     protected string $typeName = 'GroupElement';
 
