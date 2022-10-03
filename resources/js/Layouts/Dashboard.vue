@@ -1,13 +1,11 @@
 <template>
     <div class="layout-dashboard">
-        <Suspense>
-            <div class="row h-100 g-0">
-                <Sidebar/>
-                <div class="col content">
-                    <slot></slot>
-                </div>
+        <div class="row h-100 g-0">
+            <Sidebar/>
+            <div class="col content">
+                <slot></slot>
             </div>
-        </Suspense>
+        </div>
     </div>
 </template>
 

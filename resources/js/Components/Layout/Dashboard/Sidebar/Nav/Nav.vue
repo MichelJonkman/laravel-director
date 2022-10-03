@@ -1,6 +1,8 @@
 <template>
     <ul class="nav nav-pills flex-column mb-auto">
-        <NavItem v-for="(element, name) in menu" :element="element" :key="name"/>
+        <Suspense>
+            <NavItem v-for="(element, name) in menu" :element="element" :key="name"/>
+        </Suspense>
     </ul>
 </template>
 
