@@ -6,7 +6,7 @@ use JsonSerializable;
 use MichelJonkman\Director\Exceptions\Menu\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
 use MichelJonkman\Director\Menu\Elements\Element;
-use MichelJonkman\Director\Menu\Elements\GroupElement;
+use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 
 class MenuBuilder implements JsonSerializable
 {
@@ -14,10 +14,10 @@ class MenuBuilder implements JsonSerializable
      * @var Element[]
      */
     protected array $elements = [];
-    protected GroupElement $root;
+    protected RootElementInterface $root;
 
     public function __construct() {
-        $this->root = new GroupElement('root');
+        $this->root = app(RootElementInterface::class);
     }
 
     public function getMenu(): array

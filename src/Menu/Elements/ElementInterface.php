@@ -40,8 +40,8 @@ interface ElementInterface
      */
     public function addClasses(array $classes): static;
 
-    public function getParent(): ?Element;
-    public function setParent(GroupElement $parent): Element;
+    public function getParent(): ?GroupElementInterface;
+    public function setParent(GroupElementInterface $parent): Element;
 
     /**
      * @throws ElementValidationException

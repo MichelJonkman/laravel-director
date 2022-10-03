@@ -19,7 +19,7 @@ class Element implements JsonSerializable, ElementInterface
     /** @var string[]|null */
     protected ?array $classes = [];
 
-    protected ?GroupElement $parent = null;
+    protected ?GroupElementInterface $parent = null;
 
     public function __construct(string $name)
     {
@@ -90,12 +90,12 @@ class Element implements JsonSerializable, ElementInterface
         return $this;
     }
 
-    public function getParent(): ?Element
+    public function getParent(): ?GroupElementInterface
     {
         return $this->parent;
     }
 
-    public function setParent(GroupElement $parent): Element
+    public function setParent(GroupElementInterface $parent): Element
     {
         $this->parent = $parent;
 
