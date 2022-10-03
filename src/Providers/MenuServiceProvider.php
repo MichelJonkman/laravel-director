@@ -66,7 +66,7 @@ class MenuServiceProvider extends ServiceProvider
                         ->setPosition(0),
                     $builder->addElement('director.group.linkButton', LinkButton::class)
                         ->setText('Group link Button replace')
-                        ->setUrl(route('director.dashboard.test'))
+                        ->setUrl(route('director.dashboard.index'))
                         ->setPosition(-1),
                 ])
                 ->setPosition(20);

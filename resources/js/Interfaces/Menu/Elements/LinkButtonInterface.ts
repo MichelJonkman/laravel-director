@@ -4,4 +4,5 @@ export interface LinkButtonInterface extends IconTextElementInterface {
     url: string;
     target: string;
     title?: string;
+    active: boolean;
 }
