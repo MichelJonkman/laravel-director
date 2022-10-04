@@ -12,10 +12,6 @@ class FrontendServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $director->publicPublish(__DIR__ . '/../../build/director/director', 'director');
-
-            $this->commands([
-                PublicCommand::class,
-            ]);
         }
     }
 }

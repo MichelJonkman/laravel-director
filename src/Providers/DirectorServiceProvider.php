@@ -10,7 +10,7 @@ class DirectorServiceProvider extends AggregateServiceProvider
         BindServiceProvider::class,
         ConfigServiceProvider::class,
         FrontendServiceProvider::class,
-        RouteServiceProvider::class,
+        ConsoleServiceProvider::class,
         RouteServiceProvider::class,
         ViewServiceProvider::class,
         MenuServiceProvider::class,

@@ -13,7 +13,7 @@ class BindServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->scoped(Director::class, function () {
-            return new Director();
+            return new Director(app());
         });
 
         $this->app->scoped(MenuManager::class, function () {
