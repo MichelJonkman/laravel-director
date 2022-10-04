@@ -4,6 +4,7 @@ namespace MichelJonkman\Director;
 
 
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Env;
 use MichelJonkman\Director\Exceptions\PublishException;
 use MichelJonkman\Director\Menu\MenuManager;
@@ -17,9 +18,12 @@ class Director
 
     protected Application $laravel;
 
-    public function __construct(Application $laravel)
+    protected Filesystem $files;
+
+    public function __construct(Application $laravel, Filesystem $files)
     {
         $this->laravel = $laravel;
+        $this->files = $files;
     }
 
     /**
@@ -45,6 +49,11 @@ class Director
     public function menu(): MenuManager
     {
         return app(MenuManager::class);
+    }
+
+    public function menuIsCached(): bool
+    {
+        return $this->files->exists($this->getCachedMenuPath());
     }
 
     public function getCachedMenuPath(): string

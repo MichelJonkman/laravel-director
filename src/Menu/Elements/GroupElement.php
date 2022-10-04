@@ -110,4 +110,15 @@ class GroupElement extends Element implements GroupElementInterface
             'children' => 'required|array'
         ]);
     }
+
+    public function toArray(): array
+    {
+        $array = parent::toArray();
+
+        foreach ($array['children'] as &$child) {
+            $child = $child->toArray();
+        }
+
+        return $array;
+    }
 }

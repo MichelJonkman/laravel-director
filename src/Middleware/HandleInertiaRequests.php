@@ -42,7 +42,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         $firstLoad = $request->inertia() ? [] : [
-            'menu' => fn() => Director::menu()->getRoot()
+            'menu' => fn() => Director::menu()->getMenu()
         ];
 
         return array_merge(parent::share($request), $firstLoad, [

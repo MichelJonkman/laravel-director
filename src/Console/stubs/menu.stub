@@ -11,6 +11,4 @@
 |
 */
 
-app('menu')->setRoot(
-    unserialize({{root}})
-);
+return {{root}};

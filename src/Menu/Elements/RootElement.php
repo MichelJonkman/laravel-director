@@ -31,8 +31,14 @@ class RootElement extends GroupElement implements RootElementInterface, JsonSeri
 
     public function  toArray(): array
     {
+        $children = $this->getSorted();
+
+        foreach ($children as &$child) {
+            $child = $child->toArray();
+        }
+
         return [
-            'children' => $this->getSorted(),
+            'children' => $children,
         ];
     }
 

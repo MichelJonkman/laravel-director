@@ -3,6 +3,9 @@
 namespace MichelJonkman\Director\Menu;
 
 
+use Illuminate\Foundation\Application;
+use MichelJonkman\Director\Director;
+use MichelJonkman\Director\Exceptions\Menu\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Menu\MissingModificationException;
 use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 
@@ -11,7 +14,9 @@ class MenuManager
     /** @var MenuModification[] $modifications */
     protected array $modifications = [];
 
-    public function __construct(protected RootElementInterface $rootElement) { }
+    protected array $cachedMenu = [];
+
+    public function __construct(protected Application $app, protected Director $director, protected RootElementInterface $rootElement) { }
 
     /**
      * Adds a modification function, this functions receives a MenuBuilder instance
@@ -61,5 +66,17 @@ class MenuManager
         }
 
         return $this->rootElement;
+    }
+
+    /**
+     * @throws ElementValidationException
+     * @throws MissingModificationException
+     */
+    public function getMenu(): array {
+        if($this->director->menuIsCached()) {
+            return $this->cachedMenu;
+        }
+
+        return $this->getRoot()->toArray();
     }
 }

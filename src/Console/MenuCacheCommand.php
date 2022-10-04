@@ -9,7 +9,9 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Routing\RouteCollection;
 use MichelJonkman\Director\Director;
+use MichelJonkman\Director\Exceptions\Menu\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Menu\MissingModificationException;
+use MichelJonkman\Director\Menu\Elements\Element;
 use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 
@@ -39,7 +41,7 @@ class MenuCacheCommand extends DirectorCommand
      *
      * @var string
      */
-    protected $description = 'Create a menu cache file for faster menu registration';
+    protected $description = 'Create a menu cache file for faster menu registration, only use if your application has a lot of menu modifications';
 
     protected Filesystem $files;
 
@@ -80,11 +82,12 @@ class MenuCacheCommand extends DirectorCommand
 
     /**
      * @throws FileNotFoundException
+     * @throws ElementValidationException
      */
     protected function buildMenuCacheFile(RootElementInterface $root): string
     {
         $stub = $this->files->get(__DIR__.'/stubs/menu.stub');
 
-        return str_replace('{{root}}', var_export(serialize($root), true), $stub);
+        return str_replace('{{root}}', var_export($root->toArray(), true), $stub);
     }
 }
