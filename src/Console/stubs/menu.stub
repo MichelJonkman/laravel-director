@@ -1,0 +1,16 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Load The Cached Menu
+|--------------------------------------------------------------------------
+|
+| Here we will decode and unserialize the RootElement instance that
+| holds all the menu information for an application. This allows
+| us to instantaneously load the entire menu.
+|
+*/
+
+app('menu')->setRoot(
+    unserialize({{root}})
+);

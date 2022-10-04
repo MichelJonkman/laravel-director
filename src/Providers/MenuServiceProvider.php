@@ -20,7 +20,7 @@ class MenuServiceProvider extends ServiceProvider
 
             $menu->addLink('director.settings')
                 ->setUrl(route('director.dashboard.test'))
-                ->setText('Settings')
+                ->setText('Settings\'test\'')
                 ->setTitle('Settings')
                 ->setIconAsset('resources/js/Icons/gear-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(100);

@@ -20,6 +20,8 @@ class BindServiceProvider extends ServiceProvider
             return new MenuManager(app(RootElementInterface::class));
         });
 
+        $this->app->alias(MenuManager::class, 'menu');
+
         $this->app->bind(RootElementInterface::class, function () {
             return new RootElement('root', null);
         });

@@ -54,7 +54,7 @@ class MenuManager
      * Runs the modifications and returns the builder
      * @throws MissingModificationException
      */
-    public function getMenu(): RootElementInterface
+    public function getRoot(): RootElementInterface
     {
         foreach ($this->orderModifications() as $modification) {
             $modification($this->rootElement);

@@ -4,12 +4,17 @@ namespace MichelJonkman\Director\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Routing\RouteCollection;
+use MichelJonkman\Director\Director;
+use MichelJonkman\Director\Exceptions\Menu\MissingModificationException;
+use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'director:menu:cache')]
-class MenuCacheCommand extends Command
+class MenuCacheCommand extends DirectorCommand
 {
     /**
      * The console command name.
@@ -34,24 +39,13 @@ class MenuCacheCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a route cache file for faster route registration';
+    protected $description = 'Create a menu cache file for faster menu registration';
 
-    /**
-     * The filesystem instance.
-     *
-     * @var \Illuminate\Filesystem\Filesystem
-     */
-    protected $files;
+    protected Filesystem $files;
 
-    /**
-     * Create a new route command instance.
-     *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
-     * @return void
-     */
-    public function __construct(Filesystem $files)
+    public function __construct(Director $director, Filesystem $files)
     {
-        parent::__construct();
+        parent::__construct($director);
 
         $this->files = $files;
     }
@@ -59,64 +53,38 @@ class MenuCacheCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return void
+     * @throws MissingModificationException
+     * @throws FileNotFoundException
      */
-    public function handle()
+    public function handle(): void
     {
-        $this->callSilent('route:clear');
+        $this->callSilent('director:menu:clear');
 
-        $routes = $this->getFreshApplicationRoutes();
-
-        if (count($routes) === 0) {
-            return $this->components->error("Your application doesn't have any routes.");
-        }
-
-        foreach ($routes as $route) {
-            $route->prepareForSerialization();
-        }
+        $root = $this->getRoot();
 
         $this->files->put(
-            $this->laravel->getCachedRoutesPath(), $this->buildRouteCacheFile($routes)
+            $this->director->getCachedMenuPath(),
+            $this->buildMenuCacheFile($root)
         );
 
-        $this->components->info('Routes cached successfully.');
+        $this->components->info('Menu cached successfully.');
     }
 
     /**
-     * Boot a fresh copy of the application and get the routes.
-     *
-     * @return \Illuminate\Routing\RouteCollection
+     * @throws MissingModificationException
      */
-    protected function getFreshApplicationRoutes()
+    public function getRoot(): RootElementInterface
     {
-        return tap($this->getFreshApplication()['router']->getRoutes(), function ($routes) {
-            $routes->refreshNameLookups();
-            $routes->refreshActionLookups();
-        });
+        return $this->director->menu()->getRoot();
     }
 
     /**
-     * Get a fresh application instance.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application
+     * @throws FileNotFoundException
      */
-    protected function getFreshApplication()
+    protected function buildMenuCacheFile(RootElementInterface $root): string
     {
-        return tap(require $this->laravel->bootstrapPath().'/app.php', function ($app) {
-            $app->make(ConsoleKernelContract::class)->bootstrap();
-        });
-    }
+        $stub = $this->files->get(__DIR__.'/stubs/menu.stub');
 
-    /**
-     * Build the route cache file.
-     *
-     * @param  \Illuminate\Routing\RouteCollection  $routes
-     * @return string
-     */
-    protected function buildRouteCacheFile(RouteCollection $routes)
-    {
-        $stub = $this->files->get(__DIR__.'/stubs/routes.stub');
-
-        return str_replace('{{routes}}', var_export($routes->compile(), true), $stub);
+        return str_replace('{{root}}', var_export(serialize($root), true), $stub);
     }
 }
