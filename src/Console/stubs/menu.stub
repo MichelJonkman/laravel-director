@@ -11,4 +11,4 @@
 |
 */
 
-return {{root}};
+return app('menu')->setMenuCache({{root}});

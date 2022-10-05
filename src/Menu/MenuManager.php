@@ -79,4 +79,12 @@ class MenuManager
 
         return $this->getRoot()->toArray();
     }
+
+    /**
+     * Used when in the menu cache file
+     */
+    public function setMenuCache(array $cache): void
+    {
+        $this->cachedMenu = $cache;
+    }
 }

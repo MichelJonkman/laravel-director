@@ -28,12 +28,14 @@ class MenuServiceProvider extends ServiceProvider
                     ->setPosition(100)
             ])->setPosition(10);
         });
+
+        $this->registerCache($director);
     }
 
-    public function register(Director $director)
+    protected function registerCache(Director $director)
     {
-        if($director->menuIsCached()) {
-            $this->app->booted(function () {
+        if ($director->menuIsCached()) {
+            $this->app->booted(function () use ($director) {
                 require $director->getCachedMenuPath();
             });
         }
