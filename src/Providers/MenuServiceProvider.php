@@ -21,8 +21,8 @@ class MenuServiceProvider extends ServiceProvider
 
             $menu->addElement('grouptest', GroupElement::class)->addChildren([
                 $menu->addLink('director.settings')
-                    ->setUrl(route('director.dashboard.test'))
-                    ->setText('Settings\'test\'')
+                    ->setUrl(route('director.settings.overview'))
+                    ->setText('Settings')
                     ->setTitle('Settings')
                     ->setIconAsset('resources/js/Icons/gear-fill.svg', Director::BUILD_DIRECTORY)
                     ->setPosition(100)

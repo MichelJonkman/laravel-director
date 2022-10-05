@@ -1,1 +1,0 @@
-import{_ as e}from"./app.074bce22.js";import{aS as t,ap as r}from"./runtime-core.esm-bundler.3c4e4a0c.js";import"./preload-helper.f3170bb1.js";const o={};function c(n,s){return t(),r("div",null," Test ")}const m=e(o,[["render",c]]);export{m as default};

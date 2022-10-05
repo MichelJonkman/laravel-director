@@ -1,6 +1,6 @@
 {
   "resources/js/app.ts": {
-    "file": "assets/app.074bce22.js",
+    "file": "assets/app.acfd7a61.js",
     "src": "resources/js/app.ts",
     "isEntry": true,
     "imports": [
@@ -14,6 +14,7 @@
       "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue",
       "resources/js/Pages/FieldtypeExample.vue",
       "resources/js/Pages/Index.vue",
+      "resources/js/Pages/Settings/Overview.vue",
       "resources/js/Pages/Test.vue"
     ],
     "css": [
@@ -39,7 +40,7 @@
     "file": "assets/runtime-core.esm-bundler.3c4e4a0c.js"
   },
   "resources/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample.3c77dd5c.js",
+    "file": "assets/FieldtypeExample.5ffc28a4.js",
     "src": "resources/js/Pages/FieldtypeExample.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -49,7 +50,7 @@
     ]
   },
   "resources/js/Pages/Index.vue": {
-    "file": "assets/Index.d10a6363.js",
+    "file": "assets/Index.d6b130cd.js",
     "src": "resources/js/Pages/Index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -58,8 +59,18 @@
       "_preload-helper.f3170bb1.js"
     ]
   },
+  "resources/js/Pages/Settings/Overview.vue": {
+    "file": "assets/Overview.47953c39.js",
+    "src": "resources/js/Pages/Settings/Overview.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.ts",
+      "_runtime-core.esm-bundler.3c4e4a0c.js",
+      "_preload-helper.f3170bb1.js"
+    ]
+  },
   "resources/js/Pages/Test.vue": {
-    "file": "assets/Test.98d6b08e.js",
+    "file": "assets/Test.dedb0bc2.js",
     "src": "resources/js/Pages/Test.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -69,7 +80,7 @@
     ]
   },
   "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue": {
-    "file": "assets/GroupElement.1276cf24.js",
+    "file": "assets/GroupElement.564ae8ab.js",
     "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue",
     "isDynamicEntry": true,
     "imports": [
