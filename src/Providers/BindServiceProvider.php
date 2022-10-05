@@ -4,8 +4,6 @@ namespace MichelJonkman\Director\Providers;
 
 use Illuminate\Foundation\Application;
 use MichelJonkman\Director\Director;
-use MichelJonkman\Director\Http\Controllers\Settings\Overview2Controller;
-use MichelJonkman\Director\Http\Controllers\Settings\OverviewController;
 use MichelJonkman\Director\Menu\Elements\RootElement;
 use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 use MichelJonkman\Director\Menu\MenuManager;
