@@ -3,7 +3,6 @@
 namespace MichelJonkman\Director\Providers;
 
 use Illuminate\Foundation\Application;
-use Illuminate\Support\ServiceProvider;
 use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Menu\Elements\RootElement;
 use MichelJonkman\Director\Menu\Elements\RootElementInterface;
@@ -11,7 +10,7 @@ use MichelJonkman\Director\Menu\MenuManager;
 
 class BindServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function registerService()
     {
         $this->app->scoped(Director::class, function (Application $app) {
             return new Director($app, $app->make('files'));
