@@ -26,10 +26,10 @@
 
 <script lang="ts" setup>
 import Nav from "./Sidebar/Nav/Nav.vue";
-import {usePage} from '@inertiajs/inertia-vue3';
-import {MenuInterface} from "~/js/Interfaces/MenuInterface.js";
+import {usePage} from '@inertiajs/vue3';
+import {MenuInterface} from "~/js/Interfaces/Menu/MenuInterface";
 
-let pageProps = usePage().props.value;
+let pageProps = usePage().props ?? {menu: {}};
 let menu: MenuInterface = pageProps.menu as MenuInterface;
 </script>
 

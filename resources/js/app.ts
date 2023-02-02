@@ -1,10 +1,8 @@
 import {createApp, DefineComponent, h} from 'vue';
-import {createInertiaApp, Link, Head} from '@inertiajs/inertia-vue3';
-import {InertiaProgress} from '@inertiajs/progress';
+import {createInertiaApp, Link, Head} from '@inertiajs/vue3';
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import '@micheljonkman/laravel-director/scss/app.scss';
 import Dashboard from "~/js/Layouts/Dashboard.vue";
-
 
 createInertiaApp({
     // @ts-ignore
@@ -14,13 +12,11 @@ createInertiaApp({
         page.layout = page.layout || Dashboard;
         return page;
     },
-    setup({el, app, props, plugin}) {
-        createApp({render: () => h(app, props)})
+    setup({el, App, props, plugin}) {
+        createApp({render: () => h(App, props)})
             .use(plugin)
             .component('InertiaHead', Head)
             .component('InertiaLink', Link)
             ?.mount(el)
     },
 });
-
-InertiaProgress.init();

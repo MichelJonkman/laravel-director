@@ -9,12 +9,12 @@
 <script lang="ts" setup>
 import NavItem from "./NavItem.vue";
 import {MenuInterface} from "~/js/Interfaces/Menu/MenuInterface";
-import {Inertia} from "@inertiajs/inertia";
 import {ElementInterface} from "~/js/Interfaces/Menu/Elements/ElementInterface";
 import {getUrl} from "~/npm/js/helpers";
 import {LinkInterface} from "~/js/Interfaces/Menu/Elements/LinkInterface";
 import {GroupElementInterface} from "~/js/Interfaces/Menu/Elements/GroupElementInterface";
 import {MenuElementsInterface} from "~/js/Interfaces/Menu/MenuElementsInterface";
+import {router} from "@inertiajs/vue3";
 
 const {menu} = defineProps<{
     menu: MenuInterface
@@ -37,7 +37,7 @@ for (const element of Object.values<ElementInterface>(menu.elements)) {
     }
 }
 
-Inertia.on('navigate', () => {
+router.on('navigate', () => {
     const url = getUrl();
 
     for (const element of links) {

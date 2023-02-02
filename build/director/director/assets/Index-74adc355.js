@@ -1,0 +1,1 @@
+import{_ as e}from"./app-0d5e9e8c.js";import{v as o,x as r}from"./runtime-core.esm-bundler-0fe47724.js";import"./preload-helper-56bd2511.js";const t={};function c(n,s){return o(),r("div",null," Peops ")}const m=e(t,[["render",c]]);export{m as default};
