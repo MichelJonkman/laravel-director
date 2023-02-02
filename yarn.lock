@@ -901,11 +901,6 @@ vite-plugin-full-reload@^1.0.5:
     picocolors "^1.0.0"
     picomatch "^2.3.1"
 
-vite-plugin-https-certs@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-https-certs/-/vite-plugin-https-certs-1.1.1.tgz#f4c5b57b7dbc62cc6774bea93bb9bb0b390badae"
-  integrity sha512-eM3yIrLxWCdxFdM1dsBs4fK25qXw3htZ2Mhf52utLmO0yOMIbL95BW9TXLH35WSm1jrhlJgWZiLtpnNu2ic2Jg==
-
 vite-plugin-mkcert@^1.12.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/vite-plugin-mkcert/-/vite-plugin-mkcert-1.12.0.tgz#de61b6b3d5cb5ff869e1d53d910a283f23e7c5d1"

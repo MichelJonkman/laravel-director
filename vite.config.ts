@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import svgLoader from 'vite-svg-loader';
 import path from "path";
-import HttpsCerts from 'vite-plugin-https-certs'
+import mkcert from 'vite-plugin-mkcert';
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig(({ command, mode, ssrBuild }) => {
@@ -13,7 +13,9 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     const extraPlugins = [];
 
     if(env.VITE_HTTPS === 'true') {
-        extraPlugins.push(HttpsCerts());
+        extraPlugins.push(mkcert({
+            savePath: './.certs'
+        }) as Plugin);
     }
 
     if(env.VITE_HTTPS === 'fake') {
