@@ -3,6 +3,7 @@
 namespace MichelJonkman\Director;
 
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Env;
@@ -53,10 +54,11 @@ class Director
 
     /**
      * Returns a MenuManager instance for easy access
+     * @throws BindingResolutionException
      */
     public function menu(): MenuManager
     {
-        return app(MenuManager::class);
+        return $this->laravel->make(MenuManager::class);
     }
 
     public function menuIsCached(): bool
