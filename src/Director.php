@@ -35,6 +35,14 @@ class Director
             throw new PublishException('Invalid identifier', PublishException::INVALID_IDENTIFIER_CODE);
         }
 
+        if (!is_dir($path)) {
+            throw new PublishException("Invalid directory path \"$path\"", PublishException::INVALID_DIRECTORY_PATH);
+        }
+
+        if (in_array($identifier, $this->publicPublishes)) {
+            throw new PublishException("Duplicate identifier \"$identifier\"", PublishException::DUPLICATE_IDENTIFIER);
+        }
+
         $this->publicPublishes[$path] = $identifier;
     }
 
