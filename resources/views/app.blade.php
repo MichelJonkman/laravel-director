@@ -6,7 +6,7 @@
     {{ Vite::useHotFile(public_path('director.hot'))('resources/js/app.ts', 'director/director') }}
     @inertiaHead
 </head>
-<body{{-- data-test="{{ Vite::useHotFile(public_path('null'))->asset('resources/js/Icons/house-fill2.svg', 'director/director') }}"--}}>
+<body>
 @inertia
 </body>
 </html>
