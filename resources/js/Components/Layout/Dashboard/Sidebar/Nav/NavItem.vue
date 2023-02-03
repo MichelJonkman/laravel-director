@@ -14,7 +14,7 @@ const {element} = defineProps<{
 let component = null;
 
 if (element.typeName !== 'Element') {
-    component = await import(element.componentUrl);
+    component = await import(/* @vite-ignore */element.componentUrl);
 }
 
 </script>
