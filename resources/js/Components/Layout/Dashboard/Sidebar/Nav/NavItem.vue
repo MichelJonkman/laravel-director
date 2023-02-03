@@ -14,7 +14,7 @@ const {element} = defineProps<{
 let component = null;
 
 if (element.typeName !== 'Element') {
-    component = await import(`./Buttons/${element.typeName}.vue`);
+    component = await import(element.componentUrl);
 }
 
 </script>

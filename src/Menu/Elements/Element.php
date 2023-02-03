@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Validator;
 use JsonSerializable;
 use MichelJonkman\Director\Exceptions\Menu\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
-use MichelJonkman\Director\Menu\MenuBuilder;
 
 class Element implements JsonSerializable, ElementInterface
 {
@@ -26,6 +25,11 @@ class Element implements JsonSerializable, ElementInterface
     {
         $this->name = $name;
         $this->root = $root;
+    }
+
+    public function getComponentUrl(): string
+    {
+        return "./Buttons/$this->typeName.vue";
     }
 
     public function getName(): ?string
@@ -126,6 +130,7 @@ class Element implements JsonSerializable, ElementInterface
     {
         return [
             'typeName' => 'required',
+            'componentUrl' => 'required',
             'name' => 'required',
             'position' => 'nullable',
             'classes' => 'nullable'
@@ -136,6 +141,7 @@ class Element implements JsonSerializable, ElementInterface
     {
         return [
             'typeName' => $this->getTypeName(),
+            'componentUrl' => $this->getComponentUrl(),
             'name' => $this->getName(),
             'position' => $this->getPosition(),
             'classes' => $this->getClasses()

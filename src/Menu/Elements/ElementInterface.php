@@ -9,6 +9,11 @@ interface ElementInterface
 {
     public function __construct(string $name, RootElementInterface $root);
 
+    /**
+     * Returns the URL of the vue component it should load, relative url is only accepted if the element is in the root project
+     */
+    public function getComponentUrl(): string;
+
     public function getName(): ?string;
 
     public function getPosition(): ?int;
