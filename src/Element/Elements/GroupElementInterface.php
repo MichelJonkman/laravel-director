@@ -1,7 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Elements;
-
+namespace MichelJonkman\Director\Element\Elements;
 
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 

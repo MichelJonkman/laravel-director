@@ -2,8 +2,8 @@
 
 namespace MichelJonkman\Director\Menu;
 
-use MichelJonkman\Director\Exceptions\Menu\InvalidElementException;
-use MichelJonkman\Director\Exceptions\Menu\MissingElementException;
+use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
+use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 use MichelJonkman\Director\Menu\Elements\Element;
 use MichelJonkman\Director\Menu\Elements\LinkButton;
 

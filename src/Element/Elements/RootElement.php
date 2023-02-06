@@ -1,17 +1,14 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Elements;
+namespace MichelJonkman\Director\Element\Elements;
 
 
 use JsonSerializable;
 use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
-use MichelJonkman\Director\Menu\AddsElementsTrait;
 
 class RootElement extends GroupElement implements RootElementInterface, JsonSerializable
 {
-    use AddsElementsTrait;
-
     /**
      * @var Element[]
      */
@@ -43,13 +40,12 @@ class RootElement extends GroupElement implements RootElementInterface, JsonSeri
     }
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
+     * @template-covariant T of MichelJonkman\Director\Elements\Elements\Element
      *
      * @param  class-string<T>  $elementClass
      *
      * @return T
      * @throws InvalidElementException
-     * @throws MissingElementException
      */
     public function addElement(string $name, mixed $elementClass): Element
     {
@@ -68,9 +64,6 @@ class RootElement extends GroupElement implements RootElementInterface, JsonSeri
         return $element;
     }
 
-    /**
-     * @throws MissingElementException
-     */
     public function removeElement(string $name): static
     {
         $this->elements[$name]->removeFromParent();
@@ -80,7 +73,7 @@ class RootElement extends GroupElement implements RootElementInterface, JsonSeri
     }
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
+     * @template-covariant T of MichelJonkman\Director\Elements\Elements\Element
      *
      * @param  class-string<T>|null  $elementClass  Use this to make the IDE understand what element it returns
      *

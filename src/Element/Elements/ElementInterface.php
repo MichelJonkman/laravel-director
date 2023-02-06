@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Elements;
+namespace MichelJonkman\Director\Element\Elements;
 
 use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
@@ -74,7 +74,7 @@ interface ElementInterface
 
     /**
      * This function gets called when an element gets removed from its parent element, do not call this directly
-     * @see MenuBuilder::removeElement() To remove an element
+     * @see ElementsBuilder::removeElement() To remove an element
      *
      * @throws MissingElementException
      */

@@ -1,7 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Elements;
-
+namespace MichelJonkman\Director\Element\Elements;
 
 use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
@@ -15,7 +14,7 @@ interface RootElementInterface extends GroupElementInterface
     public function jsonSerialize(): array;
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
+     * @template-covariant T of MichelJonkman\Director\Elements\Elements\Element
      *
      * @param  class-string<T>  $elementClass
      *
@@ -31,7 +30,7 @@ interface RootElementInterface extends GroupElementInterface
     public function removeElement(string $name): static;
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Menu\Elements\Element
+     * @template-covariant T of MichelJonkman\Director\Elements\Elements\Element
      *
      * @param  class-string<T>|null  $elementClass  Use this to make the IDE understand what element it returns
      *

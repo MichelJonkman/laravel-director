@@ -1,17 +1,16 @@
 <?php
 
-namespace MichelJonkman\Director\Menu;
+namespace MichelJonkman\Director\Element;
 
 
 use Illuminate\Foundation\Application;
 use MichelJonkman\Director\Director;
-use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
+use MichelJonkman\Director\Element\Elements\RootElementInterface;
 use MichelJonkman\Director\Exceptions\Element\MissingModificationException;
-use MichelJonkman\Director\Menu\Elements\RootElementInterface;
 
-class MenuManager
+class ElementManager
 {
-    /** @var MenuModification[] $modifications */
+    /** @var ElementModification[] $modifications */
     protected array $modifications = [];
 
     protected array $cachedMenu = [];
@@ -19,15 +18,15 @@ class MenuManager
     public function __construct(protected Application $app, protected Director $director, protected RootElementInterface $rootElement) { }
 
     /**
-     * Adds a modification function, this functions receives a MenuBuilder instance
+     * Adds a modification function, this functions receives a ElementsBuilder instance
      */
-    public function modify(string $key, callable $modificationFunction): MenuModification
+    public function modify(string $key, callable $modificationFunction): ElementModification
     {
-        return $this->modifications[$key] = new MenuModification($modificationFunction);
+        return $this->modifications[$key] = new ElementModification($modificationFunction);
     }
 
     /**
-     * @return MenuModification[]
+     * @return ElementModification[]
      * @throws MissingModificationException
      */
     public function orderModifications(): array
@@ -69,7 +68,6 @@ class MenuManager
     }
 
     /**
-     * @throws ElementValidationException
      * @throws MissingModificationException
      */
     public function getMenu(): array {

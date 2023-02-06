@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Menu\Elements;
+namespace MichelJonkman\Director\Element\Elements;
 
 
 use Illuminate\Support\Facades\Validator;
@@ -12,9 +12,9 @@ class Element implements JsonSerializable, ElementInterface
 {
     protected string $typeName = 'Element';
 
-    protected string $name;
+    protected string               $name;
     protected RootElementInterface $root;
-    protected ?int   $position = null;
+    protected ?int                 $position = null;
 
     /** @var string[]|null */
     protected ?array $classes = [];
@@ -113,7 +113,7 @@ class Element implements JsonSerializable, ElementInterface
      */
     public function validateData(array $data): array
     {
-        if(!$this->parent) {
+        if (!$this->parent) {
             throw new ElementValidationException("Element \"$this->name\" does not have a parent element.");
         }
 
@@ -171,9 +171,8 @@ class Element implements JsonSerializable, ElementInterface
 
     /**
      * This function gets called when an element gets removed from its parent element, do not call this directly
-     * @see MenuBuilder::removeElement() To remove an element
-     *
      * @throws MissingElementException
+     * @see ElementsBuilder::removeElement() To remove an element
      */
     public function removeFromParent(): void
     {
