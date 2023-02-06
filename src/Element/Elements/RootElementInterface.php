@@ -2,10 +2,11 @@
 
 namespace MichelJonkman\Director\Element\Elements;
 
+use MichelJonkman\Director\Element\Elements\Traits\HasChildrenInterface;
 use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
-interface RootElementInterface extends GroupElementInterface
+interface RootElementInterface extends ElementInterface, HasChildrenInterface
 {
     public function __construct(string $name, RootElementInterface $root = null);
 
@@ -14,7 +15,7 @@ interface RootElementInterface extends GroupElementInterface
     public function jsonSerialize(): array;
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Elements\Elements\Element
+     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
      *
      * @param  class-string<T>  $elementClass
      *
@@ -22,7 +23,7 @@ interface RootElementInterface extends GroupElementInterface
      * @throws InvalidElementException
      * @throws MissingElementException
      */
-    public function addElement(string $name, mixed $elementClass): Element;
+    public function addElement(string $name, mixed $elementClass): ElementInterface;
 
     /**
      * @throws MissingElementException
@@ -30,14 +31,14 @@ interface RootElementInterface extends GroupElementInterface
     public function removeElement(string $name): static;
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Elements\Elements\Element
+     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
      *
      * @param  class-string<T>|null  $elementClass  Use this to make the IDE understand what element it returns
      *
      * @return T
      * @throws MissingElementException
      */
-    public function getElement(string $name, string $elementClass = null): Element;
+    public function getElement(string $name, string $elementClass = null): ElementInterface;
 
     /**
      * @param  ElementInterface[]|string[]  $elements  The element or name of the element

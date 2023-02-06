@@ -6,6 +6,7 @@ namespace MichelJonkman\Director\Element;
 use Illuminate\Foundation\Application;
 use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Element\Elements\RootElementInterface;
+use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Element\MissingModificationException;
 
 class ElementManager
@@ -69,6 +70,7 @@ class ElementManager
 
     /**
      * @throws MissingModificationException
+     * @throws ElementValidationException
      */
     public function getMenu(): array {
         if($this->director->menuIsCached()) {

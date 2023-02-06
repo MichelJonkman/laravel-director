@@ -1,18 +1,17 @@
 <?php
 
-namespace MichelJonkman\Director\Element\Elements;
+namespace MichelJonkman\Director\Element\Elements\Traits;
 
+use MichelJonkman\Director\Element\Elements\ElementInterface;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
-class GroupElement extends Element implements GroupElementInterface
+trait HasChildren
 {
-    protected string $typeName = 'GroupElement';
-
-    /** @var Element[] */
+    /** @var ElementInterface[] */
     protected array $children = [];
 
     /**
-     * @return Element[]
+     * @return ElementInterface[]
      */
     public function getChildren(): array
     {
@@ -34,7 +33,7 @@ class GroupElement extends Element implements GroupElementInterface
     /**
      * @throws MissingElementException
      */
-    public function addChild(Element|string $element): static
+    public function addChild(ElementInterface|string $element): static
     {
         $name = $element;
 
@@ -52,7 +51,7 @@ class GroupElement extends Element implements GroupElementInterface
     }
 
     /**
-     * @param  Element[]|string[]  $children
+     * @param  ElementInterface[]|string[]  $children
      *
      * @throws MissingElementException
      */
@@ -87,7 +86,7 @@ class GroupElement extends Element implements GroupElementInterface
     public function sort(): void
     {
         $elements = $this->children;
-        uasort($elements, fn(Element $a, Element $b) => $a->getPosition() <=> $b->getPosition());
+        uasort($elements, fn(ElementInterface $a, ElementInterface $b) => $a->getPosition() <=> $b->getPosition());
 
         foreach ($elements as $element) {
             $element->sort();

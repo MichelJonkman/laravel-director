@@ -2,6 +2,7 @@
 
 namespace MichelJonkman\Director\Element\Elements;
 
+use MichelJonkman\Director\Element\Elements\Traits\HasChildrenInterface;
 use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
@@ -9,44 +10,13 @@ interface ElementInterface
 {
     public function __construct(string $name, RootElementInterface $root);
 
-    /**
-     * Returns the URL of the vue component it should load, relative url is only accepted if the element is in the root project
-     */
-    public function getComponentUrl(): string;
-
     public function getName(): ?string;
 
     public function getPosition(): ?int;
     public function setPosition(int $position): static;
 
-    public function getTypeName(): string;
-
-    /**
-     * @return string[]|null
-     */
-    public function getClasses(): ?array;
-
-    /**
-     * Set extra CSS classes
-     *
-     * @param  string[]|null  $classes
-     */
-    public function setClasses(?array $classes): static;
-
-    /**
-     * Add extra CSS class
-     */
-    public function addClass(string $class): static;
-
-    /**
-     * Add extra CSS classes
-     *
-     * @param  string[]  $classes
-     */
-    public function addClasses(array $classes): static;
-
-    public function getParent(): ?GroupElementInterface;
-    public function setParent(GroupElementInterface $parent): Element;
+    public function getParent(): ?HasChildrenInterface;
+    public function setParent(HasChildrenInterface $parent): static;
 
     /**
      * @throws ElementValidationException
@@ -74,7 +44,7 @@ interface ElementInterface
 
     /**
      * This function gets called when an element gets removed from its parent element, do not call this directly
-     * @see ElementsBuilder::removeElement() To remove an element
+     * @see RootElementInterface::removeElement() To remove an element
      *
      * @throws MissingElementException
      */

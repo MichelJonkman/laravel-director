@@ -5,31 +5,22 @@ namespace MichelJonkman\Director\Element\Elements;
 
 use Illuminate\Support\Facades\Validator;
 use JsonSerializable;
+use MichelJonkman\Director\Element\Elements\Traits\HasChildrenInterface;
 use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
 class Element implements JsonSerializable, ElementInterface
 {
-    protected string $typeName = 'Element';
 
     protected string               $name;
     protected RootElementInterface $root;
     protected ?int                 $position = null;
-
-    /** @var string[]|null */
-    protected ?array $classes = [];
-
-    protected ?GroupElementInterface $parent = null;
+    protected ?HasChildrenInterface $parent = null;
 
     public function __construct(string $name, RootElementInterface $root)
     {
         $this->name = $name;
         $this->root = $root;
-    }
-
-    public function getComponentUrl(): string
-    {
-        return "./Buttons/$this->typeName.vue";
     }
 
     public function getName(): ?string
@@ -49,59 +40,12 @@ class Element implements JsonSerializable, ElementInterface
         return $this;
     }
 
-    public function getTypeName(): string
-    {
-        return $this->typeName;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getClasses(): ?array
-    {
-        return array_unique($this->classes);
-    }
-
-    /**
-     * Set extra CSS classes
-     *
-     * @param  string[]|null  $classes
-     */
-    public function setClasses(?array $classes): static
-    {
-        $this->classes = $classes;
-
-        return $this;
-    }
-
-    /**
-     * Add extra CSS class
-     */
-    public function addClass(string $class): static
-    {
-        $this->classes[] = $class;
-
-        return $this;
-    }
-
-    /**
-     * Add extra CSS classes
-     *
-     * @param  string[]  $classes
-     */
-    public function addClasses(array $classes): static
-    {
-        $this->classes = array_merge($this->classes, $classes);
-
-        return $this;
-    }
-
-    public function getParent(): ?GroupElementInterface
+    public function getParent(): ?HasChildrenInterface
     {
         return $this->parent;
     }
 
-    public function setParent(GroupElementInterface $parent): Element
+    public function setParent(HasChildrenInterface $parent): static
     {
         $this->parent = $parent;
 
@@ -129,22 +73,16 @@ class Element implements JsonSerializable, ElementInterface
     public function getValidationRules(): array
     {
         return [
-            'typeName' => 'required',
-            'componentUrl' => 'required',
             'name' => 'required',
             'position' => 'nullable',
-            'classes' => 'nullable'
         ];
     }
 
     public function getData(): array
     {
         return [
-            'typeName' => $this->getTypeName(),
-            'componentUrl' => $this->getComponentUrl(),
             'name' => $this->getName(),
             'position' => $this->getPosition(),
-            'classes' => $this->getClasses()
         ];
     }
 

@@ -1,13 +1,14 @@
 <?php
 
-namespace MichelJonkman\Director\Element\Elements;
+namespace MichelJonkman\Director\Element\Elements\Traits;
 
+use MichelJonkman\Director\Element\Elements\ElementInterface;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
-interface GroupElementInterface extends ElementInterface
+interface HasChildrenInterface
 {
     /**
-     * @return Element[]
+     * @return ElementInterface[]
      */
     public function getChildren(): array;
 
@@ -19,10 +20,10 @@ interface GroupElementInterface extends ElementInterface
     /**
      * @throws MissingElementException
      */
-    public function addChild(Element $element): static;
+    public function addChild(ElementInterface $element): static;
 
     /**
-     * @param  Element[]  $children
+     * @param  ElementInterface[]  $children
      *
      * @throws MissingElementException
      */
