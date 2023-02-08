@@ -1,23 +1,23 @@
 <?php
 
-namespace MichelJonkman\Director\Item\Items;
+namespace MichelJonkman\Director\Element\Elements;
 
 
 use Illuminate\Support\Facades\Validator;
 use JsonSerializable;
-use MichelJonkman\Director\Item\Items\Traits\HasChildrenInterface;
-use MichelJonkman\Director\Exceptions\Item\ItemValidationException;
-use MichelJonkman\Director\Exceptions\Item\MissingItemException;
+use MichelJonkman\Director\Element\Elements\Traits\HasChildrenInterface;
+use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
+use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
-class Item implements JsonSerializable, ItemInterface
+class Element implements JsonSerializable, ElementInterface
 {
 
-    protected string                $name;
-    protected RootItemInterface     $root;
-    protected ?int                  $position = null;
+    protected string               $name;
+    protected RootElementInterface $root;
+    protected ?int                 $position = null;
     protected ?HasChildrenInterface $parent = null;
 
-    public function __construct(string $name, RootItemInterface $root)
+    public function __construct(string $name, RootElementInterface $root)
     {
         $this->name = $name;
         $this->root = $root;
@@ -53,18 +53,18 @@ class Item implements JsonSerializable, ItemInterface
     }
 
     /**
-     * @throws ItemValidationException
+     * @throws ElementValidationException
      */
     public function validateData(array $data): array
     {
         if (!$this->parent) {
-            throw new ItemValidationException("Item \"$this->name\" does not have a parent item.");
+            throw new ElementValidationException("Element \"$this->name\" does not have a parent element.");
         }
 
         $validator = Validator::make($data, $this->getValidationRules());
 
         if ($validator->fails()) {
-            throw new ItemValidationException($validator->messages()->toJson());
+            throw new ElementValidationException($validator->messages()->toJson());
         }
 
         return $validator->validated();
@@ -87,7 +87,7 @@ class Item implements JsonSerializable, ItemInterface
     }
 
     /**
-     * @throws ItemValidationException
+     * @throws ElementValidationException
      */
     public function toArray(): array
     {
@@ -95,7 +95,7 @@ class Item implements JsonSerializable, ItemInterface
     }
 
     /**
-     * @throws ItemValidationException
+     * @throws ElementValidationException
      */
     public function jsonSerialize(): array
     {
@@ -103,14 +103,14 @@ class Item implements JsonSerializable, ItemInterface
     }
 
     /**
-     * This gets called when the items get sorted, use this to sort any children
+     * This gets called when the elements get sorted, use this to sort any children
      */
     public function sort(): void { }
 
     /**
-     * This function gets called when an item gets removed from its parent item, do not call this directly
-     * @throws MissingItemException
-     * @see ItemsBuilder::removeItem() To remove an item
+     * This function gets called when an element gets removed from its parent element, do not call this directly
+     * @throws MissingElementException
+     * @see ElementsBuilder::removeElement() To remove an element
      */
     public function removeFromParent(): void
     {

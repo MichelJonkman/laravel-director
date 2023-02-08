@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Exceptions\Item;
+namespace MichelJonkman\Director\Exceptions\Element;
 
 
 use MichelJonkman\Director\Exceptions\DirectorException;
@@ -8,7 +8,7 @@ use MichelJonkman\Director\Exceptions\DirectorException;
 /**
  * Thrown when an element fails its validation
  */
-class ItemValidationException extends DirectorException
+class ElementValidationException extends DirectorException
 {
 
 }

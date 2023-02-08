@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Exceptions\Item;
+namespace MichelJonkman\Director\Exceptions\Element;
 
 
 use MichelJonkman\Director\Exceptions\DirectorException;
