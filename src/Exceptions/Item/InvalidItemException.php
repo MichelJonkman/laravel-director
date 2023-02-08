@@ -1,6 +1,6 @@
 <?php
 
-namespace MichelJonkman\Director\Exceptions\Element;
+namespace MichelJonkman\Director\Exceptions\Item;
 
 
 use MichelJonkman\Director\Exceptions\DirectorException;
@@ -8,7 +8,7 @@ use MichelJonkman\Director\Exceptions\DirectorException;
 /**
  * Thrown when an invalid element gets passed to the menu builder
  */
-class InvalidElementException extends DirectorException
+class InvalidItemException extends DirectorException
 {
 
 }

@@ -1,33 +1,33 @@
 <?php
 
-namespace MichelJonkman\Director\Element;
+namespace MichelJonkman\Director\Item;
 
 
 use Illuminate\Foundation\Application;
 use MichelJonkman\Director\Director;
-use MichelJonkman\Director\Element\Elements\RootElementInterface;
-use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
-use MichelJonkman\Director\Exceptions\Element\MissingModificationException;
+use MichelJonkman\Director\Item\Items\RootItemInterface;
+use MichelJonkman\Director\Exceptions\Item\ItemValidationException;
+use MichelJonkman\Director\Exceptions\Item\MissingModificationException;
 
-class ElementManager
+class ItemManager
 {
-    /** @var ElementModification[] $modifications */
+    /** @var ItemModification[] $modifications */
     protected array $modifications = [];
 
     protected array $cachedMenu = [];
 
-    public function __construct(protected Application $app, protected Director $director, protected RootElementInterface $rootElement) { }
+    public function __construct(protected Application $app, protected Director $director, protected RootItemInterface $rootItem) { }
 
     /**
-     * Adds a modification function, this functions receives a ElementsBuilder instance
+     * Adds a modification function, this functions receives a ItemsBuilder instance
      */
-    public function modify(string $key, callable $modificationFunction): ElementModification
+    public function modify(string $key, callable $modificationFunction): ItemModification
     {
-        return $this->modifications[$key] = new ElementModification($modificationFunction);
+        return $this->modifications[$key] = new ItemModification($modificationFunction);
     }
 
     /**
-     * @return ElementModification[]
+     * @return ItemModification[]
      * @throws MissingModificationException
      */
     public function orderModifications(): array
@@ -59,18 +59,18 @@ class ElementManager
      * Runs the modifications and returns the builder
      * @throws MissingModificationException
      */
-    public function getRoot(): RootElementInterface
+    public function getRoot(): RootItemInterface
     {
         foreach ($this->orderModifications() as $modification) {
-            $modification($this->rootElement);
+            $modification($this->rootItem);
         }
 
-        return $this->rootElement;
+        return $this->rootItem;
     }
 
     /**
      * @throws MissingModificationException
-     * @throws ElementValidationException
+     * @throws ItemValidationException
      */
     public function getMenu(): array {
         if($this->director->menuIsCached()) {

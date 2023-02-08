@@ -1,12 +1,12 @@
 <?php
 
-namespace MichelJonkman\Director\Element;
+namespace MichelJonkman\Director\Item;
 
 
 use Closure;
-use MichelJonkman\Director\Element\Elements\RootElementInterface;
+use MichelJonkman\Director\Item\Items\RootItemInterface;
 
-class ElementModification
+class ItemModification
 {
     protected Closure $modificationFunction;
     protected ?string $target = null;
@@ -26,16 +26,16 @@ class ElementModification
     /**
      * Runs the modification and it's children
      */
-    public function __invoke(RootElementInterface $rootElement): void
+    public function __invoke(RootItemInterface $rootItem): void
     {
         foreach ($this->beforeChildren as $beforeChild) {
-            $beforeChild($rootElement);
+            $beforeChild($rootItem);
         }
 
-        ($this->modificationFunction)($rootElement);
+        ($this->modificationFunction)($rootItem);
 
         foreach ($this->afterChildren as $afterChild) {
-            $afterChild($rootElement);
+            $afterChild($rootItem);
         }
     }
 
@@ -80,7 +80,7 @@ class ElementModification
     /**
      * Adds a modification to be run before this one
      */
-    public function addBefore(ElementModification $modification): void
+    public function addBefore(ItemModification $modification): void
     {
         $this->beforeChildren[] = $modification;
     }
@@ -88,7 +88,7 @@ class ElementModification
     /**
      * Adds a modification to be run after this one
      */
-    public function addAfter(ElementModification $modification): void
+    public function addAfter(ItemModification $modification): void
     {
         $this->afterChildren[] = $modification;
     }
