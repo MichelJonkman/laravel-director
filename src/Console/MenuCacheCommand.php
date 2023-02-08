@@ -11,8 +11,8 @@ use Illuminate\Routing\RouteCollection;
 use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Element\MissingModificationException;
-use MichelJonkman\Director\Menu\Elements\Element;
-use MichelJonkman\Director\Menu\Elements\RootElementInterface;
+use MichelJonkman\Director\Menu\Elements\MenuElement;
+use MichelJonkman\Director\Menu\Elements\RootMenuElementInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'director:menu:cache')]
@@ -75,7 +75,7 @@ class MenuCacheCommand extends DirectorCommand
     /**
      * @throws MissingModificationException
      */
-    public function getRoot(): RootElementInterface
+    public function getRoot(): RootMenuElementInterface
     {
         return $this->director->menu()->getRoot();
     }
@@ -84,7 +84,7 @@ class MenuCacheCommand extends DirectorCommand
      * @throws FileNotFoundException
      * @throws ElementValidationException
      */
-    protected function buildMenuCacheFile(RootElementInterface $root): string
+    protected function buildMenuCacheFile(RootMenuElementInterface $root): string
     {
         $stub = $this->files->get(__DIR__.'/stubs/menu.stub');
 

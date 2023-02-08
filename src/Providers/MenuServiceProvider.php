@@ -4,14 +4,14 @@ namespace MichelJonkman\Director\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use MichelJonkman\Director\Director;
-use MichelJonkman\Director\Menu\Elements\GroupElement;
-use MichelJonkman\Director\Menu\Elements\RootElement;
+use MichelJonkman\Director\Menu\Elements\GroupMenuElement;
+use MichelJonkman\Director\Menu\Elements\RootMenuElement;
 
 class MenuServiceProvider extends ServiceProvider
 {
     public function boot(Director $director)
     {
-        $director->menu()->modify('director', function (RootElement $menu) {
+        $director->menu()->modify('director', function (RootMenuElement $menu) {
             $menu->addLink('director.dashboard')
                 ->setUrl(route('director.dashboard.index'))
                 ->setText('Dashboard')
@@ -19,7 +19,7 @@ class MenuServiceProvider extends ServiceProvider
                 ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(0);
 
-            $menu->addElement('grouptest', GroupElement::class)->addChildren([
+            $menu->addElement('grouptest', GroupMenuElement::class)->addChildren([
                 $menu->addLink('director.settings')
                     ->setUrl(route('director.settings.overview'))
                     ->setText('Settings')

@@ -44,7 +44,7 @@ interface ElementInterface
 
     /**
      * This function gets called when an element gets removed from its parent element, do not call this directly
-     * @see RootElementInterface::removeElement() To remove an element
+     * @see RootMenuElementInterface::removeElement() To remove an element
      *
      * @throws MissingElementException
      */

@@ -2,11 +2,12 @@
 
 namespace MichelJonkman\Director\Element\Elements;
 
+use JsonSerializable;
 use MichelJonkman\Director\Element\Elements\Traits\HasChildrenInterface;
 use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
-interface RootElementInterface extends ElementInterface, HasChildrenInterface
+interface RootElementInterface extends ElementInterface, HasChildrenInterface, JsonSerializable
 {
     public function __construct(string $name, RootElementInterface $root = null);
 

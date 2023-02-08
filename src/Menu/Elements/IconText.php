@@ -5,7 +5,7 @@ namespace MichelJonkman\Director\Menu\Elements;
 
 use Vite;
 
-class IconTextElement extends TextElement
+class IconText extends Text
 {
     protected string $typeName = 'IconTextElement';
     protected ?string $iconUrl = null;

@@ -3,7 +3,7 @@
 namespace MichelJonkman\Director\Menu\Elements;
 
 
-class TextElement extends Element
+class Text extends MenuElement
 {
     protected string $typeName = 'TextElement';
 
@@ -14,7 +14,7 @@ class TextElement extends Element
         return $this->text;
     }
 
-    public function setText(string $text): TextElement
+    public function setText(string $text): Text
     {
         $this->text = $text;
 

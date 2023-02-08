@@ -7,7 +7,7 @@ use Request;
 /**
  * A simple button with a link
  */
-class LinkButton extends IconTextElement
+class LinkButton extends IconText
 {
     protected string $typeName = 'LinkButton';
 

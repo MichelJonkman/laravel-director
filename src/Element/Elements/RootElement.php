@@ -10,7 +10,7 @@ use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 use MichelJonkman\Director\Exceptions\Element\WrongElementClassException;
 
-class RootElement extends Element implements RootElementInterface, JsonSerializable
+class RootElement extends Element implements RootElementInterface
 {
     use HasChildren;
 
