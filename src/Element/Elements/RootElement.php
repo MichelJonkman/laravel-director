@@ -55,19 +55,42 @@ class RootElement extends Element implements RootElementInterface
      */
     public function addElement(string $name, mixed $elementClass): ElementInterface
     {
-        $element = app($elementClass, [
-            'name' => $name,
-            'root' => $this
-        ]);
-
-        if (!($element instanceof ElementInterface)) {
-            throw new InvalidElementException("Element of class \"$elementClass\" is not a valid menu element.");
-        }
+        $element = $this->initElement($name, $elementClass);
 
         $this->elements[$name] = $element;
         $this->addChild($element);
 
         return $element;
+    }
+
+    /**
+     * @throws InvalidElementException
+     */
+    private function initElement(string $name, mixed $elementClass): ElementInterface {
+        $element = app($elementClass, [
+            'name' => $name,
+            'root' => $this
+        ]);
+
+        $this->verifyElement($element);
+
+        return $element;
+    }
+
+    /**
+     * @throws InvalidElementException
+     */
+    protected function verifyElement($element) {
+        $correctClass = $this->getCorrectElementClass();
+        if (!($element instanceof $correctClass)) {
+            $elementClass = $element::class;
+            throw new InvalidElementException("Element of class \"$elementClass\" is not a valid element.");
+        }
+    }
+
+    protected function getCorrectElementClass(): string
+    {
+        return ElementInterface::class;
     }
 
     public function removeElement(string $name): static

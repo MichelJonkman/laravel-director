@@ -1,15 +1,15 @@
 <?php
 
-namespace MichelJonkman\Director\Menu;
+namespace MichelJonkman\Director\Menu\Elements\Traits;
 
+use MichelJonkman\Director\Element\Elements\ElementInterface;
 use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
-use MichelJonkman\Director\Menu\Elements\MenuElement;
 use MichelJonkman\Director\Menu\Elements\LinkButton;
 
 trait AddsMenuElementsTrait
 {
-    abstract public function addElement(string $name, mixed $elementClass): MenuElement;
+    abstract public function addElement(string $name, mixed $elementClass): ElementInterface;
 
     /**
      * @throws MissingElementException
