@@ -1,5 +1,6 @@
 export class Director {
-    static init<M>(fieldtypes: Record<string, M>) {
-        console.log(fieldtypes);
-    }
+
+    /** Just so loose component files get built */
+    static registerComponents(files: any) {}
 }
+
