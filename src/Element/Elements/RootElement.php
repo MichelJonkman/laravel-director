@@ -45,7 +45,7 @@ class RootElement extends Element implements RootElementInterface
     }
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
+     * @template-covariant T of ElementInterface
      *
      * @param  class-string<T>  $elementClass
      *
@@ -102,7 +102,7 @@ class RootElement extends Element implements RootElementInterface
     }
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
+     * @template-covariant T of ElementInterface
      *
      * @param  class-string<T>|null  $elementClass  Use this to make the IDE understand what element it returns
      *
@@ -118,7 +118,7 @@ class RootElement extends Element implements RootElementInterface
 
         $element = $this->elements[$name];
 
-        if (!$element instanceof $elementClass) {
+        if ($elementClass && !$element instanceof $elementClass) {
             $class = get_class($element);
             throw new WrongElementClassException("Element \"$name\" is of class \"$class\" not of class \"$elementClass\".");
         }

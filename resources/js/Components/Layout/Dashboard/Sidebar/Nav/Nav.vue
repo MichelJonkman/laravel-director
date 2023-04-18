@@ -20,6 +20,8 @@ const {menu} = defineProps<{
     menu: MenuInterface
 }>();
 
+console.log(menu);
+
 menu.elements = {};
 for (const [name, element] of Object.entries(menu.children)) {
     menu.elements[name] = element;

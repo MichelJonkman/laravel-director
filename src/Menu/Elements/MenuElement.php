@@ -66,19 +66,20 @@ class MenuElement extends Element implements MenuElementInterface
 
     public function getValidationRules(): array
     {
-        return [
+        return array_merge(parent::getValidationRules(), [
             'typeName' => 'required',
             'componentUrl' => 'required',
             'classes' => 'nullable'
-        ];
+        ]);
     }
 
     public function getData(): array
     {
-        return [
+
+        return array_merge(parent::getData(), [
             'typeName' => $this->getTypeName(),
             'componentUrl' => $this->getComponentUrl(),
             'classes' => $this->getClasses()
-        ];
+        ]);
     }
 }
