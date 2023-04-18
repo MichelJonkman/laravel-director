@@ -1,1 +1,0 @@
-import{_ as r}from"./preload-helper-56bd2511.js";import{o as s,u as _,v as a,z as c,A as m,y as p}from"./runtime-core.esm-bundler-0fe47724.js";const v=s({__name:"IconUrl",props:{url:null},async setup(t){let o,e;const n=([o,e]=_(()=>r(()=>import(t.url),[])),o=await o,e(),o);return(i,l)=>(a(),c(m(p(n)),{class:"icon"}))}});export{v as _};

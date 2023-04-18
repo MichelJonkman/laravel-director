@@ -1,147 +1,147 @@
 {
-  "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-e12a0c1d.js": {
-    "file": "assets/IconUrl.vue_vue_type_script_setup_true_async_true_lang-e12a0c1d.js",
+  "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-398ee518.js": {
+    "file": "assets/IconUrl.vue_vue_type_script_setup_true_async_true_lang-398ee518.js",
     "imports": [
-      "_preload-helper-56bd2511.js",
-      "_runtime-core.esm-bundler-0fe47724.js"
+      "_director-5dc358cf.js",
+      "_runtime-core.esm-bundler-f48f1f7d.js"
     ]
   },
-  "_preload-helper-56bd2511.js": {
-    "file": "assets/preload-helper-56bd2511.js"
+  "_director-5dc358cf.js": {
+    "file": "assets/director-5dc358cf.js"
   },
-  "_runtime-core.esm-bundler-0fe47724.js": {
-    "file": "assets/runtime-core.esm-bundler-0fe47724.js"
+  "_runtime-core.esm-bundler-f48f1f7d.js": {
+    "file": "assets/runtime-core.esm-bundler-f48f1f7d.js"
   },
-  "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue": {
-    "file": "assets/GroupElement-34790b95.js",
+  "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue": {
+    "file": "assets/GroupElement-2dfa5ea0.js",
     "imports": [
-      "resources/js/app.ts",
-      "_runtime-core.esm-bundler-0fe47724.js",
-      "_preload-helper-56bd2511.js"
+      "resources/package/js/app.ts",
+      "_runtime-core.esm-bundler-f48f1f7d.js",
+      "_director-5dc358cf.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue"
+    "src": "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue"
   },
-  "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue": {
-    "file": "assets/IconTextElement-28cdf04a.js",
+  "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue": {
+    "file": "assets/IconTextElement-5d9b3278.js",
     "imports": [
-      "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-e12a0c1d.js",
-      "_runtime-core.esm-bundler-0fe47724.js",
-      "_preload-helper-56bd2511.js"
+      "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-398ee518.js",
+      "_runtime-core.esm-bundler-f48f1f7d.js",
+      "_director-5dc358cf.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue"
+    "src": "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue"
   },
-  "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue": {
-    "file": "assets/LinkButton-70a9029c.js",
+  "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue": {
+    "file": "assets/LinkButton-657ba784.js",
     "imports": [
-      "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-e12a0c1d.js",
-      "_runtime-core.esm-bundler-0fe47724.js",
-      "_preload-helper-56bd2511.js"
+      "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-398ee518.js",
+      "_runtime-core.esm-bundler-f48f1f7d.js",
+      "_director-5dc358cf.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue"
+    "src": "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue"
   },
-  "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue": {
-    "file": "assets/TextElement-c3755a59.js",
+  "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue": {
+    "file": "assets/TextElement-0c249b6a.js",
     "imports": [
-      "_runtime-core.esm-bundler-0fe47724.js"
+      "_runtime-core.esm-bundler-f48f1f7d.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue"
+    "src": "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue"
   },
-  "resources/js/Icons/gear-fill.svg": {
-    "file": "assets/gear-fill-c4a254ad.js",
+  "resources/package/js/Icons/gear-fill.svg": {
+    "file": "assets/gear-fill-b53e72d3.js",
     "imports": [
-      "_runtime-core.esm-bundler-0fe47724.js"
+      "_runtime-core.esm-bundler-f48f1f7d.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Icons/gear-fill.svg"
+    "src": "resources/package/js/Icons/gear-fill.svg"
   },
-  "resources/js/Icons/house-fill.svg": {
-    "file": "assets/house-fill-e2f8ea58.js",
+  "resources/package/js/Icons/house-fill.svg": {
+    "file": "assets/house-fill-a3e2879e.js",
     "imports": [
-      "_runtime-core.esm-bundler-0fe47724.js"
+      "_runtime-core.esm-bundler-f48f1f7d.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Icons/house-fill.svg"
+    "src": "resources/package/js/Icons/house-fill.svg"
   },
-  "resources/js/Icons/init.ts": {
+  "resources/package/js/Icons/init.ts": {
     "dynamicImports": [
-      "resources/js/Icons/gear-fill.svg",
-      "resources/js/Icons/house-fill.svg"
+      "resources/package/js/Icons/gear-fill.svg",
+      "resources/package/js/Icons/house-fill.svg"
     ],
-    "file": "assets/init-9e093447.js",
+    "file": "assets/init-3a2209ad.js",
     "imports": [
-      "_preload-helper-56bd2511.js"
+      "_director-5dc358cf.js"
     ],
     "isEntry": true,
-    "src": "resources/js/Icons/init.ts"
+    "src": "resources/package/js/Icons/init.ts"
   },
-  "resources/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample-69daeb1f.js",
+  "resources/package/js/Pages/FieldtypeExample.vue": {
+    "file": "assets/FieldtypeExample-92d6404f.js",
     "imports": [
-      "_preload-helper-56bd2511.js",
-      "resources/js/app.ts",
-      "_runtime-core.esm-bundler-0fe47724.js"
+      "_director-5dc358cf.js",
+      "resources/package/js/app.ts",
+      "_runtime-core.esm-bundler-f48f1f7d.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Pages/FieldtypeExample.vue"
+    "src": "resources/package/js/Pages/FieldtypeExample.vue"
   },
-  "resources/js/Pages/Index.vue": {
-    "file": "assets/Index-74adc355.js",
+  "resources/package/js/Pages/Index.vue": {
+    "file": "assets/Index-08469326.js",
     "imports": [
-      "resources/js/app.ts",
-      "_runtime-core.esm-bundler-0fe47724.js",
-      "_preload-helper-56bd2511.js"
+      "resources/package/js/app.ts",
+      "_runtime-core.esm-bundler-f48f1f7d.js",
+      "_director-5dc358cf.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Pages/Index.vue"
+    "src": "resources/package/js/Pages/Index.vue"
   },
-  "resources/js/Pages/Settings/Overview.vue": {
-    "file": "assets/Overview-114ea781.js",
+  "resources/package/js/Pages/Settings/Overview.vue": {
+    "file": "assets/Overview-a0753055.js",
     "imports": [
-      "resources/js/app.ts",
-      "_runtime-core.esm-bundler-0fe47724.js",
-      "_preload-helper-56bd2511.js"
+      "resources/package/js/app.ts",
+      "_runtime-core.esm-bundler-f48f1f7d.js",
+      "_director-5dc358cf.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Pages/Settings/Overview.vue"
+    "src": "resources/package/js/Pages/Settings/Overview.vue"
   },
-  "resources/js/Pages/Test.vue": {
-    "file": "assets/Test-4dfe7bfb.js",
+  "resources/package/js/Pages/Test.vue": {
+    "file": "assets/Test-3b5aff16.js",
     "imports": [
-      "resources/js/app.ts",
-      "_runtime-core.esm-bundler-0fe47724.js",
-      "_preload-helper-56bd2511.js"
+      "resources/package/js/app.ts",
+      "_runtime-core.esm-bundler-f48f1f7d.js",
+      "_director-5dc358cf.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Pages/Test.vue"
+    "src": "resources/package/js/Pages/Test.vue"
   },
-  "resources/js/app.css": {
-    "file": "assets/app-8e9d6302.css",
-    "src": "resources/js/app.css"
+  "resources/package/js/app.css": {
+    "file": "assets/app-b0a29816.css",
+    "src": "resources/package/js/app.css"
   },
-  "resources/js/app.ts": {
+  "resources/package/js/app.ts": {
     "css": [
-      "assets/app-8e9d6302.css"
+      "assets/app-b0a29816.css"
     ],
     "dynamicImports": [
-      "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue",
-      "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue",
-      "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue",
-      "resources/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue",
-      "resources/js/Pages/FieldtypeExample.vue",
-      "resources/js/Pages/Index.vue",
-      "resources/js/Pages/Settings/Overview.vue",
-      "resources/js/Pages/Test.vue"
+      "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue",
+      "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue",
+      "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue",
+      "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue",
+      "resources/package/js/Pages/FieldtypeExample.vue",
+      "resources/package/js/Pages/Index.vue",
+      "resources/package/js/Pages/Settings/Overview.vue",
+      "resources/package/js/Pages/Test.vue"
     ],
-    "file": "assets/app-0d5e9e8c.js",
+    "file": "assets/app-4ab29fb0.js",
     "imports": [
-      "_preload-helper-56bd2511.js",
-      "_runtime-core.esm-bundler-0fe47724.js"
+      "_director-5dc358cf.js",
+      "_runtime-core.esm-bundler-f48f1f7d.js"
     ],
     "isEntry": true,
-    "src": "resources/js/app.ts"
+    "src": "resources/package/js/app.ts"
   }
 }

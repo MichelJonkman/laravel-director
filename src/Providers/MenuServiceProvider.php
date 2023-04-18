@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Menu\Elements\GroupMenuElement;
 use MichelJonkman\Director\Menu\Elements\RootMenuElement;
+use MichelJonkman\Director\Menu\Elements\Text;
+use MichelJonkman\DirectorExample\MenuExportExampleText;
 
 class MenuServiceProvider extends ServiceProvider
 {
@@ -16,7 +18,7 @@ class MenuServiceProvider extends ServiceProvider
                 ->setUrl(route('director.dashboard.index'))
                 ->setText('Dashboard')
                 ->setTitle('Dashboard')
-                ->setIconAsset('resources/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
+                ->setIconAsset('resources/package/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(0);
 
             $menu->addElement('grouptest', GroupMenuElement::class)->addChildren([
@@ -24,9 +26,11 @@ class MenuServiceProvider extends ServiceProvider
                     ->setUrl(route('director.settings.overview'))
                     ->setText('Settings')
                     ->setTitle('Settings')
-                    ->setIconAsset('resources/js/Icons/gear-fill.svg', Director::BUILD_DIRECTORY)
+                    ->setIconAsset('resources/package/js/Icons/gear-fill.svg', Director::BUILD_DIRECTORY)
                     ->setPosition(100)
             ])->setPosition(10);
+
+            $menu->addElement('test', MenuExportExampleText::class)->setText('testing123');
         });
 
         $this->registerCache($director);

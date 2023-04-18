@@ -35,7 +35,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             }),
             laravel({
                 hotFile: publicDirectory + '/director.hot',
-                input: ['resources/js/app.ts', 'resources/js/Icons/init.ts'],
+                input: ['resources/package/js/app.ts', 'resources/package/js/Icons/init.ts'],
                 refresh: true,
                 publicDirectory: publicDirectory,
                 buildDirectory: 'director/director'
@@ -52,7 +52,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         },
         resolve:{
             alias:{
-                '~' : path.resolve(__dirname, './resources')
+                '~' : path.resolve(__dirname, './resources/package')
             },
         },
         server: {

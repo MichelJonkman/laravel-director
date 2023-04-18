@@ -16,7 +16,7 @@
         "noEmit": true,
         "baseUrl": "./",
         "paths": {
-            "~/*": ["resources/*"]
+            "~/*": ["resources/package/*"]
         }
     },
     "exclude": ["node_modules"]
