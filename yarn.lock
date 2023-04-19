@@ -136,7 +136,7 @@
     lodash.clonedeep "^4.5.0"
     lodash.isequal "^4.5.0"
 
-"@micheljonkman/laravel-director@link:./resources/npm":
+"@micheljonkman/laravel-director@link:./resources/package":
   version "0.0.0"
   uid ""
 

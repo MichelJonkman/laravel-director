@@ -10,15 +10,18 @@
 import NavItem from "./NavItem.vue";
 import {MenuInterface} from "~/js/Interfaces/Menu/MenuInterface";
 import {ElementInterface} from "~/js/Interfaces/Menu/Elements/ElementInterface";
-import {getUrl} from "~/npm/js/helpers";
+import {getUrl} from "~/js/helpers";
 import {LinkInterface} from "~/js/Interfaces/Menu/Elements/LinkInterface";
 import {GroupElementInterface} from "~/js/Interfaces/Menu/Elements/GroupElementInterface";
 import {MenuElementsInterface} from "~/js/Interfaces/Menu/MenuElementsInterface";
 import {router} from "@inertiajs/vue3";
+import {Director} from "~/js/director";
 
 const {menu} = defineProps<{
     menu: MenuInterface
 }>();
+
+Director.registerComponents(import.meta.glob('./Buttons/**/*.vue'));
 
 menu.elements = {};
 for (const [name, element] of Object.entries(menu.children)) {

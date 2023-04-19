@@ -45,7 +45,7 @@ class RootElement extends Element implements RootElementInterface
     }
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
+     * @template-covariant T of ElementInterface
      *
      * @param  class-string<T>  $elementClass
      *
@@ -102,7 +102,7 @@ class RootElement extends Element implements RootElementInterface
     }
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
+     * @template-covariant T of ElementInterface
      *
      * @param  class-string<T>|null  $elementClass  Use this to make the IDE understand what element it returns
      *
