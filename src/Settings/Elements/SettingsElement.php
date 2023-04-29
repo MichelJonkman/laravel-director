@@ -18,7 +18,7 @@ class SettingsElement extends Element implements SettingsElementInterface
     {
         return Vite::useHotFileFor(Director::BUILD_HOT_FILE, function () {
             return Vite::asset(
-                "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/$this->typeName.vue",
+                "resources/package/js/Components/Settings/Elements/$this->typeName.vue",
                 Director::BUILD_DIRECTORY
             );
         });
