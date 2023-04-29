@@ -15,5 +15,6 @@ class DirectorServiceProvider extends AggregateServiceProvider
         ViewServiceProvider::class,
         MenuServiceProvider::class,
         DatabaseServiceProvider::class,
+        MacroServiceProvider::class,
     ];
 }
