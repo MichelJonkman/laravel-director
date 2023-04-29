@@ -6,21 +6,36 @@ namespace MichelJonkman\Director\Element\Elements;
 use Illuminate\Support\Facades\Validator;
 use JsonSerializable;
 use MichelJonkman\Director\Element\Elements\Traits\HasChildrenInterface;
+use MichelJonkman\Director\Exceptions\Element\ElementPropertyDoesNotExistException;
 use MichelJonkman\Director\Exceptions\Element\ElementValidationException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 
 class Element implements JsonSerializable, ElementInterface
 {
 
-    protected string               $name;
-    protected RootElementInterface $root;
-    protected ?int                 $position = null;
-    protected ?HasChildrenInterface $parent = null;
+    protected string                $name;
+    protected RootElementInterface  $root;
+    protected ?int                  $position = null;
+    protected ?HasChildrenInterface $parent   = null;
 
-    public function __construct(string $name, RootElementInterface $root)
+    /**
+     * @throws ElementPropertyDoesNotExistException
+     */
+    public function __construct(string $name, RootElementInterface $root, array $properties = [])
     {
         $this->name = $name;
         $this->root = $root;
+
+        foreach ($properties as $property => $value) {
+            $method = 'set'.ucfirst($property);
+
+            if (!method_exists($this, $method)) {
+                $classname = get_class($this);
+                throw new ElementPropertyDoesNotExistException("Set method $method does not exist on $classname");
+            }
+
+            call_user_func([$this, $method], $value);
+        }
     }
 
     public function getName(): ?string

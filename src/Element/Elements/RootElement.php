@@ -53,9 +53,9 @@ class RootElement extends Element implements RootElementInterface
      * @throws InvalidElementException
      * @throws MissingElementException
      */
-    public function addElement(string $name, mixed $elementClass): ElementInterface
+    public function addElement(string $name, mixed $elementClass, array $properties = []): ElementInterface
     {
-        $element = $this->initElement($name, $elementClass);
+        $element = $this->initElement($name, $elementClass, $properties);
 
         $this->elements[$name] = $element;
         $this->addChild($element);
@@ -66,10 +66,11 @@ class RootElement extends Element implements RootElementInterface
     /**
      * @throws InvalidElementException
      */
-    private function initElement(string $name, mixed $elementClass): ElementInterface {
+    private function initElement(string $name, mixed $elementClass, array $properties = []): ElementInterface {
         $element = app($elementClass, [
             'name' => $name,
-            'root' => $this
+            'root' => $this,
+            'properties' => $properties
         ]);
 
         $this->verifyElement($element);
