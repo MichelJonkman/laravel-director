@@ -16,7 +16,7 @@ interface RootElementInterface extends ElementInterface, HasChildrenInterface, J
     public function jsonSerialize(): array;
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
+     * @template-covariant T of ElementInterface
      *
      * @param  class-string<T>  $elementClass
      *
@@ -24,7 +24,7 @@ interface RootElementInterface extends ElementInterface, HasChildrenInterface, J
      * @throws InvalidElementException
      * @throws MissingElementException
      */
-    public function addElement(string $name, mixed $elementClass): ElementInterface;
+    public function addElement(string $name, mixed $elementClass, array $properties = []): ElementInterface;
 
     /**
      * @throws MissingElementException
@@ -32,7 +32,7 @@ interface RootElementInterface extends ElementInterface, HasChildrenInterface, J
     public function removeElement(string $name): static;
 
     /**
-     * @template-covariant T of MichelJonkman\Director\Element\Elements\ElementInterface
+     * @template-covariant T of ElementInterface
      *
      * @param  class-string<T>|null  $elementClass  Use this to make the IDE understand what element it returns
      *

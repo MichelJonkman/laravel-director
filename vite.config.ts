@@ -5,9 +5,10 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 import svgLoader from 'vite-svg-loader';
 import path from "path";
 import mkcert from 'vite-plugin-mkcert';
+import DefineOptions from 'unplugin-vue-define-options/vite'
 
 /** @type {import('vite').UserConfig} */
-export default defineConfig(({ command, mode, ssrBuild }) => {
+export default defineConfig(({ command, mode }) => {
     const env = loadEnv(mode, process.cwd());
 
     const extraPlugins = [];
@@ -41,6 +42,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 buildDirectory: 'director/director'
             }),
             svgLoader(),
+            DefineOptions(),
             ...extraPlugins
         ],
         css: {

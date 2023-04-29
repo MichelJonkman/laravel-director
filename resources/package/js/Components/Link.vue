@@ -8,20 +8,20 @@
 
 const {href, target} = defineProps<{
     href: string;
-    target: string|null;
+    target?: string;
 }>();
 
 let element = 'InertiaLink';
 
-if(target !== '_self' && target !== null) {
+if(target !== '_self' && target !== null && target !== undefined) {
     element = 'a';
 }
 else {
     try {
-        const current = new URL(window.location.href);
-        const target = new URL(href.replace(/^(https?:\/\/)?(\/\/)?/, 'https://'));
+        const currentUrl = new URL(window.location.href);
+        const targetUrl = new URL(href.replace(/^(https?:\/\/)?(\/\/)?/, 'https://'));
 
-        if(current.origin !== target.origin) {
+        if(currentUrl.origin !== targetUrl.origin) {
             element = 'a';
         }
     }

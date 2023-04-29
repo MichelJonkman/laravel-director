@@ -44,7 +44,7 @@ router.on('navigate', () => {
     const url = getUrl();
 
     for (const element of links) {
-        if (element.url === url) {
+        if (url.startsWith(element.url)) {
             element.active = true;
             continue;
         }

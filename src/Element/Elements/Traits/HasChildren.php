@@ -113,7 +113,7 @@ trait HasChildren
     {
         $array = parent::toArray();
 
-        foreach ($array['children'] as &$child) {
+        foreach ($array['children'] ?? [] as &$child) {
             $child = $child->toArray();
         }
 

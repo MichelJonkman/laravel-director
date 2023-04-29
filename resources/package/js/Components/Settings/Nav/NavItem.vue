@@ -1,5 +1,5 @@
 <template>
-    <li :class="element.classes" :id="'settings-' + element.name.replace('.', '-')" :data-name="element.name">
+    <li class="nav-item" :class="element.classes" :id="'settings-' + element.name.replace('.', '-')" :data-name="element.name">
         <Component v-if="component" :is="component.default" :element="element"/>
     </li>
 </template>

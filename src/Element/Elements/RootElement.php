@@ -31,7 +31,7 @@ class RootElement extends Element implements RootElementInterface
         return $this->getChildren();
     }
 
-    public function  toArray(): array
+    public function toArray(): array
     {
         $children = $this->getSorted();
 

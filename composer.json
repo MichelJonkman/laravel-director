@@ -17,11 +17,10 @@
     ],
     "require": {
         "php": "^8.1",
-        "laravel/framework": "^10.0",
         "inertiajs/inertia-laravel": "^0.6.3",
-        "micheljonkman/laravel-dbal-schema": "^0.1.0"
-    },
-    "require-dev": {
+        "laravel/framework": "^10.0",
+        "micheljonkman/laravel-dbal-schema": "^0.1.0",
+        "tightenco/ziggy": "^1.5"
     },
     "autoload": {
         "psr-4": {

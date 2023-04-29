@@ -16,9 +16,13 @@ class SettingsServiceProvider extends ServiceProvider
     public function boot(Director $director): void
     {
         $director->settings()->modify('director', function (RootSettingsElement $settings) {
-            $settings->addElement('test', TextElement::class, [
-                'text' => 'testing123'
-            ]);
+            $settings->addPage('index', 'General')->addChildren(
+                [
+                    $settings->addElement('test', TextElement::class, [
+                        'text' => 'testing123'
+                    ])
+                ]
+            );
         });
     }
 }

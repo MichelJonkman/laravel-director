@@ -2,12 +2,16 @@
 
 namespace MichelJonkman\Director\Settings\Elements;
 
+use Illuminate\Support\Facades\Vite;
+use Illuminate\Support\Str;
+use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Element\Elements\Traits\HasChildren;
 
-class PageElement extends SettingsElement implements PageElementsInterface
+class PageElement extends SettingsElement implements PageElementInterface
 {
     use HasChildren;
 
+    protected string $typeName = 'PageElement';
     protected ?string $title = null;
 
     public function getTitle(): ?string
@@ -22,17 +26,24 @@ class PageElement extends SettingsElement implements PageElementsInterface
         return $this;
     }
 
+    public function getSlug(): ?string
+    {
+        return Str::slug($this->name);
+    }
+
     public function getData(): array
     {
         return array_merge(parent::getData(), [
-            'title' => $this->getTitle()
+            'title' => $this->getTitle(),
+            'slug' => $this->getSlug()
         ]);
     }
 
     public function getValidationRules(): array
     {
         return array_merge(parent::getValidationRules(), [
-            'title' => 'required'
+            'title' => 'required',
+            'slug' => 'required'
         ]);
     }
 }

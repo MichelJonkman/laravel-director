@@ -11,16 +11,17 @@ use MichelJonkman\Director\Http\Controllers\Controller;
 /**
  *
  */
-class OverviewController extends Controller
+class PageController extends Controller
 {
     /**
      * @throws ElementValidationException
      * @throws MissingModificationException
      */
-    public function __invoke()
+    public function __invoke(string $slug = null)
     {
-        return Inertia::render('Settings/Overview', [
-            'settings' => Director::settings()->getMenu()
+        return Inertia::render('Settings/Page', [
+            'settings' => Director::settings()->getMenu(),
+            'slug' => $slug
         ]);
     }
 }

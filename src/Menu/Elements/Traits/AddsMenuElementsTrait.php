@@ -9,6 +9,16 @@ use MichelJonkman\Director\Menu\Elements\LinkButton;
 
 trait AddsMenuElementsTrait
 {
+
+    /**
+     * @template-covariant T of ElementInterface
+     *
+     * @param  class-string<T>  $elementClass
+     *
+     * @return T
+     * @throws InvalidElementException
+     * @throws MissingElementException
+     */
     abstract public function addElement(string $name, mixed $elementClass): ElementInterface;
 
     /**
