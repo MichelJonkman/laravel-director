@@ -9,11 +9,13 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Env;
 use MichelJonkman\Director\Exceptions\PublishException;
 use MichelJonkman\Director\Menu\MenuManager;
+use MichelJonkman\Director\Settings\SettingsManager;
 
 class Director
 {
     /** @var string The path that Vite builds to relative to the public folder */
     public const BUILD_DIRECTORY = 'director/director';
+    public const BUILD_HOT_FILE = 'director.hot';
 
     protected array $publicPublishes = [];
 
@@ -70,6 +72,16 @@ class Director
     {
         return $this->normalizeCachePath('APP_MENU_CACHE', 'cache/menu.php');
     }
+
+    /**
+     * Returns a SettingsManager instance for easy access
+     * @throws BindingResolutionException
+     */
+    public function settings(): SettingsManager
+    {
+        return $this->laravel->make(SettingsManager::class);
+    }
+
 
     /**
      * Normalize a relative or absolute path to a cache file.
