@@ -1,7 +1,7 @@
 <template>
-    <li class="nav-item" :class="element.classes" :id="'settings-menu-' + element.name.replace('.', '-')" :data-name="element.name">
+    <div class="settings-item" :class="element.classes" :id="'settings-' + element.name.replace('.', '-')" :data-name="element.name">
         <Component v-if="component" :is="component.default" :element="element"/>
-    </li>
+    </div>
 </template>
 
 <script lang="ts" setup async>
@@ -19,9 +19,6 @@ if (element.typeName !== 'Element') {
 
 </script>
 
+<style scoped>
 
-<style lang="scss" scoped>
-:deep(.nav-link) {
-    color: $white;
-}
 </style>

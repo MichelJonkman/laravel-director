@@ -21,14 +21,9 @@ const {settings} = defineProps<{
 
 Director.registerComponents(import.meta.glob('./Buttons/**/*.vue'));
 
-settings.elements = {};
-for (const [name, element] of Object.entries(settings.children)) {
-    settings.elements[name] = element;
-}
-
 const pages: PageElementInterface[] = [];
 
-for (const element of Object.values<ElementInterface>(settings.elements)) {
+for (const element of Object.values<ElementInterface>(settings.children)) {
     if (element.hasOwnProperty('isPage') && (<PageElementInterface>element).isPage) {
         pages.push(<PageElementInterface>element);
     }

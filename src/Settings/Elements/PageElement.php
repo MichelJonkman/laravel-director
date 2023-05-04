@@ -37,7 +37,8 @@ class PageElement extends SettingsElement implements PageElementInterface
             'title' => $this->getTitle(),
             'slug' => $this->getSlug(),
             'isPage' => true,
-            'active' => false
+            'active' => false,
+            'children' => $this->getChildren()
         ]);
     }
 
@@ -47,7 +48,8 @@ class PageElement extends SettingsElement implements PageElementInterface
             'title' => 'required',
             'slug' => 'required',
             'isPage' => 'required',
-            'active' => 'required'
+            'active' => 'required',
+            'children' => 'required|array'
         ]);
     }
 }
