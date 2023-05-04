@@ -1,5 +1,5 @@
 <template>
-    <Link :href="route('director.settings.page', {slug: element.slug})" :title="element.title" class="nav-link" aria-current="page">
+    <Link :href="route('director.settings.page', {slug: element.slug})" :title="element.title" class="nav-link" :class="{active: element.active}" aria-current="page">
         {{ element.title }}
     </Link>
 </template>

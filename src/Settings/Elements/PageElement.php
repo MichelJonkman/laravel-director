@@ -35,7 +35,9 @@ class PageElement extends SettingsElement implements PageElementInterface
     {
         return array_merge(parent::getData(), [
             'title' => $this->getTitle(),
-            'slug' => $this->getSlug()
+            'slug' => $this->getSlug(),
+            'isPage' => true,
+            'active' => false
         ]);
     }
 
@@ -43,7 +45,9 @@ class PageElement extends SettingsElement implements PageElementInterface
     {
         return array_merge(parent::getValidationRules(), [
             'title' => 'required',
-            'slug' => 'required'
+            'slug' => 'required',
+            'isPage' => 'required',
+            'active' => 'required'
         ]);
     }
 }

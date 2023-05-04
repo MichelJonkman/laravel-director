@@ -23,6 +23,13 @@ class SettingsServiceProvider extends ServiceProvider
                     ])
                 ]
             );
+            $settings->addPage('testing', 'Testing!')->addChildren(
+                [
+                    $settings->addElement('test', TextElement::class, [
+                        'text' => 'Nieuwe testing! :O'
+                    ])
+                ]
+            );
         });
     }
 }
