@@ -2,8 +2,7 @@
 
 namespace MichelJonkman\Director\Menu\Elements;
 
-
-use MichelJonkman\Director\Director;
+use Director;
 use MichelJonkman\Director\Element\Elements\Element;
 use Vite;
 
@@ -16,7 +15,13 @@ class MenuElement extends Element implements MenuElementInterface
 
     public function getComponentUrl(): string
     {
-        return Vite::useHotFile(public_path('director.hot'))->asset("resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/$this->typeName.vue", Director::BUILD_DIRECTORY);
+        return Vite::useHotFileFor(
+            Director::getBuildHotFile(),
+            fn() => Vite::asset(
+                "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/$this->typeName.vue",
+                Director::getBuildDirectory()
+            )
+        );
     }
 
     public function getTypeName(): string
@@ -77,7 +82,6 @@ class MenuElement extends Element implements MenuElementInterface
 
     public function getData(): array
     {
-
         return array_merge(parent::getData(), [
             'typeName' => $this->getTypeName(),
             'componentUrl' => $this->getComponentUrl(),

@@ -12,7 +12,7 @@ class MacroServiceProvider extends ServiceProvider
         Vite::macro('useHotFileFor', function (string $hotfile, callable $func) {
             $oldFile = Vite::hotFile();
             Vite::useHotFile($hotfile);
-            $return = $func();
+            $return = $func($this);
             Vite::useHotFile($oldFile);
 
             return $return;

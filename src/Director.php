@@ -15,7 +15,7 @@ class Director
 {
     /** @var string The path that Vite builds to relative to the public folder */
     public const BUILD_DIRECTORY = 'director/director';
-    public const BUILD_HOT_FILE = 'director.hot';
+    public const BUILD_HOT_FILE  = 'director.hot';
 
     protected array $publicPublishes = [];
 
@@ -93,5 +93,15 @@ class Director
         }
 
         return $this->laravel->basePath($env);
+    }
+
+    public function getBuildHotFile()
+    {
+        return self::BUILD_HOT_FILE;
+    }
+
+    public function getBuildDirectory()
+    {
+        return self::BUILD_DIRECTORY;
     }
 }
