@@ -1,7 +1,5 @@
 <template>
-    <span>
-        {{ element.text }}
-    </span>
+    <span v-html="element.html"></span>
 </template>
 
 <script lang="ts" setup async>

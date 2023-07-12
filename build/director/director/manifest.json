@@ -13,7 +13,7 @@
     "file": "assets/runtime-core.esm-bundler-f48f1f7d.js"
   },
   "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue": {
-    "file": "assets/GroupElement-2dfa5ea0.js",
+    "file": "assets/GroupElement-77d37b3b.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -33,7 +33,7 @@
     "src": "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue"
   },
   "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue": {
-    "file": "assets/LinkButton-657ba784.js",
+    "file": "assets/LinkButton-f0608da2.js",
     "imports": [
       "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-398ee518.js",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -79,7 +79,7 @@
     "src": "resources/package/js/Icons/init.ts"
   },
   "resources/package/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample-92d6404f.js",
+    "file": "assets/FieldtypeExample-f5f56d4f.js",
     "imports": [
       "_director-5dc358cf.js",
       "resources/package/js/app.ts",
@@ -89,7 +89,7 @@
     "src": "resources/package/js/Pages/FieldtypeExample.vue"
   },
   "resources/package/js/Pages/Index.vue": {
-    "file": "assets/Index-08469326.js",
+    "file": "assets/Index-959d263d.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -98,18 +98,42 @@
     "isDynamicEntry": true,
     "src": "resources/package/js/Pages/Index.vue"
   },
-  "resources/package/js/Pages/Settings/Overview.vue": {
-    "file": "assets/Overview-a0753055.js",
+  "resources/package/js/Pages/Settings/Components/NavItem.css": {
+    "file": "assets/NavItem-6de10d82.css",
+    "src": "resources/package/js/Pages/Settings/Components/NavItem.css"
+  },
+  "resources/package/js/Pages/Settings/Components/NavItem.vue": {
+    "css": [
+      "assets/NavItem-6de10d82.css"
+    ],
+    "file": "assets/NavItem-c872d1af.js",
     "imports": [
-      "resources/package/js/app.ts",
+      "_director-5dc358cf.js",
       "_runtime-core.esm-bundler-f48f1f7d.js",
-      "_director-5dc358cf.js"
+      "resources/package/js/app.ts"
     ],
     "isDynamicEntry": true,
-    "src": "resources/package/js/Pages/Settings/Overview.vue"
+    "src": "resources/package/js/Pages/Settings/Components/NavItem.vue"
+  },
+  "resources/package/js/Pages/Settings/Page.css": {
+    "file": "assets/Page-3e85474a.css",
+    "src": "resources/package/js/Pages/Settings/Page.css"
+  },
+  "resources/package/js/Pages/Settings/Page.vue": {
+    "css": [
+      "assets/Page-3e85474a.css"
+    ],
+    "file": "assets/Page-59ca6020.js",
+    "imports": [
+      "resources/package/js/app.ts",
+      "_director-5dc358cf.js",
+      "_runtime-core.esm-bundler-f48f1f7d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/package/js/Pages/Settings/Page.vue"
   },
   "resources/package/js/Pages/Test.vue": {
-    "file": "assets/Test-3b5aff16.js",
+    "file": "assets/Test-eb3103c7.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -133,10 +157,11 @@
       "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue",
       "resources/package/js/Pages/FieldtypeExample.vue",
       "resources/package/js/Pages/Index.vue",
-      "resources/package/js/Pages/Settings/Overview.vue",
+      "resources/package/js/Pages/Settings/Components/NavItem.vue",
+      "resources/package/js/Pages/Settings/Page.vue",
       "resources/package/js/Pages/Test.vue"
     ],
-    "file": "assets/app-4ab29fb0.js",
+    "file": "assets/app-8709c197.js",
     "imports": [
       "_director-5dc358cf.js",
       "_runtime-core.esm-bundler-f48f1f7d.js"

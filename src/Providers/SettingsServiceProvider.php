@@ -6,7 +6,7 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\ServiceProvider;
 use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Settings\Elements\RootSettingsElement;
-use MichelJonkman\Director\Settings\Elements\TextElement;
+use MichelJonkman\Director\Settings\Elements\HtmlElement;
 
 class SettingsServiceProvider extends ServiceProvider
 {
@@ -18,15 +18,15 @@ class SettingsServiceProvider extends ServiceProvider
         $director->settings()->modify('director', function (RootSettingsElement $settings) {
             $settings->addPage('index', 'General')->addChildren(
                 [
-                    $settings->addElement('test', TextElement::class, [
-                        'text' => 'testing123'
+                    $settings->addElement('test', HtmlElement::class, [
+                        'html' => '<h1>dinges</h1>'
                     ])
                 ]
             );
             $settings->addPage('testing', 'Testing!')->addChildren(
                 [
-                    $settings->addElement('test', TextElement::class, [
-                        'text' => 'Nieuwe testing! :O'
+                    $settings->addElement('test', HtmlElement::class, [
+                        'html' => 'Nieuwe testing! :O'
                     ])
                 ]
             );
