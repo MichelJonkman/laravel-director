@@ -3,6 +3,7 @@ import {createInertiaApp, Link, Head} from '@inertiajs/vue3';
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import '@micheljonkman/laravel-director/scss/app.scss';
 import Dashboard from "~/js/Layouts/Dashboard.vue";
+import {Director} from "~/js/director";
 
 createInertiaApp({
     // @ts-ignore
@@ -20,3 +21,5 @@ createInertiaApp({
             ?.mount(el);
     },
 });
+
+Director.registerComponents(import.meta.glob('./Components/Settings/Elements/**/*.vue'));

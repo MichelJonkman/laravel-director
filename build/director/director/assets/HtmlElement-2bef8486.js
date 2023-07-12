@@ -1,0 +1,1 @@
+import{o as n,v as t,x as l}from"./runtime-core.esm-bundler-f48f1f7d.js";const o=["innerHTML"],a=n({__name:"HtmlElement",props:{element:null},setup(e){return(m,r)=>(t(),l("span",{innerHTML:e.element.html},null,8,o))}});export{a as default};

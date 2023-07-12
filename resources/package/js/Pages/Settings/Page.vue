@@ -33,7 +33,6 @@ for (const element of Object.values<ElementInterface>(settings.children)) {
 }
 
 let currentPage = <PageElementInterface>pages[slug];
-console.log(settings);
 
 </script>
 

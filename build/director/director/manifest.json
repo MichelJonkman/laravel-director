@@ -6,14 +6,23 @@
       "_runtime-core.esm-bundler-f48f1f7d.js"
     ]
   },
+  "_Link.vue_vue_type_script_setup_true_async_true_lang-df8553bb.js": {
+    "file": "assets/Link.vue_vue_type_script_setup_true_async_true_lang-df8553bb.js",
+    "imports": [
+      "_runtime-core.esm-bundler-f48f1f7d.js"
+    ]
+  },
   "_director-5dc358cf.js": {
     "file": "assets/director-5dc358cf.js"
+  },
+  "_index.m-4059d5ca.js": {
+    "file": "assets/index.m-4059d5ca.js"
   },
   "_runtime-core.esm-bundler-f48f1f7d.js": {
     "file": "assets/runtime-core.esm-bundler-f48f1f7d.js"
   },
   "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue": {
-    "file": "assets/GroupElement-77d37b3b.js",
+    "file": "assets/GroupElement-1d17c188.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -33,9 +42,10 @@
     "src": "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/IconTextElement.vue"
   },
   "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/LinkButton.vue": {
-    "file": "assets/LinkButton-f0608da2.js",
+    "file": "assets/LinkButton-7b1b64da.js",
     "imports": [
       "_IconUrl.vue_vue_type_script_setup_true_async_true_lang-398ee518.js",
+      "_Link.vue_vue_type_script_setup_true_async_true_lang-df8553bb.js",
       "_runtime-core.esm-bundler-f48f1f7d.js",
       "_director-5dc358cf.js"
     ],
@@ -49,6 +59,24 @@
     ],
     "isDynamicEntry": true,
     "src": "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/TextElement.vue"
+  },
+  "resources/package/js/Components/Settings/Elements/HtmlElement.vue": {
+    "file": "assets/HtmlElement-2bef8486.js",
+    "imports": [
+      "_runtime-core.esm-bundler-f48f1f7d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/package/js/Components/Settings/Elements/HtmlElement.vue"
+  },
+  "resources/package/js/Components/Settings/Elements/PageElement.vue": {
+    "file": "assets/PageElement-ecab8a01.js",
+    "imports": [
+      "_Link.vue_vue_type_script_setup_true_async_true_lang-df8553bb.js",
+      "_index.m-4059d5ca.js",
+      "_runtime-core.esm-bundler-f48f1f7d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/package/js/Components/Settings/Elements/PageElement.vue"
   },
   "resources/package/js/Icons/gear-fill.svg": {
     "file": "assets/gear-fill-b53e72d3.js",
@@ -79,7 +107,7 @@
     "src": "resources/package/js/Icons/init.ts"
   },
   "resources/package/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample-f5f56d4f.js",
+    "file": "assets/FieldtypeExample-edfdcae1.js",
     "imports": [
       "_director-5dc358cf.js",
       "resources/package/js/app.ts",
@@ -89,7 +117,7 @@
     "src": "resources/package/js/Pages/FieldtypeExample.vue"
   },
   "resources/package/js/Pages/Index.vue": {
-    "file": "assets/Index-959d263d.js",
+    "file": "assets/Index-06e39fa8.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -106,7 +134,7 @@
     "css": [
       "assets/NavItem-6de10d82.css"
     ],
-    "file": "assets/NavItem-c872d1af.js",
+    "file": "assets/NavItem-bf4ed048.js",
     "imports": [
       "_director-5dc358cf.js",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -123,17 +151,18 @@
     "css": [
       "assets/Page-3e85474a.css"
     ],
-    "file": "assets/Page-59ca6020.js",
+    "file": "assets/Page-d35c771d.js",
     "imports": [
       "resources/package/js/app.ts",
       "_director-5dc358cf.js",
-      "_runtime-core.esm-bundler-f48f1f7d.js"
+      "_runtime-core.esm-bundler-f48f1f7d.js",
+      "_index.m-4059d5ca.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/package/js/Pages/Settings/Page.vue"
   },
   "resources/package/js/Pages/Test.vue": {
-    "file": "assets/Test-eb3103c7.js",
+    "file": "assets/Test-f4f4d25f.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -159,9 +188,11 @@
       "resources/package/js/Pages/Index.vue",
       "resources/package/js/Pages/Settings/Components/NavItem.vue",
       "resources/package/js/Pages/Settings/Page.vue",
-      "resources/package/js/Pages/Test.vue"
+      "resources/package/js/Pages/Test.vue",
+      "resources/package/js/Components/Settings/Elements/HtmlElement.vue",
+      "resources/package/js/Components/Settings/Elements/PageElement.vue"
     ],
-    "file": "assets/app-8709c197.js",
+    "file": "assets/app-4afded49.js",
     "imports": [
       "_director-5dc358cf.js",
       "_runtime-core.esm-bundler-f48f1f7d.js"
