@@ -4,10 +4,10 @@
 
 <script lang="ts" setup async>
 
-import {SettingsElementsInterface} from "~/js/Interfaces/Settings/SettingsElementsInterface";
+import {HtmlElementInterface} from "~/js/Interfaces/Settings/Elements/HtmlElementInterface";
 
 const {element} = defineProps<{
-    element: SettingsElementsInterface;
+    element: HtmlElementInterface;
 }>();
 </script>
 

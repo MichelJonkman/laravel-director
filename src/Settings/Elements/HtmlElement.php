@@ -6,7 +6,7 @@ class HtmlElement extends SettingsElement implements HtmlElementInterface
 {
     protected string $typeName = 'HtmlElement';
 
-    protected ?string $html = null;
+    protected string $html = '';
 
     public function getHtml(): ?string
     {

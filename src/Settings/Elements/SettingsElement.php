@@ -18,10 +18,15 @@ class SettingsElement extends Element implements SettingsElementInterface
     {
         return Vite::useHotFileFor(Director::BUILD_HOT_FILE, function () {
             return Vite::asset(
-                "resources/package/js/Components/Settings/Elements/$this->typeName.vue",
+                $this->getComponentAssetUrl(),
                 Director::BUILD_DIRECTORY
             );
         });
+    }
+
+    protected function getComponentAssetUrl(): string
+    {
+        return "resources/package/js/Components/Settings/Elements/$this->typeName.vue";
     }
 
     public function getTypeName(): string

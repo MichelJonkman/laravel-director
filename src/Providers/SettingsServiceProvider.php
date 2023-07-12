@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use MichelJonkman\Director\Director;
 use MichelJonkman\Director\Settings\Elements\RootSettingsElement;
 use MichelJonkman\Director\Settings\Elements\HtmlElement;
+use MichelJonkman\Director\Settings\Elements\Settings\TextSetting;
 
 class SettingsServiceProvider extends ServiceProvider
 {
@@ -20,7 +21,11 @@ class SettingsServiceProvider extends ServiceProvider
                 [
                     $settings->addElement('test', HtmlElement::class, [
                         'html' => '<h1>dinges</h1>'
-                    ])
+                    ]),
+                    $settings->addElement('example.text', TextSetting::class, [
+                        'default' => 'Mooie default!',
+                        'label' => 'Labeltje'
+                    ]),
                 ]
             );
             $settings->addPage('testing', 'Testing!')->addChildren(

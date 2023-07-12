@@ -22,7 +22,7 @@
     "file": "assets/runtime-core.esm-bundler-f48f1f7d.js"
   },
   "resources/package/js/Components/Layout/Dashboard/Sidebar/Nav/Buttons/GroupElement.vue": {
-    "file": "assets/GroupElement-1d17c188.js",
+    "file": "assets/GroupElement-bf62f473.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -78,6 +78,14 @@
     "isDynamicEntry": true,
     "src": "resources/package/js/Components/Settings/Elements/PageElement.vue"
   },
+  "resources/package/js/Components/Settings/Elements/Settings/TextSetting.vue": {
+    "file": "assets/TextSetting-97ec91ff.js",
+    "imports": [
+      "_runtime-core.esm-bundler-f48f1f7d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/package/js/Components/Settings/Elements/Settings/TextSetting.vue"
+  },
   "resources/package/js/Icons/gear-fill.svg": {
     "file": "assets/gear-fill-b53e72d3.js",
     "imports": [
@@ -107,7 +115,7 @@
     "src": "resources/package/js/Icons/init.ts"
   },
   "resources/package/js/Pages/FieldtypeExample.vue": {
-    "file": "assets/FieldtypeExample-edfdcae1.js",
+    "file": "assets/FieldtypeExample-8f4d9376.js",
     "imports": [
       "_director-5dc358cf.js",
       "resources/package/js/app.ts",
@@ -117,7 +125,7 @@
     "src": "resources/package/js/Pages/FieldtypeExample.vue"
   },
   "resources/package/js/Pages/Index.vue": {
-    "file": "assets/Index-06e39fa8.js",
+    "file": "assets/Index-1c236cd0.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -134,7 +142,7 @@
     "css": [
       "assets/NavItem-6de10d82.css"
     ],
-    "file": "assets/NavItem-bf4ed048.js",
+    "file": "assets/NavItem-04deacbf.js",
     "imports": [
       "_director-5dc358cf.js",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -151,7 +159,7 @@
     "css": [
       "assets/Page-3e85474a.css"
     ],
-    "file": "assets/Page-d35c771d.js",
+    "file": "assets/Page-0eae1231.js",
     "imports": [
       "resources/package/js/app.ts",
       "_director-5dc358cf.js",
@@ -162,7 +170,7 @@
     "src": "resources/package/js/Pages/Settings/Page.vue"
   },
   "resources/package/js/Pages/Test.vue": {
-    "file": "assets/Test-f4f4d25f.js",
+    "file": "assets/Test-7076c7c6.js",
     "imports": [
       "resources/package/js/app.ts",
       "_runtime-core.esm-bundler-f48f1f7d.js",
@@ -190,9 +198,10 @@
       "resources/package/js/Pages/Settings/Page.vue",
       "resources/package/js/Pages/Test.vue",
       "resources/package/js/Components/Settings/Elements/HtmlElement.vue",
-      "resources/package/js/Components/Settings/Elements/PageElement.vue"
+      "resources/package/js/Components/Settings/Elements/PageElement.vue",
+      "resources/package/js/Components/Settings/Elements/Settings/TextSetting.vue"
     ],
-    "file": "assets/app-4afded49.js",
+    "file": "assets/app-0889cb35.js",
     "imports": [
       "_director-5dc358cf.js",
       "_runtime-core.esm-bundler-f48f1f7d.js"
