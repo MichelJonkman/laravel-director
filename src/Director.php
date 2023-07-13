@@ -7,6 +7,7 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Env;
+use MichelJonkman\DbalSchema\Schema;
 use MichelJonkman\Director\Exceptions\PublishException;
 use MichelJonkman\Director\Menu\MenuManager;
 use MichelJonkman\Director\Settings\SettingsManager;
@@ -80,6 +81,15 @@ class Director
     public function settings(): SettingsManager
     {
         return $this->laravel->make(SettingsManager::class);
+    }
+
+    /**
+     * Returns a Schema instance to add schema migration routes
+     * @throws BindingResolutionException
+     */
+    public function schema(): Schema
+    {
+        return $this->laravel->make(Schema::class);
     }
 
 
