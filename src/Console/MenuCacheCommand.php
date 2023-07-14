@@ -4,6 +4,7 @@ namespace MichelJonkman\Director\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Filesystem\Filesystem;
@@ -65,7 +66,7 @@ class MenuCacheCommand extends DirectorCommand
         $root = $this->getRoot();
 
         $this->files->put(
-            $this->director->getCachedMenuPath(),
+            $this->director->getCachedElementsPath(),
             $this->buildMenuCacheFile($root)
         );
 
@@ -73,11 +74,11 @@ class MenuCacheCommand extends DirectorCommand
     }
 
     /**
-     * @throws MissingModificationException
+     * @throws MissingModificationException|BindingResolutionException
      */
     public function getRoot(): RootMenuElementInterface
     {
-        return $this->director->menu()->getRoot();
+        return $this->director->menu()->modifyRoot();
     }
 
     /**

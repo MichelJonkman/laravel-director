@@ -32,12 +32,26 @@ abstract class SettingElement extends SettingsElement implements SettingElementI
         return $this->default;
     }
 
+    /**
+     * Returns the value, this step is used to for example: unserialize data that was stored in the database
+     */
+    public function get(string $value): mixed {
+        return $value;
+    }
+
+    /**
+     * Sets the value, this step is used to for example: serialize data to be stored in the database
+     */
+    public function set(mixed $value): string {
+        return $value;
+    }
+
     protected function getComponentAssetUrl(): string
     {
         return "resources/package/js/Components/Settings/Elements/Settings/$this->typeName.vue";
     }
 
-    protected function registerSetting(): void
+    public function registerSetting(): void
     {
         Director::settings()->registerSetting($this);
     }

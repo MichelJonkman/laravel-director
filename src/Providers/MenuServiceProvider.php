@@ -38,9 +38,9 @@ class MenuServiceProvider extends ServiceProvider
 
     protected function registerCache(Director $director)
     {
-        if ($director->menuIsCached()) {
+        if ($director->elementsAreCached()) {
             $this->app->booted(function () use ($director) {
-                require $director->getCachedMenuPath();
+                require $director->getCachedElementsPath();
             });
         }
     }

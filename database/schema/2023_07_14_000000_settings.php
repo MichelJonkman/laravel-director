@@ -6,12 +6,14 @@ use MichelJonkman\DbalSchema\Database\Table;
 return new class extends DeclarativeSchema {
     function declare(): Table
     {
-        $table = new Table('test');
+        $table = new Table('settings');
 
         $table->addId();
 
         $table->addColumn('name', 'string');
-        $table->addColumn('content', 'string');
+        $table->addColumn('value', 'string', [
+            'length' => 4294967295
+        ]);
 
         $table->addTimestamps();
 

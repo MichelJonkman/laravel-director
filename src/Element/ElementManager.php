@@ -14,9 +14,14 @@ class ElementManager
     /** @var ElementModification[] $modifications */
     protected array $modifications = [];
 
-    protected array $cachedMenu = [];
+    protected array $cachedElements = [];
 
-    public function __construct(protected Application $app, protected Director $director, protected RootElementInterface $rootElement) { }
+    public function __construct(
+        protected Application $app,
+        protected Director $director,
+        protected RootElementInterface $rootElement
+    ) {
+    }
 
     /**
      * Adds a modification function, this functions receives a ElementsBuilder instance
@@ -59,11 +64,13 @@ class ElementManager
      * Runs the modifications and returns the builder
      * @throws MissingModificationException
      */
-    public function getRoot(): RootElementInterface
+    public function modifyRoot(): RootElementInterface
     {
         foreach ($this->orderModifications() as $modification) {
             $modification($this->rootElement);
         }
+
+        $this->modifications = [];
 
         return $this->rootElement;
     }
@@ -72,19 +79,20 @@ class ElementManager
      * @throws MissingModificationException
      * @throws ElementValidationException
      */
-    public function getMenu(): array {
-        if($this->director->menuIsCached()) {
-            return $this->cachedMenu;
+    public function getElements(): array
+    {
+        if ($this->director->elementsAreCached()) {
+            return $this->cachedElements;
         }
 
-        return $this->getRoot()->toArray();
+        return $this->modifyRoot()->toArray();
     }
 
     /**
      * Used when in the menu cache file
      */
-    public function setMenuCache(array $cache): void
+    public function setElementsCache(array $cache): void
     {
-        $this->cachedMenu = $cache;
+        $this->cachedElements = $cache;
     }
 }

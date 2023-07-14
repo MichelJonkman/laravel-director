@@ -37,7 +37,7 @@ class MenuClearCommand extends DirectorCommand
      */
     public function handle(): void
     {
-        $this->files->delete($this->director->getCachedMenuPath());
+        $this->files->delete($this->director->getCachedElementsPath());
 
         $this->components->info('Menu cache cleared successfully.');
     }

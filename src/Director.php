@@ -64,14 +64,14 @@ class Director
         return $this->laravel->make(MenuManager::class);
     }
 
-    public function menuIsCached(): bool
+    public function elementsAreCached(): bool
     {
-        return $this->files->exists($this->getCachedMenuPath());
+        return $this->files->exists($this->getCachedElementsPath());
     }
 
-    public function getCachedMenuPath(): string
+    public function getCachedElementsPath(): string
     {
-        return $this->normalizeCachePath('APP_MENU_CACHE', 'cache/menu.php');
+        return $this->normalizeCachePath('APP_MENU_CACHE', 'cache/elements.php');
     }
 
     /**

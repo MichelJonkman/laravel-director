@@ -20,7 +20,7 @@ class PageController extends Controller
     public function __invoke(string $slug = null)
     {
         return Inertia::render('Settings/Page', [
-            'settings' => Director::settings()->getMenu(),
+            'settings' => Director::settings()->getElements(),
             'slug' => $slug
         ]);
     }
