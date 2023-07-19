@@ -7,8 +7,6 @@
 
             <button class="btn btn-primary">Save</button>
         </form>
-        <Toasts/>
-
     </div>
 </template>
 
@@ -22,8 +20,6 @@ import route from "ziggy-js";
 import {ElementInterface} from "~/js/Interfaces/Menu/Elements/ElementInterface";
 import {PageElementInterface} from "~/js/Interfaces/Settings/Elements/PageElementInterface";
 import SettingsItem from "~/js/Components/Settings/SettingsItem.vue";
-import {reactive} from "vue";
-import Toasts from "~/js/Components/General/Toasts.vue";
 
 defineOptions({layout: [Dashboard, Settings]});
 

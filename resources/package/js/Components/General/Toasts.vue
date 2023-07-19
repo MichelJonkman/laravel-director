@@ -1,17 +1,46 @@
 <template>
-    <div>
-        <div v-for="(type, message) in pageProps.flash.toast" :key="type" :class="'alert-' + type">
-            {{ message }}
+    <div class="toasts-container">
+        <div v-for="(toast, index) in toasts" :key="index" :class="'alert-' + toast.type" class="toast">
+            {{ toast.message }}
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import {usePage} from "@inertiajs/vue3";
+import {router, usePage} from "@inertiajs/vue3";
+import {ref} from "vue";
 
-let pageProps = usePage().props ?? {flash: {toast: {}}};
+let toasts = ref(getToasts());
+
+router.on('finish', () => {
+    toasts.value = [
+        ...toasts.value,
+        ...getToasts()
+    ];
+});
+
+function getToasts(): Toast[] {
+    return (<{ flash?: { toasts?: Toast[] } }>usePage().props)?.flash?.toasts ?? [];
+}
+
+interface Toast {
+    type: string;
+    message: string;
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.toasts-container {
+    position: fixed;
+    pointer-events: none;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+}
 
+.toast {
+    pointer-events: all;
+    background: white;
+    padding: 1rem;
+}
 </style>

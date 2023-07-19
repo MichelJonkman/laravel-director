@@ -24,7 +24,7 @@ class SaveController extends Controller
             $director->settings()->set($setting, $value);
         }
 
-        session()->flash('toast', ['success' => 'Successfully saved settings.']);
+        $director->toast('success', 'Successfully saved settings.');
 
         return redirect()->route('director.settings.page');
     }

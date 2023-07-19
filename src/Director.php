@@ -114,4 +114,15 @@ class Director
     {
         return self::BUILD_DIRECTORY;
     }
+
+    public function toast(string $type, string $message): void
+    {
+        session()->flash('toasts',
+            array_merge(session()->get('toasts', []), [
+                [
+                    'type' => $type,
+                    'message' => $message
+                ]
+            ]));
+    }
 }
