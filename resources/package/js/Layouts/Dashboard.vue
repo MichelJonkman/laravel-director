@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
 import Sidebar from "../Components/Layout/Dashboard/Sidebar.vue";
+import Toasts from "~/js/Components/General/Toasts.vue";
 </script>
 
 <style lang="scss" scoped>

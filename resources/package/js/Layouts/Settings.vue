@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-dashboard">
+    <div class="layout-settings">
         <div class="row h-100 g-0">
             <Sidebar/>
             <div class="col content">
@@ -14,7 +14,7 @@ import Sidebar from "../Components/Settings/Sidebar.vue";
 </script>
 
 <style lang="scss" scoped>
-.layout-dashboard {
+.layout-settings {
     height: 100vh;
 }
 </style>

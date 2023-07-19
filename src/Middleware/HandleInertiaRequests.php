@@ -46,7 +46,9 @@ class HandleInertiaRequests extends Middleware
         ];
 
         return array_merge(parent::share($request), $firstLoad, [
-
+            'flash' => [
+                'toast' => fn() => $request->session()->get('toast')
+            ]
         ]);
     }
 }
