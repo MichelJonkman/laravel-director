@@ -1,13 +1,17 @@
 <template>
-    <div>
-        <Suspense>
-            <SettingsItem v-for="(element, name) in currentPage.children" :element="element" :key="name"/>
-        </Suspense>
+    <div class="p-3">
+        <form @submit.prevent="form.post(route('director.settings.save', {slug: slug}))">
+            <Suspense>
+                <SettingsItem v-for="(element, name) in currentPage.children" :element="element" :key="name" v-model="form.settings [name]"/>
+            </Suspense>
+
+            <button class="btn btn-primary">Save</button>
+        </form>
     </div>
 </template>
 
 <script lang="ts" setup>
-import {usePage} from "@inertiajs/vue3";
+import {useForm, usePage} from "@inertiajs/vue3";
 import {SettingsInterface} from "~/js/Interfaces/Settings/SettingsInterface";
 import {defineOptions} from "unplugin-vue-define-options/macros";
 import Settings from "~/js/Layouts/Settings.vue";
@@ -16,6 +20,7 @@ import route from "ziggy-js";
 import {ElementInterface} from "~/js/Interfaces/Menu/Elements/ElementInterface";
 import {PageElementInterface} from "~/js/Interfaces/Settings/Elements/PageElementInterface";
 import SettingsItem from "~/js/Components/Settings/SettingsItem.vue";
+import {reactive} from "vue";
 
 defineOptions({layout: [Dashboard, Settings]});
 
@@ -33,6 +38,10 @@ for (const element of Object.values<ElementInterface>(settings.children)) {
 }
 
 let currentPage = <PageElementInterface>pages[slug];
+
+let form = useForm({
+    settings: {}
+});
 
 </script>
 

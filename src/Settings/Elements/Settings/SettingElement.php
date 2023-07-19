@@ -32,17 +32,35 @@ abstract class SettingElement extends SettingsElement implements SettingElementI
         return $this->default;
     }
 
+    public function getData(): array
+    {
+        return array_merge(parent::getData(), [
+            'default' => $this->getDefault(),
+            'value' => Director::settings()->get($this->name, $this->getDefault())
+        ]);
+    }
+
+    public function getValidationRules(): array
+    {
+        return array_merge(parent::getValidationRules(), [
+            'default' => 'nullable',
+            'value' => 'nullable'
+        ]);
+    }
+
     /**
      * Returns the value, this step is used to for example: unserialize data that was stored in the database
      */
-    public function get(string $value): mixed {
+    public function get(string $value): mixed
+    {
         return $value;
     }
 
     /**
      * Sets the value, this step is used to for example: serialize data to be stored in the database
      */
-    public function set(mixed $value): string {
+    public function set(mixed $value): string
+    {
         return $value;
     }
 
