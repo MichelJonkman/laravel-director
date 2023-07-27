@@ -8,24 +8,23 @@
 
 <script lang="ts" setup>
 import {router, usePage} from "@inertiajs/vue3";
-import {ref} from "vue";
+import {ToastInterface} from "~/js/Classes/Toasts/ToastInterface";
+import {Toast, toasts} from "~/js/Classes/Toasts/Toast";
 
-let toasts = ref(getToasts());
+initToasts(getToasts());
 
 router.on('finish', () => {
-    toasts.value = [
-        ...toasts.value,
-        ...getToasts()
-    ];
+    initToasts(getToasts());
 });
 
-function getToasts(): Toast[] {
-    return (<{ flash?: { toasts?: Toast[] } }>usePage().props)?.flash?.toasts ?? [];
+function getToasts(): ToastInterface[] {
+    return (<{ flash?: { toasts?: ToastInterface[] } }>usePage().props)?.flash?.toasts ?? [];
 }
 
-interface Toast {
-    type: string;
-    message: string;
+function initToasts(toasts: ToastInterface[]) {
+    for (const [index, toastData] of Object.entries(toasts)) {
+        Toast.new(toastData.type, toastData.message, toastData.ttl);
+    }
 }
 </script>
 

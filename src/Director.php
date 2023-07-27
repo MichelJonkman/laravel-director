@@ -16,7 +16,7 @@ class Director
 {
     /** @var string The path that Vite builds to relative to the public folder */
     public const BUILD_DIRECTORY = 'director/director';
-    public const BUILD_HOT_FILE  = 'director.hot';
+    public const BUILD_HOT_FILE = 'director.hot';
 
     protected array $publicPublishes = [];
 
@@ -115,13 +115,14 @@ class Director
         return self::BUILD_DIRECTORY;
     }
 
-    public function toast(string $type, string $message): void
+    public function toast(string $type, string $message, int $ttl = 5): void
     {
         session()->flash('toasts',
             array_merge(session()->get('toasts', []), [
                 [
                     'type' => $type,
-                    'message' => $message
+                    'message' => $message,
+                    'ttl' => $ttl
                 ]
             ]));
     }
