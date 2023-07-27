@@ -1,7 +1,8 @@
 <template>
     <div class="toasts-container">
-        <div v-for="(toast, index) in toasts" :key="index" :class="'alert-' + toast.type" class="toast">
+        <div v-for="(toast, index) in toasts" :key="index" :class="'toast-' + toast.type" class="toast">
             {{ toast.message }}
+            <button type="button" class="btn-close" aria-label="Close" @click="toast.remove()"></button>
         </div>
     </div>
 </template>
@@ -23,7 +24,7 @@ function getToasts(): ToastInterface[] {
 
 function initToasts(toasts: ToastInterface[]) {
     for (const [index, toastData] of Object.entries(toasts)) {
-        Toast.new(toastData.type, toastData.message, toastData.ttl);
+        Toast.new(toastData.type, toastData.message, toastData.ttl * 1000);
     }
 }
 </script>
@@ -39,7 +40,20 @@ function initToasts(toasts: ToastInterface[]) {
 
 .toast {
     pointer-events: all;
-    background: white;
     padding: 1rem;
+    border-radius: $border-radius;
+    position: relative;
+    color: var(--toast-color);
+    background-color: var(--toast-bg);
+    margin-bottom: .5rem;
+
+    @each $state in map-keys($theme-colors) {
+        &.toast-#{$state} {
+            --toast-color: var(--#{$prefix}#{$state}-text-emphasis);
+            --toast-bg: var(--#{$prefix}#{$state}-bg-subtle);
+            --toast-border-color: var(--#{$prefix}#{$state}-border-subtle);
+            --toast-link-color: var(--#{$prefix}#{$state}-text-emphasis);
+        }
+    }
 }
 </style>
