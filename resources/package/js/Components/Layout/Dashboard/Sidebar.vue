@@ -1,10 +1,5 @@
 <template>
-    <div class="sidebar d-flex flex-column flex-shrink-0 bg-dark" style="width: 280px;">
-        <div class="sidebar-brand">
-            <a href="/admin/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span class="fs-4">Director</span>
-            </a>
-        </div>
+    <div :class="{closed: false}" class="sidebar">
         <Nav :menu="menu"/>
     </div>
 </template>
@@ -13,21 +8,30 @@
 import Nav from "./Sidebar/Nav/Nav.vue";
 import {usePage} from '@inertiajs/vue3';
 import {MenuInterface} from "~/js/Interfaces/Menu/MenuInterface";
+import {reactive, ref} from "vue";
 
 let pageProps = usePage().props ?? {menu: {}};
 let menu: MenuInterface = pageProps.menu as MenuInterface;
+
 </script>
 
 <style lang="scss" scoped>
 .sidebar {
-    height:         100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: $layout-sidebar-width;
+    height: 100%;
+    transition: width ease-in-out .25s;
+    background: $dark;
 
-    .sidebar-brand {
-        background: $dark-blue-900;
-        height:     $layout-topbar-height;
-        display: flex;
-        justify-content: center;
-        padding: 1rem;
+    .nav {
+        width: $layout-sidebar-width;
+    }
+
+    &.closed {
+        width: 0;
     }
 }
 </style>

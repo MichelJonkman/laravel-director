@@ -1,10 +1,11 @@
 <template>
     <div class="layout-dashboard">
         <div class="row h-100 g-0">
+            <Topbar/>
             <Sidebar/>
             <div class="col">
                 <div class="content">
-                    <Topbar/>
+
                     <slot></slot>
                 </div>
             </div>
