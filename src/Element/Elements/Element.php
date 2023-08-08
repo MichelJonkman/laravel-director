@@ -13,10 +13,10 @@ use MichelJonkman\Director\Exceptions\Element\MissingElementException;
 class Element implements JsonSerializable, ElementInterface
 {
 
-    protected string                $name;
-    protected RootElementInterface  $root;
-    protected ?int                  $position = null;
-    protected ?HasChildrenInterface $parent   = null;
+    protected string $name;
+    protected RootElementInterface $root;
+    protected int $position = 99999;
+    protected ?HasChildrenInterface $parent = null;
 
     /**
      * @throws ElementPropertyDoesNotExistException
@@ -27,7 +27,7 @@ class Element implements JsonSerializable, ElementInterface
         $this->root = $root;
 
         foreach ($properties as $property => $value) {
-            $method = 'set'.ucfirst($property);
+            $method = 'set' . ucfirst($property);
 
             if (!method_exists($this, $method)) {
                 $classname = get_class($this);
@@ -88,7 +88,7 @@ class Element implements JsonSerializable, ElementInterface
     public function getValidationRules(): array
     {
         return [
-            'name' => 'required',
+            'name'     => 'required',
             'position' => 'nullable',
         ];
     }
@@ -96,7 +96,7 @@ class Element implements JsonSerializable, ElementInterface
     public function getData(): array
     {
         return [
-            'name' => $this->getName(),
+            'name'     => $this->getName(),
             'position' => $this->getPosition(),
         ];
     }
@@ -120,7 +120,9 @@ class Element implements JsonSerializable, ElementInterface
     /**
      * This gets called when the elements get sorted, use this to sort any children
      */
-    public function sort(): void { }
+    public function sort(): void
+    {
+    }
 
     /**
      * This function gets called when an element gets removed from its parent element, do not call this directly
