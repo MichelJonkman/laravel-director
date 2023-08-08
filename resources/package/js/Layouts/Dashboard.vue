@@ -1,7 +1,7 @@
 <template>
     <div class="layout-dashboard">
-        <div class="row h-100 g-0">
-            <Topbar/>
+        <Topbar/>
+        <div class="flex-grow-1 row g-0 position-relative">
             <Sidebar/>
             <div class="col">
                 <div class="content">
@@ -23,5 +23,7 @@ import Topbar from "~/js/Components/Layout/Dashboard/Topbar.vue";
 <style lang="scss" scoped>
 .layout-dashboard {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 </style>

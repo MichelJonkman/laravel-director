@@ -3,6 +3,9 @@ import {createInertiaApp, Link, Head} from '@inertiajs/vue3';
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import Dashboard from "~/js/Layouts/Dashboard.vue";
 import {Director} from "~/js/director";
+import { createPinia } from 'pinia'
+
+const pinia = createPinia();
 
 createInertiaApp({
     // @ts-ignore
@@ -15,6 +18,7 @@ createInertiaApp({
     setup({el, App, props, plugin}) {
         createApp({render: () => h(App, props)})
             .use(plugin)
+            .use(pinia)
             .component('InertiaHead', Head)
             .component('InertiaLink', Link)
             ?.mount(el);
