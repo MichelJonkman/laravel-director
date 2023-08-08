@@ -25,6 +25,7 @@ const {sidebarClosed} = storeToRefs(sidebarStore);
 
 <style lang="scss" scoped>
 .topbar {
+    min-height: $layout-topbar-height;
     height: $layout-topbar-height;
     background: $dark;
 
@@ -53,7 +54,7 @@ const {sidebarClosed} = storeToRefs(sidebarStore);
         padding: 1rem;
         cursor: pointer;
         transition: color ease .25s, transform ease .25s;
-        color: $gray-500;
+        color: $gray-600;
         border: 0;
         background-color: transparent;
 
