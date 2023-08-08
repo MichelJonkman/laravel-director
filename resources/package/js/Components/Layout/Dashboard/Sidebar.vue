@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar d-flex flex-column flex-shrink-0 text-white bg-dark" style="width: 280px;">
+    <div class="sidebar d-flex flex-column flex-shrink-0 bg-dark" style="width: 280px;">
         <div class="sidebar-brand">
             <a href="/admin/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <span class="fs-4">Director</span>
@@ -20,13 +20,11 @@ let menu: MenuInterface = pageProps.menu as MenuInterface;
 
 <style lang="scss" scoped>
 .sidebar {
-    $topbar-height: 4rem;
-
     height:         100%;
 
     .sidebar-brand {
         background: $dark-blue-900;
-        height:     $topbar-height;
+        height:     $layout-topbar-height;
         display: flex;
         justify-content: center;
         padding: 1rem;

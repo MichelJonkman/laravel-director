@@ -568,7 +568,7 @@ $box-shadow-inset:            inset 0 1px 2px rgba($black, .075);
 // scss-docs-end box-shadow-variables
 
 $component-active-color:      $white;
-$component-active-bg:         $primary;
+$component-active-bg:         rgba($primary, .75);
 
 // scss-docs-start focus-ring-variables
 $focus-ring-width:      .25rem;
@@ -1177,7 +1177,7 @@ $nav-tabs-link-active-color:        var(--#{$prefix}emphasis-color);
 $nav-tabs-link-active-bg:           var(--#{$prefix}body-bg);
 $nav-tabs-link-active-border-color: var(--#{$prefix}border-color) var(--#{$prefix}border-color) $nav-tabs-link-active-bg;
 
-$nav-pills-border-radius:           var(--#{$prefix}border-radius);
+$nav-pills-border-radius:           0;
 $nav-pills-link-active-color:       $component-active-color;
 $nav-pills-link-active-bg:          $component-active-bg;
 

@@ -22,6 +22,6 @@ if (element.typeName !== 'Element') {
 
 <style lang="scss" scoped>
 :deep(.nav-link) {
-    color: $white;
+    color: $body-color-dark;
 }
 </style>
