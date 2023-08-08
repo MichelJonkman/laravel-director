@@ -29,8 +29,6 @@ class MenuServiceProvider extends ServiceProvider
                     ->setIconAsset('resources/package/js/Icons/gear-fill.svg', Director::BUILD_DIRECTORY)
                     ->setPosition(100)
             ])->setPosition(10);
-
-            $menu->addElement('test', MenuExportExampleText::class)->setText('testing123');
         });
 
         $this->registerCache($director);
