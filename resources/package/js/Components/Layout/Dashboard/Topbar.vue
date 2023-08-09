@@ -47,7 +47,6 @@ const {sidebarClosed, settingsSidebarClosed} = storeToRefs(sidebarStore);
 const isSettings = ref(false);
 
 router.on('navigate', () => {
-    console.log(123);
     checkIsSettings();
 });
 
