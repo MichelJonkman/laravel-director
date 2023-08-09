@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-2 mb-2" :class="{closed: !isOpen}">
+    <div class="mt-2 mb-2">
         <div class="nav-link fw-bold">
             <div>{{ element.title }}</div>
 
@@ -14,7 +14,7 @@
                 </svg>
             </button>
         </div>
-        <ul class="nav nav-pills flex-column mb-auto">
+        <ul class="nav nav-pills flex-column mb-auto" :style="!isOpenInitial ? 'height: 0' : ''" ref="nav">
             <NavItem v-for="(element, name) in element.children" :element="element" :key="name"/>
         </ul>
     </div>
@@ -25,30 +25,45 @@ import NavItem from "~/js/Components/Layout/Dashboard/Sidebar/Nav/NavItem.vue";
 import {GroupElementInterface} from "~/js/Interfaces/Menu/Elements/GroupElementInterface";
 import {ref} from "vue";
 import {router} from "@inertiajs/vue3";
+import {gsap} from "gsap";
 
 const {element} = defineProps<{
     element: GroupElementInterface;
 }>();
 
+const animateTime = 0.3;
 const isOpen = ref(true);
+const nav = ref(null);
 
 updateState();
+
+const isOpenInitial = isOpen.value;
 
 router.on('navigate', () => {
     updateState();
 });
 
-function toggleGroup() {
-    isOpen.value = !isOpen.value;
+function toggleGroup(state: boolean | null = null) {
+    isOpen.value = state === null ? !isOpen.value : state;
     saveState(element.name, isOpen.value);
+
+    // Animate if possible
+    if (isOpen.value && nav.value) {
+        gsap.to(nav.value, animateTime, {
+            height: 'auto'
+        });
+    } else if (nav.value) {
+        gsap.to(nav.value, animateTime, {
+            height: 0
+        });
+    }
 }
 
 function updateState() {
-    if(checkActive(element as unknown as ElementInterface)) {
-        isOpen.value = true;
-    }
-    else {
-        isOpen.value = getState(element.name);
+    if (checkActive(element as unknown as ElementInterface)) {
+        toggleGroup(true);
+    } else {
+        toggleGroup(getState(element.name));
     }
 }
 
