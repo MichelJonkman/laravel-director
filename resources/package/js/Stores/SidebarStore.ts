@@ -20,13 +20,13 @@ export const useSidebarStore = defineStore('sidebar', {
     actions: {
         toggleSidebar() {
             this.sidebarClosed = !this.sidebarClosed;
-            if(window.innerWidth < 800 && !this.sidebarClosed && !this.settingsSidebarClosed) {
+            if(window.innerWidth < 1400 && !this.sidebarClosed && !this.settingsSidebarClosed) {
                 this.settingsSidebarClosed = !this.settingsSidebarClosed;
             }
         },
         toggleSettingsSidebar() {
             this.settingsSidebarClosed = !this.settingsSidebarClosed;
-            if(window.innerWidth < 800 && !this.settingsSidebarClosed && !this.sidebarClosed) {
+            if(window.innerWidth < 1400 && !this.settingsSidebarClosed && !this.sidebarClosed) {
                 this.sidebarClosed = !this.sidebarClosed;
             }
         },

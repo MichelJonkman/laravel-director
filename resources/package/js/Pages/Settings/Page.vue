@@ -1,5 +1,5 @@
 <template>
-    <div class="p-3">
+    <div class="container page-content">
         <form @submit.prevent="form.post(route('director.settings.save', {slug: slug}))">
             <Suspense>
                 <SettingsItem v-for="(element, name) in currentPage.children" :element="element" :key="name" v-model="form.settings [name]"/>
