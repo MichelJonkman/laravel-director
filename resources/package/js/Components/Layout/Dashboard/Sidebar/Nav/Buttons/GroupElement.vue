@@ -24,18 +24,32 @@
 import NavItem from "~/js/Components/Layout/Dashboard/Sidebar/Nav/NavItem.vue";
 import {GroupElementInterface} from "~/js/Interfaces/Menu/Elements/GroupElementInterface";
 import {ref} from "vue";
+import {router} from "@inertiajs/vue3";
 
 const {element} = defineProps<{
     element: GroupElementInterface;
 }>();
 
-const isOpen = ref(getState(element.name));
+const isOpen = ref(true);
 
-checkActive(element);
+updateState();
+
+router.on('navigate', () => {
+    updateState();
+});
 
 function toggleGroup() {
     isOpen.value = !isOpen.value;
     saveState(element.name, isOpen.value);
+}
+
+function updateState() {
+    if(checkActive(element as unknown as ElementInterface)) {
+        isOpen.value = true;
+    }
+    else {
+        isOpen.value = getState(element.name);
+    }
 }
 
 function saveState(name: string, state: boolean) {
@@ -66,13 +80,23 @@ function getState(name: string) {
 }
 
 function checkActive(element: ElementInterface) {
-    if(element.hasOwnProperty('active') && element.active) {
+    if (element.hasOwnProperty('active') && element.active) {
         return true;
     }
 
-    for (const child in element.children) {
+    if (element.hasOwnProperty('children') && element.children) {
+        let active = false;
 
+        for (const child of Object.values(element.children)) {
+            if (checkActive(child as unknown as ElementInterface)) {
+                active = true;
+            }
+        }
+
+        return active;
     }
+
+    return false;
 }
 
 interface ElementInterface {
