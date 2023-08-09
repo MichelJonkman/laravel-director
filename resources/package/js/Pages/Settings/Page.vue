@@ -32,7 +32,9 @@ let slug = params.slug ? params.slug : 'index';
 let pages = <{ [slug: string]: PageElementInterface }>{};
 for (const element of Object.values<ElementInterface>(settings.children)) {
     if (element.hasOwnProperty('isPage') && (<PageElementInterface>element).isPage) {
-        pages[(<PageElementInterface>element).slug] = <PageElementInterface>element;
+        let slug = (<PageElementInterface>element).slug ? (<PageElementInterface>element).slug : 'index';
+
+        pages[slug] = <PageElementInterface>element;
     }
 }
 
