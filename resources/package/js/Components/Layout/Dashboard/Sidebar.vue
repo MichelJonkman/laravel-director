@@ -1,5 +1,5 @@
 <template>
-    <div :class="{closed: sidebarClosed}" class="sidebar">
+    <div :class="{closed: sidebarClosed, 'settings-open': !settingsSidebarClosed}" class="sidebar">
         <Nav :menu="menu"/>
     </div>
 </template>
@@ -16,21 +16,22 @@ let pageProps = usePage().props ?? {menu: {}};
 let menu: MenuInterface = pageProps.menu as MenuInterface;
 
 const sidebarStore = useSidebarStore();
-const {sidebarClosed} = storeToRefs(sidebarStore);
+const {sidebarClosed, settingsSidebarClosed} = storeToRefs(sidebarStore);
 
 </script>
 
 <style lang="scss" scoped>
 .sidebar {
+    position: absolute;
+    z-index: 10;
     display: flex;
     overflow: hidden;
     flex-direction: column;
     flex-shrink: 0;
     width: $layout-sidebar-width;
     height: 100%;
-    transition: width ease-in-out .25s;
+    transition: width ease-in-out .25s, box-shadow ease-in-out .25s;
     background: $dark;
-    position: absolute;
 
     .nav {
         width: $layout-sidebar-width;
@@ -38,6 +39,10 @@ const {sidebarClosed} = storeToRefs(sidebarStore);
 
     &.closed {
         width: 0;
+    }
+
+    &.settings-open {
+        box-shadow: .05rem 0 1.5rem 0 rgba(0, 0, 0, .15);
     }
 
     @include media-breakpoint-up(xxl) {

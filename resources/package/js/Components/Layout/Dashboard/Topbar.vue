@@ -58,6 +58,7 @@ function checkIsSettings() {
 
 <style lang="scss" scoped>
 .topbar {
+    z-index: 20;
     min-height: $layout-topbar-height;
     height:     $layout-topbar-height;
     background: $dark;
