@@ -3,4 +3,5 @@ import {MenuElementsInterface} from "~/js/Interfaces/Menu/MenuElementsInterface"
 
 export interface GroupElementInterface extends ElementInterface {
     children: MenuElementsInterface;
+    title: string;
 }

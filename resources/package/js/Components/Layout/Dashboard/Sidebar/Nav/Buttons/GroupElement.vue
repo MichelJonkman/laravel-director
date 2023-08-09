@@ -1,7 +1,12 @@
 <template>
-    <ul class="nav nav-pills flex-column mb-auto">
-        <NavItem v-for="(element, name) in element.children" :element="element" :key="name"/>
-    </ul>
+    <div class="mt-2 mb-2">
+        <div class="nav-link fw-bold">
+            {{ element.title }}
+        </div>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <NavItem v-for="(element, name) in element.children" :element="element" :key="name"/>
+        </ul>
+    </div>
 </template>
 
 <script lang="ts" setup>

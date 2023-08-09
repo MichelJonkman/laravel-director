@@ -21,14 +21,14 @@ class MenuServiceProvider extends ServiceProvider
                 ->setIconAsset('resources/package/js/Icons/house-fill.svg', Director::BUILD_DIRECTORY)
                 ->setPosition(0);
 
-            $menu->addElement('grouptest', GroupMenuElement::class)->addChildren([
-                $menu->addLink('director.settings')
+            $menu->addElement('director.system', GroupMenuElement::class)->addChildren([
+                $menu->addLink('director.system.settings')
                     ->setUrl(route('director.settings.page'))
                     ->setText('Settings')
                     ->setTitle('Settings')
                     ->setIconAsset('resources/package/js/Icons/gear-fill.svg', Director::BUILD_DIRECTORY)
                     ->setPosition(100)
-            ])->setPosition(10);
+            ])->setTitle('System')->setPosition(10);
         });
 
         $this->registerCache($director);
