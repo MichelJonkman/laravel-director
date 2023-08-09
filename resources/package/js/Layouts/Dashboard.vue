@@ -25,5 +25,9 @@ import Topbar from "~/js/Components/Layout/Dashboard/Topbar.vue";
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+    .content {
+        height: 100%;
+    }
 }
 </style>

@@ -15,6 +15,6 @@ import Sidebar from "../Components/Settings/Sidebar.vue";
 
 <style lang="scss" scoped>
 .layout-settings {
-    height: 100vh;
+    height: 100%;
 }
 </style>
