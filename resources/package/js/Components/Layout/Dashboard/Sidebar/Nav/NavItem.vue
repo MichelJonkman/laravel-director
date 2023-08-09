@@ -21,7 +21,5 @@ if (element.typeName !== 'Element') {
 
 
 <style lang="scss" scoped>
-:deep(.nav-link) {
-    color: $body-color-dark;
-}
+
 </style>

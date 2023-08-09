@@ -1,6 +1,6 @@
 <template>
     <div class="mt-2 mb-2">
-        <div class="nav-link fw-bold">
+        <div class="nav-text fw-bold">
             <div>{{ element.title }}</div>
 
             <button class="group-toggle" :class="{closed: !isOpen}" @click="toggleGroup()">
@@ -121,7 +121,7 @@ interface ElementInterface {
 </script>
 
 <style lang="scss" scoped>
-.nav-link {
+.nav-text {
     display:         flex;
     justify-content: space-between;
 }
