@@ -5,6 +5,7 @@ namespace MichelJonkman\Director\Menu\Elements\Traits;
 use MichelJonkman\Director\Element\Elements\ElementInterface;
 use MichelJonkman\Director\Exceptions\Element\InvalidElementException;
 use MichelJonkman\Director\Exceptions\Element\MissingElementException;
+use MichelJonkman\Director\Menu\Elements\GroupMenuElement;
 use MichelJonkman\Director\Menu\Elements\LinkButton;
 
 trait AddsMenuElementsTrait
@@ -13,7 +14,7 @@ trait AddsMenuElementsTrait
     /**
      * @template-covariant T of ElementInterface
      *
-     * @param  class-string<T>  $elementClass
+     * @param class-string<T> $elementClass
      *
      * @return T
      * @throws InvalidElementException
@@ -28,6 +29,15 @@ trait AddsMenuElementsTrait
     public function addLink(string $name): LinkButton
     {
         return $this->addElement($name, LinkButton::class);
+    }
+
+    /**
+     * @throws MissingElementException
+     * @throws InvalidElementException
+     */
+    public function addGroup(string $name): GroupMenuElement
+    {
+        return $this->addElement($name, GroupMenuElement::class);
     }
 
 }
