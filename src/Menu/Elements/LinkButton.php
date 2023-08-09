@@ -7,7 +7,7 @@ use Request;
 /**
  * A simple button with a link
  */
-class LinkButton extends IconText
+class LinkButton extends IconText implements LinkButtonInterface
 {
     protected string $typeName = 'LinkButton';
 

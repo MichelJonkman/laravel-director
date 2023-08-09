@@ -3,7 +3,7 @@
 namespace MichelJonkman\Director\Menu\Elements;
 
 
-class Text extends MenuElement
+class Text extends MenuElement implements TextInterface
 {
     protected string $typeName = 'TextElement';
 
