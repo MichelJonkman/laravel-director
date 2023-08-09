@@ -62,12 +62,12 @@ function checkIsSettings() {
     height:     $layout-topbar-height;
     background: $dark;
     display:    flex;
+    background:      $dark-blue-900;
 
     .topbar-side {
         display:         flex;
         justify-content: center;
         height:          100%;
-        background:      $dark-blue-900;
         min-width:       $layout-brand-sm-width;
         width:           $layout-brand-sm-width;
 
@@ -89,7 +89,6 @@ function checkIsSettings() {
             .topbar-brand-sm {
                 display:         flex;
                 justify-content: center;
-                transition:      opacity .25s;
                 position:        absolute;
                 right:           0;
                 left:            0;
@@ -102,7 +101,6 @@ function checkIsSettings() {
             }
 
             .topbar-brand-lg {
-                transition: opacity .25s;
                 position:   absolute;
                 opacity:    0;
 
