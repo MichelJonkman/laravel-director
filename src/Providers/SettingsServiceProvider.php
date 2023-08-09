@@ -19,19 +19,19 @@ class SettingsServiceProvider extends ServiceProvider
         $director->settings()->modify('director', function (RootSettingsElement $settings) {
             $settings->addPage('index', 'General')->addChildren(
                 [
-                    $settings->addElement('test', HtmlElement::class, [
-                        'html' => '<h1>dinges</h1>'
+                    $settings->addElement('director.index.title', HtmlElement::class, [
+                        'html' => '<h1>General settings</h1>'
                     ]),
-                    $settings->addElement('example.text', TextSetting::class, [
-                        'default' => 'Mooie default!',
-                        'label' => 'Labeltje'
+                    $settings->addElement('director.index.textTest', TextSetting::class, [
+                        'default' => 'Default text',
+                        'label' => 'Text input test'
                     ]),
                 ]
             );
-            $settings->addPage('testing', 'Testing!')->addChildren(
+            $settings->addPage('director.testPage', 'Test page')->addChildren(
                 [
-                    $settings->addElement('test', HtmlElement::class, [
-                        'html' => 'Nieuwe testing! :O'
+                    $settings->addElement('director.testPage.content', HtmlElement::class, [
+                        'html' => '<h1 class="mb-5">Test page contents</h1>'
                     ])
                 ]
             );
