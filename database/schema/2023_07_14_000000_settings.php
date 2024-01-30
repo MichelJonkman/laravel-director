@@ -1,21 +1,20 @@
 <?php
 
-use MichelJonkman\DbalSchema\Database\DeclarativeSchema;
-use MichelJonkman\DbalSchema\Database\Table;
+
+use MichelJonkman\DeclarativeSchema\Database\DeclarativeSchema;
+use MichelJonkman\DeclarativeSchema\Database\Table;
 
 return new class extends DeclarativeSchema {
     function declare(): Table
     {
         $table = new Table('settings');
 
-        $table->addId();
+        $table->id();
 
-        $table->addColumn('name', 'string');
-        $table->addColumn('value', 'string', [
-            'length' => 4294967295
-        ]);
+        $table->string('name');
+        $table->string('value', 4294967295);
 
-        $table->addTimestamps();
+        $table->timestamps();
 
         return $table;
     }
